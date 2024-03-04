@@ -1,7 +1,8 @@
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+  inputs.unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs, unstable }: {
     nixosModules.srvProxy = import ./srvProxy.nix;
 
     # Hostnames refer to characters from stuffy pretentious literature that
@@ -16,6 +17,13 @@
         modules = [
           ./baumgartner/configuration.nix self.nixosModules.srvProxy
         ];
+      };
+
+      # Obligatory silly little guy mention... My laptop is constantly on the
+      # verge of quietly perishing, but we love him anyway.
+      gregor = unstable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./gregor/configuration.nix ];
       };
     };
   };
