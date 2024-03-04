@@ -40,9 +40,6 @@
     settings.KbdInteractiveAuthentication = false;
   };
 
-  services.tailscale.enable = true;
-  systemd.services.NetworkManager-wait-online.enable = false;
-
   imports = [ ./services ./hardware-configuration.nix ./data-pool.nix ];
 
   system.stateVersion = "23.11";

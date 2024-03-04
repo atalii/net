@@ -15,7 +15,7 @@
       baumgartner = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./baumgartner/configuration.nix self.nixosModules.srvProxy
+          ./common ./baumgartner/configuration.nix self.nixosModules.srvProxy
         ];
       };
 
@@ -23,7 +23,7 @@
       # verge of quietly perishing, but we love him anyway.
       gregor = unstable.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./gregor/configuration.nix ];
+        modules = [ ./common ./gregor/configuration.nix ];
       };
     };
   };
