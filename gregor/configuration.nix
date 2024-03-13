@@ -64,7 +64,7 @@
 
   environment.systemPackages = with pkgs; [
     firefox chromium
-    git helix
+    git 
   ];
 
   fonts.packages = with pkgs; [ input-fonts ];

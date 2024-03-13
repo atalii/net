@@ -2,8 +2,14 @@
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
   inputs.unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  outputs = { self, nixpkgs, unstable }: {
-    nixosModules.srvProxy = import ./srvProxy.nix;
+  inputs.home-manager.url = "github:nix-community/home-manager";
+  inputs.home-manager.inputs.nixpkgs.follows = "unstable";
+
+  outputs = { self, nixpkgs, unstable, home-manager }: {
+    nixosModules = {
+      srvProxy = import ./srvProxy.nix;
+      home = import ./home;
+    };
 
     # Hostnames refer to characters from stuffy pretentious literature that
     # feel somehow appropriate.
@@ -15,7 +21,7 @@
       baumgartner = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./common ./baumgartner/configuration.nix self.nixosModules.srvProxy
+          ./common ./baumgartner/configuration.nix self.nixosModules.srvProxy 
         ];
       };
 
@@ -23,7 +29,10 @@
       # verge of quietly perishing, but we love him anyway.
       gregor = unstable.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./common ./gregor/configuration.nix ];
+        modules = [
+          ./common ./gregor/configuration.nix
+          home-manager.nixosModules.home-manager self.nixosModules.home
+        ];
       };
     };
   };
