@@ -86,6 +86,9 @@
     git helix
   ];
 
+  fonts.packages = with pkgs; [ input-fonts ];
+  nixpkgs.config.input-fonts.acceptLicense = true;
+
   services.openssh.enable = true;
 
   system.stateVersion = "23.11"; # Did you read the comment?
