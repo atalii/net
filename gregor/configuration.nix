@@ -60,6 +60,7 @@
     isNormalUser = true;
     description = "Tali Auster";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.nushell;
   };
 
   environment.systemPackages = with pkgs; [
