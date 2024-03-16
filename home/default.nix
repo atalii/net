@@ -31,6 +31,14 @@
           g = "replace";
         };
       };
+
+      languages = {
+        language = [{
+          name = "cpp";
+          indent.tab-width = 8;
+          indent.unit = "\t";
+        }];
+      };
     };
 
     programs.kitty = {
