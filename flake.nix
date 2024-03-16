@@ -3,9 +3,12 @@
   inputs.unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
   inputs.home-manager.url = "github:nix-community/home-manager";
-  inputs.home-manager.inputs.nixpkgs.follows = "unstable";
+  inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, nixpkgs, unstable, home-manager }: {
+  inputs.home-manager-unstable.url = "github:nix-community/home-manager";
+  inputs.home-manager-unstable.inputs.nixpkgs.follows = "unstable";
+
+  outputs = { self, nixpkgs, unstable, home-manager, home-manager-unstable }: {
     nixosModules = {
       srvProxy = import ./srvProxy.nix;
       home = import ./home;
@@ -22,6 +25,7 @@
         system = "x86_64-linux";
         modules = [
           ./common ./baumgartner/configuration.nix self.nixosModules.srvProxy 
+          home-manager.nixosModules.home-manager self.nixosModules.home
         ];
       };
 
@@ -31,7 +35,7 @@
         system = "x86_64-linux";
         modules = [
           ./common ./gregor/configuration.nix
-          home-manager.nixosModules.home-manager self.nixosModules.home
+          home-manager-unstable.nixosModules.home-manager self.nixosModules.home
         ];
       };
     };
