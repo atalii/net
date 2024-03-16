@@ -60,6 +60,8 @@
         tab_bar_background      = "#343f44";
         top_bar_margin_color    = "none";
 
+        background_opacity = "0.5";
+
         mark1_foreground = "#2d353b";
         mark1_background = "#7fbbb3";
         mark2_foreground = "#2d353b";
@@ -91,5 +93,52 @@
         # just an empty env file
       '';
     };
+
+    xdg.configFile."wayfire.ini".text = ''
+      [core]
+      vheight = 2
+      vwidth = 2
+      preferred_decoration_mode = server
+
+      plugins = autostart animate alpha blur command expo decoration extra-gestures vswitch
+      
+      [blur]
+      blur.method = kawase
+
+      [command]
+      binding_terminal = <super> KEY_L
+      command_terminal = kitty
+
+      binding_ff = <super> KEY_R
+      command_ff = firefox
+
+      [expo]
+      toggle = <super> | pinch in 4
+      offset = 128
+
+      [decoration]
+      border_size = 0
+      title_height = 24
+
+      font = InputMono
+      active_color = \#2d353b7f
+      inactive_color = \#2d353b00
+
+      [extra-gestures]
+      move_fingers = 2
+      move_delay = 300
+
+      [vswitch]
+      binding_down = swipe up 2
+      binding_up = swipe down 2
+      binding_left = swipe right 2
+      binding_right = swipe left 2
+    '';
+    
+    xdg.configFile."wf-shell.ini".text = ''
+      [background]
+      image = ${./res/bg.jpg}
+      preserve_aspect = 1
+    '';
   };
 }

@@ -33,9 +33,19 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+  programs.wayfire = {
+    enable = true;
+    plugins = with pkgs.wayfirePlugins; [
+      wayfire-plugins-extra wf-shell
+    ];
+  };
+
+  services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+  };
+
+  services.gnome.gnome-keyring.enable = true;
 
   services.xserver = {
     xkb.layout = "us";
