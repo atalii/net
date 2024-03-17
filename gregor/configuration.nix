@@ -47,6 +47,8 @@
 
   services.gnome.gnome-keyring.enable = true;
 
+  virtualisation.docker.enable = true;
+
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";
@@ -67,7 +69,7 @@
   users.users.atalii = {
     isNormalUser = true;
     description = "Tali Auster";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.nushell;
   };
 
