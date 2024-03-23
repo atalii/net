@@ -10,7 +10,7 @@
 
         handle_path /static/* {
           root * /data/static
-          file_server
+          file_server browse
         }
       '';
     }
