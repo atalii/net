@@ -10,8 +10,8 @@
   config = let
   
     common = ''
-      tls /var/lib/caddy/tali.network-ssl-bundle/domain.cert.pem /var/lib/caddy/tali.network-ssl-bundle/private.key.pem {
-        ca_root /var/lib/caddy/tali.network-ssl-bundle/intermediate.cert.pem
+      tls /data/caddy/tali.network-ssl-bundle/domain.cert.pem /data/caddy/tali.network-ssl-bundle/private.key.pem {
+        ca_root /data/caddy/tali.network-ssl-bundle/intermediate.cert.pem
       }
     '';
   
@@ -33,6 +33,8 @@
       virtualHosts = builtins.foldl'
         (acc: elem: (acc // (srvToVirtHost elem)))
         {} webServices;
+
+      dataDir = "/data/caddy";
     };
   
     # Enable dnsmasq... 
