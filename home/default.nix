@@ -109,9 +109,9 @@
       [core]
       vheight = 2
       vwidth = 2
-      preferred_decoration_mode = server
+      preferred_decoration_mode = client
 
-      plugins = autostart animate alpha blur command expo decoration extra-gestures vswitch
+      plugins = autostart animate alpha blur command expo move decoration extra-gestures vswitch
       
       [blur]
       blur.method = kawase
@@ -122,6 +122,12 @@
 
       binding_ff = <super> KEY_R
       command_ff = firefox
+
+      binding_tb = <super> <shift> KEY_C
+      command_tb = thunderbird
+
+      binding_cr = <super> KEY_G
+      command_cr = chromium
 
       [expo]
       toggle = <super> | pinch in 4
@@ -144,6 +150,9 @@
       binding_up = swipe down 2
       binding_left = swipe right 2
       binding_right = swipe left 2
+
+      [autostart]
+      eww = eww daemon && eww open bar
     '';
     
     xdg.configFile."wf-shell.ini".text = ''
