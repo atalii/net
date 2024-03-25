@@ -74,7 +74,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    firefox chromium
+    eww
+    firefox chromium thunderbird
     git 
   ];
 

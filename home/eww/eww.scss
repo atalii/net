@@ -1,0 +1,39 @@
+* { all: unset; }
+
+window {
+  background: #1e2326;
+  color: #d3c6aa;
+  font-size: 14pt;
+  font-family: 'Input Mono';
+}
+
+window > * {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 2px;
+}
+
+.content > * {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.year, .merid {
+  color: #a7c080;
+}
+
+.hot-corner {
+  background-color: #a7c080;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+.hot-corner:hover {
+  background-color: #83c092;
+}
+
+.hot-corner:active {
+  background-color: #3c4841;
+  transition: 0.3s;
+}
+

@@ -1,0 +1,44 @@
+(defwidget bar []
+  (box :orientation "h"
+    (left) (right)))
+
+(defwidget left []
+  (box :class "content" :orientation "h" :space-evenly false
+       :valign "center" :halign "start"
+    (date) (time)))
+
+(defwidget right []
+  (box :class "bottom" :orientation "h" :space-evenly false
+       :valign "center" :halign "end"
+    (hot-corner)))
+
+(defwidget hot-corner []
+  (button :class "hot-corner" :width 32 :height 32))
+
+(defwidget date [] (box :class "date" (dayw) (monthw) (yearw)))
+(defwidget time [] (box :class "time" (timew) (meridw)))
+
+(defwidget timew [] (box :class "timestamp" time))
+
+(defwidget meridw [] (box :class "merid" merid))
+(defwidget dayw [] (box :class "day" day))
+(defwidget monthw [] (box :class "month" month))
+(defwidget yearw [] (box :class "year" year))
+
+(defpoll time  :interval "1s" "date +%I:%M")
+(defpoll merid :interval "1s" "date +%p")
+(defpoll day   :interval "1s" "date +%d")
+(defpoll month :interval "1s" "date '+%b '")
+(defpoll year  :interval "1s" "date +%Y")
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :stacking "bg"
+  :geometry (geometry :x "0px"
+                      :y "0px"
+                      :width "100%"
+                      :height "48px"
+                      :anchor "top center")
+  :exclusive "true"
+  (bar))

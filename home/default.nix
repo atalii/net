@@ -41,6 +41,9 @@
       };
     };
 
+    programs.eww.enable = true;
+    programs.eww.configDir = ./eww;
+
     programs.kitty = {
       enable = true;
       settings = {
