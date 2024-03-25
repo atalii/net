@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "gregor"; # Define your hostname.
+  networking.hostName = "gregor";
   networking.networkmanager.enable = true;
   time.timeZone = "America/Denver";
 
