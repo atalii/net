@@ -8,7 +8,20 @@
     home.stateVersion = "23.11";
 
     programs.home-manager.enable = true;
-    
+
+    dconf.settings = {
+      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    };
+
+    home.packages = [ pkgs.dconf ];
+    gtk = {
+      enable = true;
+      theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome.gnome-themes-extra;
+      };
+    };
+
     programs.helix = {
       enable = true;
       defaultEditor = true;
@@ -71,8 +84,6 @@
         tab_bar_background      = "#343f44";
         top_bar_margin_color    = "none";
 
-        background_opacity = "0.5";
-
         mark1_foreground = "#2d353b";
         mark1_background = "#7fbbb3";
         mark2_foreground = "#2d353b";
@@ -111,7 +122,7 @@
       vwidth = 2
       preferred_decoration_mode = client
 
-      plugins = autostart animate alpha blur command expo move decoration extra-gestures vswitch
+      plugins = autostart animate alpha blur command expo move decoration extra-gestures wobbly vswitch
       
       [blur]
       blur.method = kawase
@@ -138,8 +149,8 @@
       title_height = 24
 
       font = InputMono
-      active_color = \#2d353b7f
-      inactive_color = \#2d353b00
+      active_color = \#2d353b
+      inactive_color = \#2d353b
 
       [extra-gestures]
       move_fingers = 2
