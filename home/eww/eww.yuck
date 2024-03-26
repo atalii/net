@@ -8,12 +8,15 @@
     (date) (time)))
 
 (defwidget right []
-  (box :class "bottom" :orientation "h" :space-evenly false
+  (box :class "content" :orientation "h" :space-evenly false
        :valign "center" :halign "end"
-    (hot-corner)))
+    (battery) (hot-corner)))
 
 (defwidget hot-corner []
-  (button :class "hot-corner" :width 32 :height 32))
+  (button :class "hot-corner" :width 24 :height 24))
+
+(defwidget battery []
+  (box :class "bat" bat))
 
 (defwidget date [] (box :class "date" (dayw) (monthw) (yearw)))
 (defwidget time [] (box :class "time" (timew) (meridw)))
@@ -30,6 +33,7 @@
 (defpoll day   :interval "1s" "date +%d")
 (defpoll month :interval "1s" "date '+%b '")
 (defpoll year  :interval "1s" "date +%Y")
+(defpoll bat   :interval "30s" "cat /sys/class/power_supply/BAT0/capacity")
 
 (defwindow bar
   :monitor 0

@@ -122,7 +122,7 @@
       vwidth = 2
       preferred_decoration_mode = client
 
-      plugins = autostart animate alpha blur command expo move decoration extra-gestures wobbly vswitch
+      plugins = autostart animate alpha resize command scale expo move decoration extra-gestures wobbly vswitch
       
       [blur]
       blur.method = kawase
@@ -134,7 +134,7 @@
       binding_ff = <super> KEY_R
       command_ff = firefox
 
-      binding_tb = <super> <shift> KEY_C
+      binding_tb = <super> KEY_C
       command_tb = thunderbird
 
       binding_cr = <super> KEY_G
@@ -143,27 +143,39 @@
       [expo]
       toggle = <super> | pinch in 4
       offset = 128
+      duration = 100
+
+      [scale]
+      toggle_all = <super> KEY_H
+      duration = 100
 
       [decoration]
       border_size = 0
       title_height = 24
 
+      [wobbly]
+      spring_k = 512.0
+      friction = 4.0
+
       font = InputMono
-      active_color = \#2d353b
-      inactive_color = \#2d353b
+      active_color = \#2d353bff
+      inactive_color = \#2d353bff
 
       [extra-gestures]
       move_fingers = 2
       move_delay = 300
 
       [vswitch]
-      binding_down = swipe up 2
-      binding_up = swipe down 2
-      binding_left = swipe right 2
-      binding_right = swipe left 2
+      binding_down = swipe up 3
+      binding_up = swipe down 3
+      binding_left = swipe right 3
+      binding_right = swipe left 3
 
       [autostart]
-      eww = eww daemon && eww open bar
+      background = wf-background
+      panel = eww daemon && sleep 1 && eww open bar
+
+      autostart_wf_shell = false
     '';
     
     xdg.configFile."wf-shell.ini".text = ''
