@@ -79,6 +79,11 @@
     git 
   ];
 
+  environment.etc."adage.conf".text = ''
+    permit g!wheel as root
+  '';
+
+
   fonts.packages = with pkgs; [ input-fonts ];
   nixpkgs.config.input-fonts.acceptLicense = true;
 
