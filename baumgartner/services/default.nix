@@ -51,4 +51,6 @@
   imports = [
     ./jellyfin.nix ./postgres.nix ./wikijs.nix ./invokeai.nix ./imhdss.nix ./radicale.nix
   ];
+
+  services.distccd.enable = true;
 }
