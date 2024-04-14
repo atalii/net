@@ -9,8 +9,7 @@
       "/run/wrappers/bin:/run/current-system/sw/bin";
 
     serviceConfig = {
-      ExecStart = "${imhdss.packages.x86_64-linux.default}/bin/is-my-hard-disk-still-spinning";
-
+      ExecStart = "${imhdss.packages.x86_64-linux.default}/bin/imhdss";
     };
   };
 }
