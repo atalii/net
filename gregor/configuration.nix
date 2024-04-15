@@ -57,32 +57,26 @@
   services.printing.enable = true;
 
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
+  hardware.pulseaudio.enable = true;
 
   users.users.atalii = {
     isNormalUser = true;
     description = "Tali Auster";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
     shell = pkgs.nushell;
   };
 
   environment.systemPackages = with pkgs; [
     eww
     firefox chromium thunderbird
-    git 
+    git distcc gcc
   ];
 
   environment.etc."adage.conf".text = ''
     permit g!wheel as root
   '';
 
+  environment.variables.DISTCC_POTENTIAL_HOSTS = "localhost home.tali.network";
 
   fonts.packages = with pkgs; [ input-fonts ];
   nixpkgs.config.input-fonts.acceptLicense = true;
