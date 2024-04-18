@@ -108,21 +108,21 @@
     "imhdss": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "unstable"
         ]
       },
       "locked": {
-        "lastModified": 1713128051,
-        "narHash": "sha256-yxHxq574QwuixOMIDitDaCrkKbXu6CDqE0nt4PRONok=",
+        "lastModified": 1713470311,
+        "narHash": "sha256-oBnmbvfECB2pivydg3PwjECESkqxmcMbs/1JkBxKOnw=",
         "owner": "atalii",
         "repo": "is-my-hard-disk-still-spinning",
-        "rev": "bcabb36da6303571ef636dc535010a12d7a17745",
+        "rev": "3aedc01445aee602fa92c2595a8dd5f592c6732c",
         "type": "github"
       },
       "original": {
         "owner": "atalii",
         "repo": "is-my-hard-disk-still-spinning",
-        "rev": "bcabb36da6303571ef636dc535010a12d7a17745",
+        "rev": "3aedc01445aee602fa92c2595a8dd5f592c6732c",
         "type": "github"
       }
     },
