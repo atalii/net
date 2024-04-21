@@ -11,7 +11,7 @@
   inputs.nixified-ai.url = "github:nixified-ai/flake";
   inputs.nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.imhdss.url = "github:atalii/is-my-hard-disk-still-spinning/3aedc01445aee602fa92c2595a8dd5f592c6732c";
+  inputs.imhdss.url = "github:atalii/is-my-hard-disk-still-spinning/ff4d18519ad3045aa1f27d85a05e83c87dc7d7d6";
   inputs.imhdss.inputs.nixpkgs.follows = "unstable";
 
   outputs =
