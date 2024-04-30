@@ -28,6 +28,7 @@
       "wiki.js" url="https://wiki-home.tali.network"
       jellyfin  url="https://jf-home.tali.network"
       invokeAI  url="https://nv-home.tali.network"
+      radicale  url="https://rd-home.tali.network"
     }
 
     meta {
@@ -35,6 +36,9 @@
     	slogan "Please heed the recall of all TaliCorp™ brand metallurgy products."
     	slogan "TaliCorp™ advises all employees to avoid manufacturing sub-section G-9."
     	slogan "TaliCorp™ sincerely does not know how it stays in business. It suspects government subsidies."
+      slogan "TaliCorp™ is proud to announce its partnership with Neuralink: We're not quite sure why, either."
+      slogan "TaliCorp™ will outlive you."
+      slogan "TaliCorp™ is proud to announce that it has 'gone woke'."
     }
   '';
 }
