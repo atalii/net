@@ -29,5 +29,12 @@
       jellyfin  url="https://jf-home.tali.network"
       invokeAI  url="https://nv-home.tali.network"
     }
+
+    meta {
+    	slogan "TaliCorp™ has officially divested from all fracking engagements following a Q4 revenue failure."
+    	slogan "Please heed the recall of all TaliCorp™ brand metallurgy products."
+    	slogan "TaliCorp™ advises all employees to avoid manufacturing sub-section G-9."
+    	slogan "TaliCorp™ sincerely does not know how it stays in business. It suspects government subsidies."
+    }
   '';
 }

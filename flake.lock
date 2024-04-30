@@ -112,17 +112,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1713671420,
-        "narHash": "sha256-+D/2pJmp689odpD/fdNBd1zCHUq/hrd+tsbEA9NQy7Y=",
+        "lastModified": 1714443033,
+        "narHash": "sha256-Mtr8O6j/NDpubA61BUIvkSrST4aEtOGUGoBVsuIGZTk=",
         "owner": "atalii",
         "repo": "is-my-hard-disk-still-spinning",
-        "rev": "ff4d18519ad3045aa1f27d85a05e83c87dc7d7d6",
+        "rev": "f4d6edb893aeee4d0f8b6089c10e2d8a495d4d01",
         "type": "github"
       },
       "original": {
         "owner": "atalii",
         "repo": "is-my-hard-disk-still-spinning",
-        "rev": "ff4d18519ad3045aa1f27d85a05e83c87dc7d7d6",
+        "rev": "f4d6edb893aeee4d0f8b6089c10e2d8a495d4d01",
         "type": "github"
       }
     },
