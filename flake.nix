@@ -54,6 +54,15 @@
             home-manager-unstable.nixosModules.home-manager self.nixosModules.home
           ];
         };
+
+        # Sartre's favorite lesbian.
+        inez = unstable.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./common ./inez/configuration.nix
+            home-manager-unstable.nixosModules.home-manager self.nixosModules.home
+          ];
+        };
       };
     };
 }

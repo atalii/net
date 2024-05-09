@@ -19,21 +19,21 @@ window > * {
 }
 
 .year, .merid {
-  color: #a7c080;
+  color: #7fbbb3;
 }
 
 .hot-corner {
-  background-color: #a7c080;
+  background-color: #7fbbb3;
   border-radius: 12px;
   transition: 0.3s;
 }
 
 .hot-corner:hover {
-  background-color: #83c092;
+  border-radius: 8px;
 }
 
 .hot-corner:active {
-  background-color: #3c4841;
+  border-radius: 2px;
   transition: 0.3s;
 }
 

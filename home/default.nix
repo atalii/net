@@ -123,6 +123,9 @@
       preferred_decoration_mode = client
 
       plugins = autostart animate alpha resize command scale expo move decoration extra-gestures wobbly vswitch
+
+      [output:eDP-1]
+      scale = 1.25
       
       [blur]
       blur.method = kawase
@@ -141,7 +144,7 @@
       command_cr = chromium
 
       [expo]
-      toggle = <super> | pinch in 4
+      toggle = <super> KEY_A | pinch in 4
       offset = 128
       duration = 100
 
