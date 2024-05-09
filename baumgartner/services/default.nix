@@ -52,10 +52,25 @@
       stub = "cc";
       port = 3633;
     }
+
+    # paperless
+    {
+      stub = "pl";
+      port = 28981;
+
+      extraSrvConfig = ''
+        rewrite /favicon.ico /talicorp-static/art/favicons/tc-logo-pink.ico
+
+        handle_path /talicorp-static/* {
+          root * /data/static
+          file_server
+        }
+      '';
+    }
   ];
 
   imports = [
-    ./jellyfin.nix ./postgres.nix ./wikijs.nix ./invokeai.nix ./imhdss.nix ./radicale.nix
+    ./jellyfin.nix ./postgres.nix ./wikijs.nix ./invokeai.nix ./imhdss.nix ./radicale.nix ./paperless.nix
   ];
 
   services.distccd.enable = true;

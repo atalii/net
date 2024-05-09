@@ -22,6 +22,7 @@
       wiki-js
       jellyfin
       invokeAI
+      paperless-web
     }
 
     links {
@@ -29,6 +30,7 @@
       jellyfin  url="https://jf-home.tali.network"
       invokeAI  url="https://nv-home.tali.network"
       radicale  url="https://rd-home.tali.network"
+      paperless url="https://pl-home.tali.network"
     }
 
     meta {
