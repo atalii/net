@@ -26,6 +26,9 @@
   brightness
   (button :class "chg-button" :onclick "brightnessctl set +10%" (label :text "↷"))))
 
+(defwidget batstatw [] (box :halign "start"
+  (label :text batstat)))
+
 (defwidget timew [] (box :class "timestamp" time))
 
 (defwidget meridw [] (box :class "merid" merid))
@@ -33,12 +36,13 @@
 (defwidget monthw [] (box :class "month" month))
 (defwidget yearw [] (box :class "year" year))
 
-(defpoll time  :interval "1s" "date +%I:%M")
-(defpoll merid :interval "1s" "date +%p")
-(defpoll day   :interval "1s" "date +%d")
-(defpoll month :interval "1s" "date '+%b '")
-(defpoll year  :interval "1s" "date +%Y")
-(defpoll bat   :interval "30s" "cat /sys/class/power_supply/BAT1/capacity")
+(defpoll time       :interval "1s" "date +%I:%M")
+(defpoll merid      :interval "1s" "date +%p")
+(defpoll day        :interval "1s" "date +%d")
+(defpoll month      :interval "1s" "date '+%b '")
+(defpoll year       :interval "1s" "date +%Y")
+(defpoll bat        :interval "30s" "cat /sys/class/power_supply/BAT1/capacity")
+(defpoll batstat    :interval "30s" "cat /sys/class/power_supply/BAT1/status")
 (defpoll brightness :interval "1s" "brightnessctl get")
 
 (defwindow bar
@@ -60,4 +64,7 @@
                       :x "16px" :y "8px"
                       :width "256px"
                       :height "128px")
-  (brightnessw))
+  (box
+    :space-evenly true :orientation "v" :halign "center" :width "100%"
+    (batstatw)
+    (brightnessw)))
