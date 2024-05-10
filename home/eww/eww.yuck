@@ -26,6 +26,11 @@
   brightness
   (button :class "chg-button" :onclick "brightnessctl set +10%" (label :text "↷"))))
 
+(defwidget volw [] (box :class "vol"
+  (button :class "chg-button" :onclick "pamixer -d 5" (label :text "🔈"))
+  vol
+  (button :class "chg-button" :onclick "pamixer -i 5" (label :text "+"))))
+
 (defwidget batstatw [] (box :halign "start"
   (label :text batstat)))
 
@@ -44,6 +49,7 @@
 (defpoll bat        :interval "30s" "cat /sys/class/power_supply/BAT1/capacity")
 (defpoll batstat    :interval "30s" "cat /sys/class/power_supply/BAT1/status")
 (defpoll brightness :interval "1s" "brightnessctl get")
+(defpoll vol        :interval "1s" "pamixer --get-volume")
 
 (defwindow bar
   :monitor 0
@@ -63,8 +69,10 @@
   :geometry (geometry :anchor "top right"
                       :x "16px" :y "8px"
                       :width "256px"
-                      :height "128px")
+                      :height "196px")
   (box
-    :space-evenly true :orientation "v" :halign "center" :width "100%"
-    (batstatw)
-    (brightnessw)))
+    :space-evenly true :orientation "v" :halign "center" :valign "center" :width "100%"
+    (box :orientation "v" :class "corner-menu-inner"
+      (batstatw)
+      (brightnessw)
+      (volw))))
