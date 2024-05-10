@@ -13,13 +13,18 @@
     (battery) (hot-corner)))
 
 (defwidget hot-corner []
-  (button :class "hot-corner" :width 24 :height 24))
+  (button :class "hot-corner" :width 24 :height 24 :onclick "eww open --toggle corner-menu"))
 
 (defwidget battery []
   (box :class "bat" bat))
 
 (defwidget date [] (box :class "date" (dayw) (monthw) (yearw)))
 (defwidget time [] (box :class "time" (timew) (meridw)))
+
+(defwidget brightnessw [] (box :class "brightness"
+  (button :class "chg-button" :onclick "brightnessctl set 10%-" (label :text "↶"))
+  brightness
+  (button :class "chg-button" :onclick "brightnessctl set +10%" (label :text "↷"))))
 
 (defwidget timew [] (box :class "timestamp" time))
 
@@ -34,6 +39,7 @@
 (defpoll month :interval "1s" "date '+%b '")
 (defpoll year  :interval "1s" "date +%Y")
 (defpoll bat   :interval "30s" "cat /sys/class/power_supply/BAT1/capacity")
+(defpoll brightness :interval "1s" "brightnessctl get")
 
 (defwindow bar
   :monitor 0
@@ -46,3 +52,12 @@
                       :anchor "top center")
   :exclusive "true"
   (bar))
+
+(defwindow corner-menu
+  :monitor 0
+  :stacking "overlay"
+  :geometry (geometry :anchor "top right"
+                      :x "16px" :y "8px"
+                      :width "256px"
+                      :height "128px")
+  (brightnessw))

@@ -7,6 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      ./power.nix
       ./hardware-configuration.nix
     ];
 

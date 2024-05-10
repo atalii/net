@@ -13,7 +13,7 @@
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
 
-    home.packages = [ pkgs.dconf ];
+    home.packages = with pkgs; [ dconf brightnessctl ];
     gtk = {
       enable = true;
       theme = {
