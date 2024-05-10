@@ -41,12 +41,6 @@
       '';
     }
 
-    # invokeAI (stable diffusion)
-    {
-      stub = "in";
-      port = 9090;
-    }
-
     # distcc
     {
       stub = "cc";
@@ -70,7 +64,7 @@
   ];
 
   imports = [
-    ./jellyfin.nix ./postgres.nix ./wikijs.nix ./invokeai.nix ./imhdss.nix ./radicale.nix ./paperless.nix
+    ./jellyfin.nix ./postgres.nix ./wikijs.nix ./imhdss.nix ./radicale.nix ./paperless.nix
   ];
 
   services.distccd.enable = true;

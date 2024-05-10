@@ -8,9 +8,6 @@
   inputs.home-manager-unstable.url = "github:nix-community/home-manager";
   inputs.home-manager-unstable.inputs.nixpkgs.follows = "unstable";
 
-  inputs.nixified-ai.url = "github:nixified-ai/flake";
-  inputs.nixified-ai.inputs.nixpkgs.follows = "nixpkgs";
-
   inputs.imhdss.url = "github:atalii/is-my-hard-disk-still-spinning/f4d6edb893aeee4d0f8b6089c10e2d8a495d4d01";
   inputs.imhdss.inputs.nixpkgs.follows = "unstable";
 
@@ -20,7 +17,6 @@
     , unstable
     , home-manager
     , home-manager-unstable
-    , nixified-ai
     , imhdss
     }: {
       nixosModules = {
@@ -42,7 +38,7 @@
             home-manager.nixosModules.home-manager self.nixosModules.home
           ];
 
-          specialArgs = { inherit nixified-ai imhdss; };
+          specialArgs = { inherit imhdss; };
         };
 
         # Obligatory silly little guy mention... My laptop is constantly on the
