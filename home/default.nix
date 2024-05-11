@@ -125,11 +125,8 @@
       plugins = autostart animate alpha resize command scale expo move decoration extra-gestures wobbly vswitch
 
       [output:eDP-1]
-      scale = 1.25
+      scale = 1.33
       
-      [blur]
-      blur.method = kawase
-
       [command]
       binding_terminal = <super> KEY_L
       command_terminal = kitty
@@ -144,35 +141,38 @@
       command_cr = chromium
 
       [expo]
-      toggle = <super> KEY_A | pinch in 4
+      toggle = <super> KEY_A
       offset = 128
       duration = 100
 
       [scale]
-      toggle_all = <super> KEY_H
+      toggle_all = <super> KEY_O
       duration = 100
 
       [decoration]
       border_size = 0
       title_height = 24
 
+      font = Input Mono
+      active_color = 0.1764 0.2078 0.2314 1.0
+      inactive_color = 0.1764 0.2078 0.2314 1.0
+
       [wobbly]
       spring_k = 512.0
       friction = 4.0
 
-      font = InputMono
-      active_color = \#2d353bff
-      inactive_color = \#2d353bff
-
-      [extra-gestures]
-      move_fingers = 2
-      move_delay = 300
-
       [vswitch]
-      binding_down = swipe up 3
-      binding_up = swipe down 3
-      binding_left = swipe right 3
-      binding_right = swipe left 3
+      binding_left = <super> KEY_H
+      binding_right = <super> KEY_T
+      binding_up = <super> KEY_N
+      binding_down = <super> KEY_S
+
+      with_win_left = <super> KEY_M
+      with_win_right = <super> KEY_W
+      with_win_up = <super> KEY_V
+      with_win_down = <super> KEY_Z
+
+      duration = 150
 
       [autostart]
       background = wf-background

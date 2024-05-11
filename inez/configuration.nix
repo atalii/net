@@ -41,9 +41,20 @@
     ];
   };
 
-  services.xserver = {
+  services.xserver.enable = true;
+  services.displayManager.sddm = with pkgs; {
     enable = true;
-    displayManager.sddm.enable = true;
+
+    package = kdePackages.sddm;
+    theme = "breeze";
+    wayland.compositor = "kwin";
+    extraPackages = with kdePackages; [
+        breeze-icons
+        kirigami
+        plasma5support
+        qtsvg
+        qtvirtualkeyboard
+      ];
   };
 
   services.gnome.gnome-keyring.enable = true;
@@ -56,6 +67,12 @@
   };
 
   services.printing.enable = true;
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
