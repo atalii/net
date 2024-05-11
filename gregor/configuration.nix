@@ -16,8 +16,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "gregor";
-  networking.networkmanager.enable = true;
   time.timeZone = "America/Denver";
+
+  networking.wireless = {
+    enable = true;
+    networks."MaximumWarp-5G".psk = "Picard@123";
+  };
 
   i18n.defaultLocale = "en_US.UTF-8";
 
