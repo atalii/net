@@ -21,7 +21,6 @@
       tailscaled
       wiki-js
       jellyfin
-      invokeAI
       paperless-web
       miniflux
     }
