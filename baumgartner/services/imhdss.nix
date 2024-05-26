@@ -23,6 +23,7 @@
       jellyfin
       invokeAI
       paperless-web
+      miniflux
     }
 
     links {
@@ -30,6 +31,7 @@
       jellyfin  url="https://jf-home.tali.network"
       radicale  url="https://rd-home.tali.network"
       paperless url="https://pl-home.tali.network"
+      miniflux  url="https://rss-home.tali.network"
     }
 
     meta {

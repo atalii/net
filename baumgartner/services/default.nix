@@ -41,6 +41,12 @@
       '';
     }
 
+    # miniflux
+    {
+      stub = "rss";
+      port = 1819;
+    }
+
     # distcc
     {
       stub = "cc";
@@ -64,7 +70,7 @@
   ];
 
   imports = [
-    ./jellyfin.nix ./postgres.nix ./wikijs.nix ./imhdss.nix ./radicale.nix ./paperless.nix
+    ./jellyfin.nix ./postgres.nix ./wikijs.nix ./imhdss.nix ./radicale.nix ./paperless.nix ./miniflux.nix
   ];
 
   services.distccd.enable = true;

@@ -8,7 +8,7 @@
   inputs.home-manager-unstable.url = "github:nix-community/home-manager";
   inputs.home-manager-unstable.inputs.nixpkgs.follows = "unstable";
 
-  inputs.imhdss.url = "github:atalii/is-my-hard-disk-still-spinning/f4d6edb893aeee4d0f8b6089c10e2d8a495d4d01";
+  inputs.imhdss.url = "github:atalii/is-my-hard-disk-still-spinning";
   inputs.imhdss.inputs.nixpkgs.follows = "unstable";
 
   outputs =
