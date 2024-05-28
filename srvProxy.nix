@@ -1,10 +1,17 @@
 { config, pkgs, lib, ... }:
 
 {
-  options.srvProxy.services = with lib; mkOption {
-    description = "Descriptions of web services to proxy.";
-    type = with types; listOf (attrsOf anything);
-    default = [];
+  options.srvProxy = {
+    services = with lib; mkOption {
+      description = "Descriptions of web services to proxy.";
+      type = with types; listOf (attrsOf anything);
+      default = [];
+    };
+
+    blocks = with lib; mkOption {
+      description = "List of domain names to block via dnsmasq.";
+      default = [];
+    };
   };
 
   config = let
@@ -26,6 +33,9 @@
     };
 
     webServices = config.srvProxy.services;
+
+    withWWW = host: [ "www.${host}" host ];
+
   in {
     # Set up caddy as a reverse proxy.
     services.caddy = {
@@ -47,6 +57,7 @@
     # ...And make sure domains point to the right server.
     networking.hosts = {
       "100.64.0.1" = builtins.map srvToDomain webServices;
+      "0.0.0.0" = lib.lists.concatMap withWWW config.srvProxy.blocks;
     };
   };
 }
