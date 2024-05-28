@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  srvProxy.services = [{ stub = "rd"; port = 8192; }];
+
   services.radicale = {
     enable = true;
 
