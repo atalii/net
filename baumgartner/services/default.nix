@@ -2,7 +2,7 @@
 
 {
   srvProxy.services = [ { stub = "cc"; port = 3633; } ];
-  srvProxy.blocks = [ "youtube.com" "reddit.com" ];
+  srvProxy.blocks = [ "youtube.com" "m.youtube.com" "reddit.com" ];
 
   imports = [
     ./jellyfin.nix ./postgres.nix ./wikijs.nix ./imhdss.nix ./radicale.nix ./paperless.nix ./miniflux.nix
