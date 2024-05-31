@@ -96,7 +96,7 @@
 
   environment.variables.DISTCC_POTENTIAL_HOSTS = "localhost home.tali.network";
 
-  fonts.packages = with pkgs; [ input-fonts ];
+  fonts.packages = with pkgs; [ ibm-plex input-fonts ];
   nixpkgs.config.input-fonts.acceptLicense = true;
 
   services.openssh.enable = true;
