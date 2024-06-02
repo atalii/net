@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on
+# edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -34,37 +34,20 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  programs.wayfire = {
-    enable = true;
-    plugins = with pkgs.wayfirePlugins; [
-      wayfire-plugins-extra wf-shell
-    ];
-  };
-
-  services.xserver.enable = true;
-  services.displayManager.sddm = with pkgs; {
-    enable = true;
-
-    package = kdePackages.sddm;
-    theme = "breeze";
-    wayland.compositor = "kwin";
-    extraPackages = with kdePackages; [
-        breeze-icons
-        kirigami
-        plasma5support
-        qtsvg
-        qtvirtualkeyboard
-      ];
-  };
-
-  services.gnome.gnome-keyring.enable = true;
-
   virtualisation.docker.enable = true;
 
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  programs.kdeconnect.enable = true;
+
   services.xserver = {
+    enable = true;
+
     xkb.layout = "us";
     xkb.variant = "";
   };
+
+  services.fprintd.enable = true;
 
   services.printing.enable = true;
 
@@ -85,7 +68,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    eww
     firefox chromium thunderbird
     git distcc gcc
   ];

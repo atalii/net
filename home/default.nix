@@ -13,14 +13,7 @@
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
     };
 
-    home.packages = with pkgs; [ dconf brightnessctl pamixer ];
-    gtk = {
-      enable = true;
-      theme = {
-        name = "Adwaita-dark";
-        package = pkgs.gnome.gnome-themes-extra;
-      };
-    };
+    home.packages = with pkgs; [ dconf ];
 
     programs.helix = {
       enable = true;
@@ -53,9 +46,6 @@
         }];
       };
     };
-
-    programs.eww.enable = true;
-    programs.eww.configDir = ./eww;
 
     programs.kitty = {
       enable = true;
@@ -115,76 +105,5 @@
         # just an empty env file
       '';
     };
-
-    xdg.configFile."wayfire.ini".text = ''
-      [core]
-      vheight = 2
-      vwidth = 2
-      preferred_decoration_mode = client
-
-      plugins = autostart animate alpha resize command scale expo move decoration extra-gestures wobbly vswitch
-
-      [output:eDP-1]
-      scale = 1.33
-      
-      [command]
-      binding_terminal = <super> KEY_L
-      command_terminal = kitty
-
-      binding_ff = <super> KEY_R
-      command_ff = firefox
-
-      binding_tb = <super> KEY_C
-      command_tb = thunderbird
-
-      binding_cr = <super> KEY_G
-      command_cr = chromium
-
-      [expo]
-      toggle = <super> KEY_A
-      offset = 128
-      duration = 100
-
-      [scale]
-      toggle_all = <super> KEY_O
-      duration = 100
-
-      [decoration]
-      border_size = 0
-      title_height = 24
-
-      font = Input Mono
-      active_color = 0.1764 0.2078 0.2314 1.0
-      inactive_color = 0.1764 0.2078 0.2314 1.0
-
-      [wobbly]
-      spring_k = 512.0
-      friction = 4.0
-
-      [vswitch]
-      binding_left = <super> KEY_H
-      binding_right = <super> KEY_T
-      binding_up = <super> KEY_N
-      binding_down = <super> KEY_S
-
-      with_win_left = <super> KEY_M
-      with_win_right = <super> KEY_W
-      with_win_up = <super> KEY_V
-      with_win_down = <super> KEY_Z
-
-      duration = 150
-
-      [autostart]
-      background = wf-background
-      panel = eww daemon && sleep 1 && eww open bar
-
-      autostart_wf_shell = false
-    '';
-    
-    xdg.configFile."wf-shell.ini".text = ''
-      [background]
-      image = ${./res/bg.jpg}
-      preserve_aspect = 1
-    '';
   };
 }
