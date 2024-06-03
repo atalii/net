@@ -70,6 +70,7 @@
   environment.systemPackages = with pkgs; [
     firefox chromium thunderbird
     git distcc gcc
+    jetbrains.rust-rover
   ];
 
   environment.etc."adage.conf".text = ''
