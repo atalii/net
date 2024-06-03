@@ -1,27 +1,30 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-  inputs.unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
-  inputs.home-manager.url = "github:nix-community/home-manager/release-23.11";
+  inputs.home-manager.url = "github:nix-community/home-manager/release-24.05";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.home-manager-unstable.url = "github:nix-community/home-manager";
-  inputs.home-manager-unstable.inputs.nixpkgs.follows = "unstable";
-
   inputs.imhdss.url = "github:atalii/is-my-hard-disk-still-spinning";
-  inputs.imhdss.inputs.nixpkgs.follows = "unstable";
+  inputs.imhdss.inputs.nixpkgs.follows = "nixpkgs";
+
+  inputs.fenix = {
+    url = "github:nix-community/fenix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   outputs =
     { self
     , nixpkgs
-    , unstable
     , home-manager
-    , home-manager-unstable
     , imhdss
+    , fenix
     }: {
       nixosModules = {
         srvProxy = import ./srvProxy.nix;
         home = import ./home;
+        fenix = { pkgs, config, ... }: {
+          environment.systemPackages = [ fenix.packages.x86_64-linux.stable.toolchain ];
+        };
       };
 
       # Hostnames refer to characters from stuffy pretentious literature that
@@ -43,20 +46,21 @@
 
         # Obligatory silly little guy mention... My laptop is constantly on the
         # verge of quietly perishing, but we love him anyway.
-        gregor = unstable.lib.nixosSystem {
+        gregor = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./common ./gregor/configuration.nix
-            home-manager-unstable.nixosModules.home-manager self.nixosModules.home
+            home-manager.nixosModules.home-manager self.nixosModules.home
           ];
         };
 
         # Sartre's favorite lesbian.
-        inez = unstable.lib.nixosSystem {
+        inez = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./common ./inez/configuration.nix
-            home-manager-unstable.nixosModules.home-manager self.nixosModules.home
+            home-manager.nixosModules.home-manager
+            self.nixosModules.home self.nixosModules.fenix
           ];
         };
       };
