@@ -70,6 +70,8 @@
     firefox chromium thunderbird
     git distcc gcc
     jetbrains.rust-rover
+
+    framework-tool
   ];
 
   environment.etc."adage.conf".text = ''

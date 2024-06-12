@@ -10,9 +10,11 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-amd" "framework-laptop-kmod" ];
   boot.kernelParams = [ "amdgpu.sg_display=0" ];
-  boot.extraModulePackages = [ ];
+
+  boot.extraModulePackages = with config.boot.kernelPackages;
+    [ framework-laptop-kmod ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c89a8a8a-66a2-46ad-ac66-9cfb9d4e032a";
