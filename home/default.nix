@@ -17,6 +17,13 @@
 
     home.packages = with pkgs; [ dconf ];
 
+    programs.zsh = {
+      enable = true;
+      initExtra = ''
+        export PS1="%(?.%F{green}✓%f.%F{red}%?%f) [%~]: "
+      '';
+    };
+
     programs.helix = {
       enable = true;
       defaultEditor = true;
@@ -93,20 +100,6 @@
         color6 = "#83c092"; color14 = "#83c092"; # cyan
         color7 = "#859289"; color15 = "#9da9a0"; # white
       };
-    };
-
-    programs.nushell = {
-      enable = true;
-
-      extraConfig = ''
-        $env.config = {
-          show_banner: false
-        }
-      '';
-
-      extraEnv = ''
-        # just an empty env file
-      '';
     };
   };
 }
