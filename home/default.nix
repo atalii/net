@@ -53,6 +53,7 @@
       enable = true;
       settings = {
         font_family = "Berkeley Mono";
+        font_size = "12";
 
         # This bit (everforest dark medium) is fully stolen from the theme kitten.
         foreground = "#d3c6aa";
