@@ -25,6 +25,10 @@
         fenix = { pkgs, config, ... }: {
           environment.systemPackages = [ fenix.packages.x86_64-linux.stable.toolchain ];
         };
+
+        fonts = { pkgs, config, ... }: {
+          fonts.packages = [ self.packages.x86_64-linux.berkeley-mono ];
+        };
       };
 
       # Hostnames refer to characters from stuffy pretentious literature that
@@ -60,9 +64,13 @@
           modules = [
             ./common ./inez/configuration.nix
             home-manager.nixosModules.home-manager
-            self.nixosModules.home self.nixosModules.fenix
+            self.nixosModules.home self.nixosModules.fenix self.nixosModules.fonts
           ];
         };
       };
+
+      packages."x86_64-linux".berkeley-mono =
+        let pkgs = import nixpkgs { system = "x86_64-linux"; };
+        in (import ./pkgs/berkeley-fonts.nix) { inherit pkgs; };
     };
 }

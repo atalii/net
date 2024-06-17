@@ -52,7 +52,7 @@
     programs.kitty = {
       enable = true;
       settings = {
-        font_family = "Input Mono";
+        font_family = "Berkeley Mono";
 
         # This bit (everforest dark medium) is fully stolen from the theme kitten.
         foreground = "#d3c6aa";
