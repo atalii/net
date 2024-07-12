@@ -73,6 +73,8 @@
     framework-tool
   ];
 
+  programs.steam.enable = true;
+
   environment.etc."adage.conf".text = ''
     permit g!wheel as root
   '';
