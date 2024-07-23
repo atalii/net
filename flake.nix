@@ -57,16 +57,6 @@
             home-manager.nixosModules.home-manager self.nixosModules.home
           ];
         };
-
-        # Sartre's favorite lesbian.
-        inez = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./common ./inez/configuration.nix
-            home-manager.nixosModules.home-manager
-            self.nixosModules.home self.nixosModules.fenix self.nixosModules.fonts
-          ];
-        };
       };
 
       packages."x86_64-linux".berkeley-mono =
