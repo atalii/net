@@ -7,24 +7,15 @@
   inputs.imhdss.url = "github:atalii/is-my-hard-disk-still-spinning";
   inputs.imhdss.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.fenix = {
-    url = "github:nix-community/fenix";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   outputs =
     { self
     , nixpkgs
     , home-manager
     , imhdss
-    , fenix
     }: {
       nixosModules = {
         srvProxy = import ./srvProxy.nix;
         home = import ./home;
-        fenix = { pkgs, config, ... }: {
-          environment.systemPackages = [ fenix.packages.x86_64-linux.stable.toolchain ];
-        };
 
         fonts = { pkgs, config, ... }: {
           fonts.packages = [ self.packages.x86_64-linux.berkeley-mono ];
