@@ -28,8 +28,15 @@
   
     srvToVirtHost = srv: {
       "${srvToDomain srv}".extraConfig = common + ''
-        reverse_proxy :${builtins.toString srv.port}
-      '' + (srv.extraSrvConfig or "");
+        reverse_proxy ${if srv.https or false then "https" else "http"}://localhost:${builtins.toString srv.port}
+      '' + (if srv.https or false then ''
+        {
+          transport http {
+            tls
+            tls_insecure_skip_verify
+          }
+        }
+      '' else "") + (srv.extraSrvConfig or "");
     };
 
     webServices = config.srvProxy.services;

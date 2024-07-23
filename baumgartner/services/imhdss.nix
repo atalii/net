@@ -35,6 +35,7 @@
       jellyfin
       paperless-web
       miniflux
+      unifi
     }
 
     links {
@@ -43,6 +44,7 @@
       radicale  url="https://rd-home.tali.network"
       paperless url="https://pl-home.tali.network"
       miniflux  url="https://rss-home.tali.network"
+      unifi     url="https://uf-home.tali.network"
     }
 
     meta {
@@ -52,6 +54,7 @@
     	slogan "TaliCorp™ sincerely does not know how it stays in business. It suspects government subsidies."
       slogan "TaliCorp™ is proud to announce its partnership with Neuralink: We're not quite sure why, either."
       slogan "TaliCorp™ will outlive you."
+      slogan "TaliCorp™: Live with downtime."
       slogan "TaliCorp™ is proud to announce that it has 'gone woke'."
     }
   '';
