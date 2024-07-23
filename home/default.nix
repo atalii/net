@@ -20,7 +20,9 @@
     programs.zsh = {
       enable = true;
       initExtra = ''
-        export PS1="%(?.%F{green}✓%f.%F{red}%?%f) [%~]: "
+        PS1="%(?.%F{green}✓%f.%F{red}%?%f) [%~]: "
+
+        [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
       '';
     };
 
