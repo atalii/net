@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716323957,
-        "narHash": "sha256-/5OGjlHzlsmiZQCn0txDBy0tYfE/lSrQtlKluvC4NWw=",
+        "lastModified": 1722794704,
+        "narHash": "sha256-RzAjDd4qTeDpAL74c116/Znr5uq+5AHRt0Hbbb2/QOw=",
         "owner": "atalii",
         "repo": "is-my-hard-disk-still-spinning",
-        "rev": "a2043cfbe0762fe8b3dcac09fc55226c6548152f",
+        "rev": "7026243e1baf1367ffe7a9764b3e42151aa0230f",
         "type": "github"
       },
       "original": {
@@ -43,11 +43,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1721548954,
-        "narHash": "sha256-7cCC8+Tdq1+3OPyc3+gVo9dzUNkNIQfwSDJ2HSi2u3o=",
+        "lastModified": 1722651103,
+        "narHash": "sha256-IRiJA0NVAoyaZeKZluwfb2DoTpBAj+FLI0KfybBeDU0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "63d37ccd2d178d54e7fb691d7ec76000740ea24a",
+        "rev": "a633d89c6dc9a2a8aae11813a62d7c58b2c0cc51",
         "type": "github"
       },
       "original": {
