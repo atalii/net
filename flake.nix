@@ -43,7 +43,7 @@
         # Kosinski's /Being There/. Gardiner has no reason to be where
         # he is. Just don't worry about it.
         gardiner = nixpkgs.lib.nixosSystem {
-          system = "arm64-linux";
+          system = "aarch64-linux";
           modules = [ ./common ./gardiner/configuration.nix ];
         };
 
