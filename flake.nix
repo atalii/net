@@ -32,11 +32,19 @@
         baumgartner = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./common ./baumgartner/configuration.nix self.nixosModules.srvProxy 
+            ./common ./baumgartner/configuration.nix self.nixosModules.srvProxy
             home-manager.nixosModules.home-manager self.nixosModules.home
           ];
 
           specialArgs = { inherit imhdss; };
+        };
+
+        # Gardiner (the Helsinki Hetzner VM) refers to Jerzy
+        # Kosinski's /Being There/. Gardiner has no reason to be where
+        # he is. Just don't worry about it.
+        gardiner = nixpkgs.lib.nixosSystem {
+          system = "arm64-linux";
+          modules = [ ./common ./gardiner/configuration.nix ];
         };
 
         # Obligatory silly little guy mention... My laptop is constantly on the
