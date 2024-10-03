@@ -28,11 +28,11 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "root" "atalii" ];
 
-  environment.systemPackages = with pkgs; [ vim zfs dig ];
+  environment.systemPackages = with pkgs; [ zfs dig ];
 
   services.openssh = {
     enable = true;

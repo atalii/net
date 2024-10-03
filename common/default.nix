@@ -6,7 +6,7 @@
 
   environment.systemPackages = with pkgs; [
     neofetch # a necessity
-    git
+    git nvi
   ];
 
   nixpkgs.config.allowUnfree = true;
