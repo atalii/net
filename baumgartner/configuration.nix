@@ -22,11 +22,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  users.users.atalii = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
