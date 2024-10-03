@@ -21,4 +21,19 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFYfx4uUXRxcWXGemF6zfwVIvqXOWKVchz78rWFJiwTk"
     ];
   };
+
+  services.gotosocial = {
+    enable = true;
+    settings = {
+      protocol = "http";
+      host = "fedi.tali.network";
+    };
+  };
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."fedi.tali.network".extraConfig = ''
+      reverse_proxy http://localhost:8080/
+    '';
+  };
 }
