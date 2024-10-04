@@ -17,7 +17,9 @@
   services.caddy = {
     enable = true;
     virtualHosts."fedi.tali.network".extraConfig = ''
-      reverse_proxy localhost:8080
+      reverse_proxy * http://127.0.0.1:8080 {
+          flush_interval -1
+      }
     '';
   };
 
