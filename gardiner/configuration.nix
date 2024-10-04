@@ -9,7 +9,7 @@
   services.gotosocial = {
     enable = true;
     settings = {
-      protocol = "http";
+      protocol = "https";
       host = "fedi.tali.network";
     };
   };
