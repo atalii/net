@@ -5,6 +5,22 @@
 
   ];
 
+
+  services.gotosocial = {
+    enable = true;
+    settings = {
+      protocol = "http";
+      host = "fedi.tali.network";
+    };
+  };
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."fedi.tali.network".extraConfig = ''
+      reverse_proxy localhost:8080
+    '';
+  };
+
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
   networking.hostName = "gardiner";
