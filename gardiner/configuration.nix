@@ -21,6 +21,10 @@
           flush_interval -1
       }
     '';
+
+    virtualHosts."tali.network".extraConfig = ''
+      respond "Nothing here yet!"
+    '';
   };
 
   boot.tmp.cleanOnBoot = true;
