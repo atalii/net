@@ -5,6 +5,7 @@
 
   ];
 
+  services.tailscale.useRoutingFeatures = "server";
 
   services.gotosocial = {
     enable = true;
