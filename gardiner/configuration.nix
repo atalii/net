@@ -12,6 +12,7 @@
     settings = {
       protocol = "https";
       host = "fedi.tali.network";
+      accounts-allow-custom-css = true;
     };
   };
 
