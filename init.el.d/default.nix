@@ -108,8 +108,8 @@ let
       dir = pkgs.fetchFromGitHub {
         owner = "atalii";
         repo = "tel";
-        rev = "963d2c2fff0459bb32e9606834df8c3c347b3030";
-        hash = "sha256-GLTB6Oq/BR6P/LDyIo2oO+j9ENejZ8zK8WFifW7Jy/4=";
+        rev = "b431e05214fdd3fb5140b749cfe83bb3a4f5ec05";
+        hash = "sha256-sPY3D1nlvgudN+WV2EvF6vb3vL+Wp5IKo4Kiij/ghl0=";
       };
 
       config = ''
@@ -178,28 +178,17 @@ let
     (setq c-default-style "linux")
 
 
-    (defun note-path (slug)
-      (let
-          ((long-month (upcase (format-time-string "%B")))
-           (suffix (format-time-string "%m-%d")))
-        (concat
-         "~/org/REED-24F/"
-         long-month
-         "/"
-         slug
-         "-"
-         suffix
-         ".org")))
+    (defun notes-dir ()
+      (let ((long-month (upcase (format-time-string "%B"))))
+        (concat "~/org/REED-24F/" long-month)))
 
     (defun new-org-ask ()
       (interactive)
-      (let ((name (completing-read
-                    "org template:"
-                    '("CRES-150F"
-    	                "HUM-110-LECTURE"
-    	                "HUM-110-READING"
-    	                "CSCI-221"))))
-        (find-file (note-path name))))
+      (tel-open-dated-file
+        "org template"
+        '("CRES-150F" "HUM-110-LECTURE" "HUM-110-READING" "CSCI-221")
+        (notes-dir)
+        ".org"))
 
     (keymap-global-set "C-x C-o" #'new-org-ask)
 
