@@ -55,6 +55,8 @@ let
 
       config = ''
         (helm-mode 1)
+        (keymap-global-set "M-x" #'helm-M-x)
+        (keymap-global-set "C-x C-f" #'helm-find-files)
       '';
     }
 
@@ -191,15 +193,13 @@ let
 
     (defun new-org-ask ()
       (interactive)
-      (find-file
-       (note-path
-        (completing-read
-         "org template:"
-               '("CRES-150F"
-    	     "CRES-150F-READINGS"
-    	     "HUM-110-LECTURE"
-    	     "HUM-110-READING"
-    	     "CSCI-221-SECTION")))))
+      (let ((name (completing-read
+                    "org template:"
+                    '("CRES-150F"
+    	                "HUM-110-LECTURE"
+    	                "HUM-110-READING"
+    	                "CSCI-221"))))
+        (find-file (note-path name))))
 
     (keymap-global-set "C-x C-o" #'new-org-ask)
 
