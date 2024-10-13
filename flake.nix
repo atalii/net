@@ -13,6 +13,10 @@
     , home-manager
     , imhdss
     }: {
+      packages.x86_64-linux.init-el =
+        let pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        in import ./init.el.d { inherit pkgs; };
+
       nixosModules = {
         srvProxy = import ./srvProxy.nix;
         home = import ./home;
