@@ -163,6 +163,8 @@ let
   extraConfig = ''
     (add-hook 'write-file-hooks 'delete-trailing-whitespace)
 
+    (setq inhibit-startup-screen t)
+
     (tool-bar-mode -1)
     (menu-bar-mode -1)
 
