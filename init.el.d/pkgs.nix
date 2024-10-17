@@ -49,4 +49,124 @@
         (global-devil-mode)
       '';
   }
+
+  {
+    name = "treemacs";
+    dir = fetchFromGitHub {
+      owner = "Alexander-Miller";
+      repo = "treemacs";
+      rev = "3.1";
+      hash = "sha256-JdkLUOcB98Hln7ktWRml0aNQqpOEpCPMVh01lyagQOc=";
+    };
+
+    postamble = ''
+      (treemacs)
+    '';
+  }
+
+  {
+    name = "go-mode";
+    dir = fetchFromGitHub {
+      owner = "dominikh";
+      repo = "go-mode.el";
+      rev = "v1.6.0";
+      hash = "sha256-B6+G/q0lEvtro4/zU4M1uZwd43CdkLi+HpShZkawHwM=";
+    };
+
+    config = ''
+      (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+    '';
+  }
+
+  {
+    name = "helm";
+    dir = fetchFromGitHub {
+      owner = "emacs-helm";
+      repo = "helm";
+      rev = "v4.0";
+      hash = "sha256-/Hys07+USA44AbUQ+gekt7TefcLJeYsaXzdzxPu1hUY=";
+    };
+
+    config = ''
+      (helm-mode 1)
+      (keymap-global-set "M-x" #'helm-M-x)
+      (keymap-global-set "C-x C-f" #'helm-find-files)
+    '';
+  }
+
+  {
+    name = "markdown-mode";
+    dir = fetchFromGitHub {
+      owner = "jrblevin";
+      repo = "markdown-mode";
+      rev = "v2.6";
+      hash = "sha256-h2RRbBiRw0sq1eit3bPYjZc7o5ZHdRHITEPHP74YC8Q=";
+    };
+
+    config = ''
+      (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+    '';
+  }
+
+  {
+    name = "nix-mode";
+    dir = fetchFromGitHub {
+      owner = "NixOS";
+      repo = "nix-mode";
+      rev = "v1.5.0";
+      hash = "sha256-OLMEchEfQJlQFmF9Xx8JSf75tW3rSKNkKVVadua1efc=";
+    };
+
+    config = ''
+      (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
+    '';
+  }
+
+  {
+    name = "rust-mode";
+    dir = fetchFromGitHub {
+      owner = "rust-lang";
+      repo = "rust-mode";
+      rev = "1.0.5";
+      hash = "sha256-SIct6iAF1sbNrFhJXmoHW5MP1jVOSea8qqk1rLrWUGo=";
+    };
+
+    config = ''
+      (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+      (add-hook 'rust-mode-hook 'lsp-deferred)
+    '';
+  }
+
+  {
+    name = "tel";
+    dir = fetchFromGitHub {
+      owner = "atalii";
+      repo = "tel";
+      rev = "b431e05214fdd3fb5140b749cfe83bb3a4f5ec05";
+      hash = "sha256-sPY3D1nlvgudN+WV2EvF6vb3vL+Wp5IKo4Kiij/ghl0=";
+    };
+
+    config = ''
+      (tel-make-shortcut
+       "eshell" eshell
+       (lambda () (string= "*eshell*" (buffer-name (current-buffer)))))
+
+      (tel-make-shortcut
+       "org-index" (lambda () (find-file "~/org/index.org"))
+       (lambda () (string= "index.org" (buffer-name (current-buffer)))))
+
+      (keymap-global-set "C-<tab> a" #'tel-shortcut-eshell)
+      (keymap-global-set "C-<tab> o" #'tel-shortcut-org-index)
+    '';
+  }
+
+  {
+    name = "doom-themes";
+    dir = fetchFromGitHub {
+      owner = "doomemacs";
+      repo = "themes";
+      rev = "v2.3.0";
+      hash = "sha256-mZNiAtAZ5dzbP8TakC6W2ivQnaDMdRxK4aYGCrRiF4g=";
+    };
+  }
 ]
