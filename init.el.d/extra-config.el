@@ -12,6 +12,7 @@
 (add-to-list 'exec-path "/home/atalii/.cargo/bin")
 
 (setq org-agenda-files '("~/org" "~/org/REED-24F/OCTOBER"))
+(setq org-refile-targets '(("~/org/index.org" :maxlevel . 2)))
 
 (setq org-src-fontify-natively t)
 
