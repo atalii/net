@@ -17,9 +17,7 @@
   config = let
   
     common = ''
-      tls /data/caddy/tali.network-ssl-bundle/domain.cert.pem /data/caddy/tali.network-ssl-bundle/private.key.pem {
-        ca_root /data/caddy/tali.network-ssl-bundle/intermediate.cert.pem
-      }
+      tls /data/caddy/tali.network-ssl-bundle/domain.cert.pem /data/caddy/tali.network-ssl-bundle/private.key.pem
     '';
   
     srvToDomain = srv: if srv ? stub
