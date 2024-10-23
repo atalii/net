@@ -142,8 +142,8 @@
     dir = fetchFromGitHub {
       owner = "atalii";
       repo = "tel";
-      rev = "b431e05214fdd3fb5140b749cfe83bb3a4f5ec05";
-      hash = "sha256-sPY3D1nlvgudN+WV2EvF6vb3vL+Wp5IKo4Kiij/ghl0=";
+      rev = "63a92b93de8575d60214a3a190e2249efcb8bc22";
+      hash = "sha256-Y+AqJsU9vfQgFQJE1n+0T5WSP6YbGyoLWli2hlK3ZcA=";
     };
 
     config = ''
