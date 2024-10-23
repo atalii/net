@@ -32,6 +32,8 @@
    ".org"))
 
 (keymap-global-set "C-x C-o" #'new-org-ask)
+(keymap-global-set "C-M-s-!" (lambda ()
+		   (interactive) (org-show-todo-tree nil)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
