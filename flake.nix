@@ -13,9 +13,6 @@
     , home-manager
     , imhdss
     }: {
-      packages.x86_64-linux.init-el =
-        let pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        in import ./init.el.d { inherit pkgs; };
 
       nixosModules = {
         srvProxy = import ./srvProxy.nix;
@@ -65,5 +62,9 @@
       packages."x86_64-linux".berkeley-mono =
         let pkgs = import nixpkgs { system = "x86_64-linux"; };
         in pkgs.callPackage ./pkgs/berkeley-fonts.nix {};
+
+      packages.x86_64-linux.init-el =
+        let pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        in pkgs.callPackage ./init.el.d {};
     };
 }

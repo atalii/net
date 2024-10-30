@@ -1,7 +1,7 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ callPackage, lib, writeText }:
 
 let
-  packages = pkgs.callPackage ./pkgs.nix {};
+  packages = callPackage ./pkgs.nix {};
 
   pkgToPreamble = pkg: ''
     ;; Auto-generated peramble for: ${pkg.name}
@@ -19,7 +19,7 @@ let
     ${pkg.postamble or ";; EMPTY"}
   '';
 
-  forPackages = f: pkgs.lib.concatStringsSep "\n"
+  forPackages = f: lib.concatStringsSep "\n"
     (map f packages);
 
   preamble = forPackages pkgToPreamble;
@@ -28,7 +28,7 @@ let
 
   extraConfig = builtins.readFile ./extra-config.el;
 
-  initContents = pkgs.lib.concatStringsSep "\n"
+  initContents = lib.concatStringsSep "\n"
     [ preamble config postamble extraConfig ];
 
-in pkgs.writeText "init.el" initContents
+in writeText "init.el" initContents
