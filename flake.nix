@@ -64,6 +64,6 @@
 
       packages."x86_64-linux".berkeley-mono =
         let pkgs = import nixpkgs { system = "x86_64-linux"; };
-        in (import ./pkgs/berkeley-fonts.nix) { inherit pkgs; };
+        in pkgs.callPackage ./pkgs/berkeley-fonts.nix {};
     };
 }
