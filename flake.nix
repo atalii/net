@@ -59,12 +59,8 @@
         };
       };
 
-      packages."x86_64-linux".berkeley-mono =
-        let pkgs = import nixpkgs { system = "x86_64-linux"; };
-        in pkgs.callPackage ./pkgs/berkeley-fonts.nix {};
-
-      packages.x86_64-linux.init-el =
+      packages.x86_64-linux =
         let pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        in pkgs.callPackage ./init.el.d {};
+        in pkgs.callPackage ./pkgs {};
     };
 }
