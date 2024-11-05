@@ -1,0 +1,18 @@
+name: Scheduled Lockfile Update
+on:
+  workflow-dispatch:
+  schedule:
+    - cron: 39 12 * * 6
+jobs:
+  update-lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Update lockfile
+        uses: DeterminateSystems/update-flake-lock@main
+	with:
+	  pr-title: "tree: update flake.lock"
+	  commit-msg: "tree: update flake.lock"
