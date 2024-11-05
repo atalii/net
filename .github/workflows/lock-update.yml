@@ -1,6 +1,6 @@
 name: Scheduled Lockfile Update
 on:
-  workflow-dispatch:
+  workflow_dispatch:
   schedule:
     - cron: 39 12 * * 6
 jobs:
