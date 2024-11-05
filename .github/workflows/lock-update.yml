@@ -13,6 +13,6 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@main
       - name: Update lockfile
         uses: DeterminateSystems/update-flake-lock@main
-	with:
-	  pr-title: "tree: update flake.lock"
-	  commit-msg: "tree: update flake.lock"
+        with:
+          pr-title: "tree: update flake.lock"
+          commit-msg: "tree: update flake.lock"
