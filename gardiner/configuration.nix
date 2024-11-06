@@ -27,6 +27,11 @@
     virtualHosts."tali.network".extraConfig = ''
       respond "Nothing here yet!"
     '';
+
+    virtualHosts."files.tali.network".extraConfig = ''
+      root * /data/public
+      file_server
+    '';
   };
 
   boot.tmp.cleanOnBoot = true;
