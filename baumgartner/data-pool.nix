@@ -6,4 +6,6 @@
   boot.zfs.forceImportRoot = false;
 
   boot.zfs.extraPools = [ "data" ];
+
+  systemd.timers."zfs-scrub-weekly@dta".enable = true;
 }
