@@ -9,7 +9,8 @@
     enable = true;
     openFirewall = true;
 
-    unifiPackage = unifi8;
+    unifiPackage = pkgs.unifi;
+    mongodbPackage = pkgs.mongodb;
   };
 
   networking.firewall.allowedTCPPorts = [ 8443 8081 ];
