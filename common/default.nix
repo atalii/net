@@ -6,7 +6,7 @@
 
   environment.systemPackages = with pkgs; [
     neofetch # a necessity
-    git nvi
+    git nvi ghostty.terminfo
   ];
 
   nixpkgs.config.allowUnfree = true;
