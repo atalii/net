@@ -7,5 +7,5 @@
 
   boot.zfs.extraPools = [ "data" ];
 
-  systemd.timers."zfs-scrub-weekly@dta".enable = true;
+  systemd.timers."zfs-scrub-weekly@data".enable = true;
 }
