@@ -32,6 +32,18 @@
       root * /data/public
       file_server
     '';
+
+    virtualHosts."jellyfin.tali.network".extraConfig = ''
+      reverse_proxy * https://jf-home.tali.network {
+        header_up Host "jf-home.tali.network"
+      }
+    '';
+
+    virtualHosts."code.tali.network".extraConfig = ''
+      reverse_proxy * https://code-home.tali.network {
+        header_up Host "code-home.tali.network"
+      }
+    '';
   };
 
   boot.tmp.cleanOnBoot = true;
