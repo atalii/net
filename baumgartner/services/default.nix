@@ -12,11 +12,10 @@
   services.code-server.hashedPassword = "$argon2i$v=19$m=4096,t=3,p=1$/g/q/I1Jc3+qERsL0Mcljg$BdEN30C3aOmP2NaLZklTC2aAQrS7jkivj/PPW9ZNx2Q";
   services.code-server.host = "0.0.0.0";
 
-  services.code-server.package = 
-  pkgs.vscode-with-extensions.override {
+  services.code-server.package = pkgs.vscode-with-extensions.override {
     vscode = pkgs.code-server;
     vscodeExtensions = with pkgs.vscode-extensions; [
-      vscodevim.vim myriad-dreamin.tinymist tomoki1207.pdf
+      vscodevim.vim myriad-dreamin.tinymist jnoortheen.nix-ide
     ];
   };
 
@@ -28,5 +27,5 @@
   services.distccd.stats.enable = true;
   services.distccd.logLevel = "info";
 
-  environment.systemPackages = with pkgs; [ gcc clang tinymist typst ];
+  users.users.code-server.packages = with pkgs; [ gcc clang tinymist typst nixd ];
 }
