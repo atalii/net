@@ -40,9 +40,7 @@
     '';
 
     virtualHosts."code.tali.network".extraConfig = ''
-      reverse_proxy * https://code-home.tali.network {
-        header_up Host "code-home.tali.network"
-      }
+      reverse_proxy * http://home.tali.network:4444
     '';
   };
 
