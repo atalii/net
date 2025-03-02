@@ -42,6 +42,10 @@
     virtualHosts."code.tali.network".extraConfig = ''
       reverse_proxy * http://home.tali.network:4444
     '';
+
+    virtualHosts."rss.tali.network".extraConfig = ''
+      reverse_proxy * http://home.tali.network:1819
+    '';
   };
 
   boot.tmp.cleanOnBoot = true;
