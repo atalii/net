@@ -35,6 +35,8 @@
     settings.KbdInteractiveAuthentication = false;
   };
 
+  users.users."code-server".home = "/data/code-home";
+
   imports = [ ./services ./hardware-configuration.nix ./data-pool.nix ];
 
   system.stateVersion = "23.11";
