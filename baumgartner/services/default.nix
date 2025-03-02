@@ -8,10 +8,25 @@
     ./jellyfin.nix ./postgres.nix ./wikijs.nix ./imhdss.nix ./radicale.nix ./paperless.nix ./miniflux.nix
   ];
 
+  services.code-server.enable = true;
+  services.code-server.hashedPassword = "$argon2i$v=19$m=4096,t=3,p=1$/g/q/I1Jc3+qERsL0Mcljg$BdEN30C3aOmP2NaLZklTC2aAQrS7jkivj/PPW9ZNx2Q";
+  services.code-server.host = "0.0.0.0";
+
+  services.code-server.package = 
+  pkgs.vscode-with-extensions.override {
+    vscode = pkgs.code-server;
+    vscodeExtensions = with pkgs.vscode-extensions; [
+      vscodevim.vim myriad-dreamin.tinymist tomoki1207.pdf
+    ];
+  };
+
+  networking.firewall.allowedTCPPorts = [ 4444 ];
+
   services.distccd.enable = true;
   services.distccd.allowedClients = [ "127.0.0.1" "100.64.0.0/10" "192.168.0.0/16" ];
   services.distccd.openFirewall = true;
   services.distccd.stats.enable = true;
   services.distccd.logLevel = "info";
-  environment.systemPackages = with pkgs; [ gcc clang ];
+
+  environment.systemPackages = with pkgs; [ gcc clang tinymist typst ];
 }
