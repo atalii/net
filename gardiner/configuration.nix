@@ -53,7 +53,7 @@
       rewrite /_assets/favicons/favicon-16x16.png /static/art/favicons/tc-logo-green-48x48.png
 
       reverse_proxy /static home.tali.network
-      reverse_proxy * http://home.tali.network:5432
+      reverse_proxy * http://home.tali.network:3000
     '';
   };
 
