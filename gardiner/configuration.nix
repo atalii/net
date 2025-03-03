@@ -46,6 +46,15 @@
     virtualHosts."rss.tali.network".extraConfig = ''
       reverse_proxy * http://home.tali.network:1819
     '';
+
+    virtualHosts."wiki.tali.network".extraConfig = ''
+      rewrite /favicon.ico /static/art/favicons/tc-logo-green.ico
+      rewrite /_assets/favicons/android-chrome-192x192.png /static/art/favicons/tc-logo-green-192x192.png
+      rewrite /_assets/favicons/favicon-16x16.png /static/art/favicons/tc-logo-green-48x48.png
+
+      reverse_proxy /static home.tali.network
+      reverse_proxy * http://home.tali.network:5432
+    '';
   };
 
   boot.tmp.cleanOnBoot = true;

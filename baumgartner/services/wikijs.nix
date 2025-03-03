@@ -36,7 +36,9 @@
         pass = "$(WIKI_PG_PASS)";
       };
 
-      bindIp = "127.0.0.1";
+      bindIp = "0.0.0.0";
     };
   };
+
+  networking.allowedTCPPorts = [ 5432 ];
 }
