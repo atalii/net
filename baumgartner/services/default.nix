@@ -15,7 +15,11 @@
   services.code-server.package = pkgs.vscode-with-extensions.override {
     vscode = pkgs.code-server;
     vscodeExtensions = with pkgs.vscode-extensions; [
-      vscodevim.vim myriad-dreamin.tinymist jnoortheen.nix-ide
+      vscodevim.vim
+      myriad-dreamin.tinymist
+      jnoortheen.nix-ide
+      haskell.haskell justusadam.language-haskell
+      llvm-vs-code-extensions.vscode-clangd
     ];
   };
 
@@ -27,5 +31,12 @@
   services.distccd.stats.enable = true;
   services.distccd.logLevel = "info";
 
-  users.users.code-server.packages = with pkgs; [ gcc clang tinymist typst nixd ];
+  users.users.code-server.packages = with pkgs; [
+    gcc clang
+    tinymist typst
+    nixd
+    clang-tools
+    haskell-language-server cabal-install ghc
+    bash
+  ];
 }
