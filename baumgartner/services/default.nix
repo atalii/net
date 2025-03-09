@@ -20,6 +20,7 @@
       jnoortheen.nix-ide
       haskell.haskell justusadam.language-haskell
       llvm-vs-code-extensions.vscode-clangd
+      ms-python.python ms-pyright.pyright
     ];
   };
 
@@ -38,5 +39,6 @@
     clang-tools
     haskell-language-server cabal-install ghc
     bash
+    python3 pyright poetry
   ];
 }
