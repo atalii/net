@@ -55,6 +55,10 @@
       reverse_proxy /static/* https://home.tali.network
       reverse_proxy * http://home.tali.network:3000
     '';
+
+    virtualHosts."ttds.tali.network".extraConfig = ''
+      reverse_proxy * http://100.90.198.6:8080
+    '';
   };
 
   boot.tmp.cleanOnBoot = true;
