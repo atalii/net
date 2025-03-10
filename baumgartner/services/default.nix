@@ -39,6 +39,6 @@
     clang-tools
     haskell-language-server cabal-install ghc
     bash
-    python3 pyright poetry
+    python3 pyright poetry black
   ];
 }
