@@ -56,6 +56,10 @@
       reverse_proxy * http://home.tali.network:3000
     '';
 
+    virtualHosts."cal.tali.network".extraConfig = ''
+      reverse_proxy * http://100.64.0.1:8192
+    '';
+
     virtualHosts."ttds.tali.network".extraConfig = ''
       reverse_proxy * http://100.90.198.6:8080
     '';
