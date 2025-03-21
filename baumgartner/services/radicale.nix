@@ -7,7 +7,7 @@
     enable = true;
 
     settings = {
-      server.hosts = [ "localhost:8192" ];
+      server.hosts = [ "0.0.0.0:8192" ];
       storage.filesystem_folder = "/data/radicale/store";
       auth = {
         type = "htpasswd";
