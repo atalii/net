@@ -44,6 +44,9 @@ in {
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819;
     virtualHosts."cal.tali.network".extraConfig = proxyBaum 8192;
 
+    # Wow this REALLY needs auth lol
+    virtualHosts."cabinet.tali.network".extraConfig = proxyBaum 6445;
+
     virtualHosts."ttds.tali.network".extraConfig = proxy "100.90.198.6" 8080;
 
     virtualHosts."wiki.tali.network".extraConfig = ''

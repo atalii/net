@@ -7,11 +7,15 @@
   inputs.imhdss.url = "github:atalii/is-my-hard-disk-still-spinning";
   inputs.imhdss.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.cabinet.url = "github:atalii/cabinet";
+  inputs.cabinet.inputs.nixpkgs.follows = "nixpkgs";
+
   outputs =
     { self
     , nixpkgs
     , home-manager
     , imhdss
+    , cabinet
     }: {
 
       nixosModules = {
@@ -35,6 +39,7 @@
           modules = [
             ./common ./baumgartner/configuration.nix self.nixosModules.srvProxy
             home-manager.nixosModules.home-manager self.nixosModules.home
+            cabinet.nixosModules.cabinet
           ];
 
           specialArgs = { inherit imhdss; };
