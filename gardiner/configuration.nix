@@ -1,4 +1,7 @@
-{ ... }: {
+{ ... }:
+
+let baumgartner = "100.64.0.1";
+in {
   imports = [
     ./hardware-configuration.nix
     ./networking.nix # generated at runtime by nixos-infect
@@ -34,9 +37,7 @@
     '';
 
     virtualHosts."jellyfin.tali.network".extraConfig = ''
-      reverse_proxy * https://jf-home.tali.network {
-        header_up Host "jf-home.tali.network"
-      }
+      reverse_proxy * "http://${baumgartner}:8096"
     '';
 
     virtualHosts."code.tali.network".extraConfig = ''
