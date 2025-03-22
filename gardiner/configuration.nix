@@ -1,6 +1,9 @@
 { ... }:
 
-let baumgartner = "100.64.0.1";
+let
+  baumgartner = "100.64.0.1";
+  proxy = host: port: "reverse_proxy * \"http://${host}:${toString port}\"";
+  proxyBaum = proxy baumgartner;
 in {
   imports = [
     ./hardware-configuration.nix
@@ -36,17 +39,9 @@ in {
       file_server
     '';
 
-    virtualHosts."jellyfin.tali.network".extraConfig = ''
-      reverse_proxy * "http://${baumgartner}:8096"
-    '';
-
-    virtualHosts."code.tali.network".extraConfig = ''
-      reverse_proxy * http://home.tali.network:4444
-    '';
-
-    virtualHosts."rss.tali.network".extraConfig = ''
-      reverse_proxy * http://home.tali.network:1819
-    '';
+    virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096;
+    virtualHosts."code.tali.network".extraConfig = proxyBaum 4444;
+    virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819;
 
     virtualHosts."wiki.tali.network".extraConfig = ''
       rewrite /favicon.ico /static/art/favicons/tc-logo-green.ico
