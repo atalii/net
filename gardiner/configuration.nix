@@ -42,6 +42,9 @@ in {
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096;
     virtualHosts."code.tali.network".extraConfig = proxyBaum 4444;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819;
+    virtualHosts."cal.tali.network".extraConfig = proxyBaum 8192;
+
+    virtualHosts."ttds.tali.network".extraConfig = proxy "100.90.198.6" 8080;
 
     virtualHosts."wiki.tali.network".extraConfig = ''
       rewrite /favicon.ico /static/art/favicons/tc-logo-green.ico
@@ -50,14 +53,6 @@ in {
 
       reverse_proxy /static/* https://home.tali.network
       reverse_proxy * http://home.tali.network:3000
-    '';
-
-    virtualHosts."cal.tali.network".extraConfig = ''
-      reverse_proxy * http://100.64.0.1:8192
-    '';
-
-    virtualHosts."ttds.tali.network".extraConfig = ''
-      reverse_proxy * http://100.90.198.6:8080
     '';
   };
 
