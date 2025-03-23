@@ -39,6 +39,7 @@ in {
       file_server
     '';
 
+    virtualHosts."auth.tali.network".extraConfig = proxy "localhost" 9091;
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096;
     virtualHosts."code.tali.network".extraConfig = proxyBaum 4444;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819;
@@ -57,6 +58,32 @@ in {
       reverse_proxy /static/* https://home.tali.network
       reverse_proxy * http://home.tali.network:3000
     '';
+  };
+
+  services.authelia.instances."tla" = {
+    enable = true;
+    settings = {
+      default_2fa_method = "totp";
+
+      # Not doing anything complex with rules yet. Should be two factor soon.
+      access_control.default_policy = "one_factor";
+
+      session.cookies = [{
+        domain = "tali.network";
+        authelia_url = "https://auth.tali.network";
+      }];
+
+      # I don't believe Migadu wants me to send email. However,
+      # I could self-host an SMTP server just to be used for
+      # communication with myself, thereby avoiding most of
+      # the complications?
+      notifier.filesystem.filename = "/var/lib/authelia-tla/authelia-notifs";
+      storage.local.path = "/var/lib/authelia-tla/db.sqlite";
+      authentication_backend.file.path = "/var/lib/authelia-tla/users.yml";
+    };
+
+    secrets.storageEncryptionKeyFile = "/var/lib/authelia-tla/storage-enc-key";
+    secrets.jwtSecretFile = "/var/lib/authelia-tla/jwt-secret";
   };
 
   boot.tmp.cleanOnBoot = true;
