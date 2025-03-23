@@ -1,6 +1,8 @@
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
+  inputs.nixos-hardware.url = "github:nixos/nixos-hardware";
+
   inputs.home-manager.url = "github:nix-community/home-manager/release-24.11";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -13,6 +15,7 @@
   outputs =
     { self
     , nixpkgs
+    , nixos-hardware
     , home-manager
     , imhdss
     , cabinet
@@ -21,6 +24,7 @@
       nixosModules = {
         srvProxy = import ./srvProxy.nix;
         home = import ./home;
+        home2 = import ./home.2;
 
         fonts = { pkgs, config, ... }: {
           fonts.packages = [ self.packages.x86_64-linux.berkeley-mono ];
@@ -43,6 +47,15 @@
           ];
 
           specialArgs = { inherit imhdss; };
+        };
+
+        # My Framework. Incomprehensible.
+        "thing-in-itself" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./thing-in-itself nixos-hardware.nixosModules.framework-13-7040-amd
+            home-manager.nixosModules.home-manager self.nixosModules.home2
+          ];
         };
 
         # Gardiner (the Helsinki Hetzner VM) refers to Jerzy
