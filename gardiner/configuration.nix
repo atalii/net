@@ -39,6 +39,10 @@ in {
       file_server
     '';
 
+    virtualHosts."auth.tali.network".extraConfig = ''
+      reverse_proxy * localhost:9091
+    '';
+
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096;
     virtualHosts."code.tali.network".extraConfig = proxyBaum 4444;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819;
@@ -57,6 +61,16 @@ in {
       reverse_proxy /static/* https://home.tali.network
       reverse_proxy * http://home.tali.network:3000
     '';
+  };
+
+  services.authelia.instances."tla" = {
+    enable = true;
+    settings = {
+      default_2fa_method = "totp";
+
+      server.address = "tcp://:9091/";
+      storage.local.path = "/data/authelia/db.sqlite";
+    };
   };
 
   boot.tmp.cleanOnBoot = true;
