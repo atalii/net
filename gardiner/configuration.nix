@@ -2,7 +2,15 @@
 
 let
   baumgartner = "100.64.0.1";
-  proxy = host: port: "reverse_proxy * \"http://${host}:${toString port}\"";
+  proxy = host: port: auth: (if auth then ''
+    forward_auth localhost:9091 {
+      uri /api/authz/forward-auth
+      copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+    }
+  '' else "") + ''
+    reverse_proxy * "http://${host}:${toString port}"
+  '';
+
   proxyBaum = proxy baumgartner;
 in {
   imports = [
@@ -39,16 +47,14 @@ in {
       file_server
     '';
 
-    virtualHosts."auth.tali.network".extraConfig = proxy "localhost" 9091;
-    virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096;
-    virtualHosts."code.tali.network".extraConfig = proxyBaum 4444;
-    virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819;
-    virtualHosts."cal.tali.network".extraConfig = proxyBaum 8192;
+    virtualHosts."auth.tali.network".extraConfig = proxy "localhost" 9091 false;
+    virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096 false;
+    virtualHosts."code.tali.network".extraConfig = proxyBaum 4444 false;
+    virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819 false;
+    virtualHosts."cal.tali.network".extraConfig = proxyBaum 8192 false;
+    virtualHosts."cabinet.tali.network".extraConfig = proxyBaum 6445 true;
 
-    # Wow this REALLY needs auth lol
-    virtualHosts."cabinet.tali.network".extraConfig = proxyBaum 6445;
-
-    virtualHosts."ttds.tali.network".extraConfig = proxy "100.90.198.6" 8080;
+    virtualHosts."ttds.tali.network".extraConfig = proxy "100.90.198.6" 8080 false;
 
     virtualHosts."wiki.tali.network".extraConfig = ''
       rewrite /favicon.ico /static/art/favicons/tc-logo-green.ico
