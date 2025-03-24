@@ -61,8 +61,7 @@ in {
       rewrite /_assets/favicons/android-chrome-192x192.png /static/art/favicons/tc-logo-green-192x192.png
       rewrite /_assets/favicons/favicon-16x16.png /static/art/favicons/tc-logo-green-48x48.png
 
-      reverse_proxy /static/* https://home.tali.network
-      reverse_proxy * http://home.tali.network:3000
+      reverse_proxy * http://${baumgartner}:3000
     '';
   };
 
