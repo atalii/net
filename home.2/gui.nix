@@ -13,5 +13,7 @@
 
   users.users.tali.packages = with pkgs; [
     signal-desktop thunderbird
+
+    wl-clipboard
   ];
 }
