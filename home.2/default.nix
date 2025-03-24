@@ -52,4 +52,8 @@
 
   programs.fish.enable = true;
   users.users.tali.shell = pkgs.fish;
+
+  users.users.tali.packages = with pkgs; [
+    signal-desktop thunderbird
+  ];
 }
