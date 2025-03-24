@@ -68,4 +68,10 @@
   users.users.tali.packages = with pkgs; [
     signal-desktop thunderbird
   ];
+
+  users.users.tali = {
+    isNormalUser = true;
+    description = "Tali Auster";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
 }

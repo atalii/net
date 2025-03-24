@@ -56,12 +56,6 @@
     pulse.enable = true;
   };
 
-  users.users.tali = {
-    isNormalUser = true;
-    description = "Tali Auster";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
   services.tailscale.enable = true;
 
   programs.firefox.enable = true;
