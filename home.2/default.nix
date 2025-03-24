@@ -55,8 +55,15 @@
       };
     };
 
-  programs.fish.enable = true;
+  programs.starship.enable = true;
   users.users.tali.shell = pkgs.fish;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting
+    '';
+  };
+
 
   users.users.tali.packages = with pkgs; [
     signal-desktop thunderbird
