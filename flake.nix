@@ -46,7 +46,6 @@
 
             home-manager.nixosModules.home-manager self.nixosModules.home
             self.nixosModules.home2.headless
-            self.nixosModules.home2.gui
           ];
 
           specialArgs = { inherit imhdss; };
