@@ -54,7 +54,9 @@
           system = "x86_64-linux";
           modules = [
             ./thing-in-itself nixos-hardware.nixosModules.framework-13-7040-amd
-            home-manager.nixosModules.home-manager self.nixosModules.home2
+            home-manager.nixosModules.home-manager
+	    self.nixosModules.home2.headless
+	    self.nixosModules.home2.gui
           ];
         };
 
