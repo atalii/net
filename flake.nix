@@ -42,8 +42,11 @@
           system = "x86_64-linux";
           modules = [
             ./common ./baumgartner/configuration.nix self.nixosModules.srvProxy
-            home-manager.nixosModules.home-manager self.nixosModules.home
             cabinet.nixosModules.cabinet
+
+            home-manager.nixosModules.home-manager self.nixosModules.home
+            self.nixosModules.home2.headless
+            self.nixosModules.home2.gui
           ];
 
           specialArgs = { inherit imhdss; };

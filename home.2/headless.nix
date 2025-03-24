@@ -60,5 +60,9 @@
     isNormalUser = true;
     description = "Tali Auster";
     extraGroups = [ "networkmanager" "wheel" ];
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHlsdZRN8i12v5Uv2ZZtGqxqbf8T/n0H6U/UagIPUZy5 tali@thing-in-itself"
+    ];
   };
 }
