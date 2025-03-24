@@ -49,7 +49,7 @@ in {
 
     virtualHosts."auth.tali.network".extraConfig = proxy "localhost" 9091 false;
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096 false;
-    virtualHosts."code.tali.network".extraConfig = proxyBaum 4444 false;
+    virtualHosts."code.tali.network".extraConfig = proxyBaum 4444 true;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819 false;
     virtualHosts."cal.tali.network".extraConfig = proxyBaum 8192 false;
     virtualHosts."cabinet.tali.network".extraConfig = proxyBaum 6445 true;
