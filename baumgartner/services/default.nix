@@ -9,7 +9,7 @@
   ];
 
   services.code-server.enable = true;
-  services.code-server.hashedPassword = "$argon2i$v=19$m=4096,t=3,p=1$/g/q/I1Jc3+qERsL0Mcljg$BdEN30C3aOmP2NaLZklTC2aAQrS7jkivj/PPW9ZNx2Q";
+  services.code-server.auth = "none";
   services.code-server.host = "0.0.0.0";
 
   services.code-server.package = pkgs.vscode-with-extensions.override {
