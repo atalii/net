@@ -38,6 +38,9 @@
 
 	extraLuaConfig = ''
 	  vim.cmd [[colorscheme catppuccin-latte]]
+
+	  local lspconfig = require('lspconfig')
+	  lspconfig.hls.setup{}
 	'';
       };
 
@@ -48,7 +51,14 @@
     };
 
   programs.starship.enable = true;
-  users.users.tali.shell = pkgs.fish;
+
+  users.users.tali = {
+    shell = pkgs.fish;
+    packages = with pkgs; [
+      haskell-language-server ghc cabal-install
+    ];
+  };
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
