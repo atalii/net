@@ -48,6 +48,11 @@
 	  font-family = "Berkeley Mono";
         };
       };
+
+      systemd.user.sessionVariables = rec {
+        EDITOR = VISUAL;
+        VISUAL = "nvim";
+      };
     };
 
   programs.fish.enable = true;
