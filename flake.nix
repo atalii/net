@@ -67,7 +67,11 @@
         # he is. Just don't worry about it.
         gardiner = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
-          modules = [ ./common ./gardiner/configuration.nix ];
+          modules = [
+            ./common ./gardiner/configuration.nix
+            home-manager.nixosModules.home-manager
+            self.nixosModules.home2.headless
+          ];
         };
 
         # Obligatory silly little guy mention... My laptop is constantly on the
