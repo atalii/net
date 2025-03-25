@@ -44,7 +44,9 @@
 	'';
       };
 
-      systemd.user.sessionVariables = rec {
+      programs.fish.enable = true;
+
+      home.sessionVariables = rec {
         EDITOR = VISUAL;
         VISUAL = "nvim";
       };
