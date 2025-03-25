@@ -1,18 +1,6 @@
 { pkgs, lib, imhdss, ... }:
 
 {
-  srvProxy.services = [{
-      port = 4525;
-      extraSrvConfig = ''
-        rewrite /favicon.ico /static/art/favicons/tc-logo-red.ico
-
-        handle_path /static/* {
-          root * /data/static
-          file_server browse
-        }
-      '';
-  }];
-
   systemd.services.imhdss = {
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];

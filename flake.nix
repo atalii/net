@@ -22,7 +22,6 @@
     }: {
 
       nixosModules = {
-        srvProxy = import ./srvProxy.nix;
         home = import ./home;
         home2 = import ./home.2;
 
@@ -41,7 +40,7 @@
         baumgartner = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./common ./baumgartner/configuration.nix self.nixosModules.srvProxy
+            ./common ./baumgartner/configuration.nix
             cabinet.nixosModules.cabinet
 
             home-manager.nixosModules.home-manager self.nixosModules.home
