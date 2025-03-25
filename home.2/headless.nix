@@ -56,6 +56,8 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       haskell-language-server ghc cabal-install
+
+      curl openssl
     ];
   };
 
