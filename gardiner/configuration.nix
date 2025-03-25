@@ -113,5 +113,6 @@ in {
   networking.hostName = "gardiner";
   networking.domain = "";
   services.openssh.enable = true;
+  services.openssh.settings.PasswordAuthentication = false;
   system.stateVersion = "23.11";
 }
