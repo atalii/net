@@ -110,6 +110,10 @@ in {
 
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
+  services.journald.extraConfig = ''
+    SystemMaxUse=400M
+  '';
+
   networking.hostName = "gardiner";
   networking.domain = "";
   services.openssh.enable = true;
