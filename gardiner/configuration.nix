@@ -85,10 +85,27 @@ in {
       notifier.filesystem.filename = "/var/lib/authelia-tla/authelia-notifs";
       storage.local.path = "/var/lib/authelia-tla/db.sqlite";
       authentication_backend.file.path = "/var/lib/authelia-tla/users.yml";
+
+      identity_providers.oidc = {
+	clients = [{
+	  client_name = "Wiki JS";
+	  client_id = "de8d6798-7c21-4c87-919f-d028d1ce9128";
+	  client_secret = "$pbkdf2-sha512$310000$6YnVJghsYueaQAIts1VSqA$K0L0Q2X/3fekSAbD31e05inRrXb75myqoifMxhpebUrhYhxuGQcDo4K94kHJDRrbpv5Xf1OJ3hawFy0x3KEx.Q";
+	  redirect_uris = [ "https://wiki.tali.network/login/26bee40e-bf8a-4c96-8240-6f84f261cc75/callback" ];
+
+	  scopes = [ "openid" "profile" "email" ];
+
+	  userinfo_signed_response_alg = "none";
+          token_endpoint_auth_method = "client_secret_post";
+	}];
+      };
     };
 
     secrets.storageEncryptionKeyFile = "/var/lib/authelia-tla/storage-enc-key";
     secrets.jwtSecretFile = "/var/lib/authelia-tla/jwt-secret";
+
+    secrets.oidcIssuerPrivateKeyFile = "/var/lib/authelia-tla/oidc_key";
+    secrets.oidcHmacSecretFile = "/var/lib/authelia-tla/oidc_hmac_secret";
   };
 
   boot.tmp.cleanOnBoot = true;
