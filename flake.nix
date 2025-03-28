@@ -23,7 +23,6 @@
 
       nixosModules = {
         home = import ./home;
-        home2 = import ./home.2;
 
         fonts = { pkgs, config, ... }: {
           fonts.packages = [ self.packages.x86_64-linux.berkeley-mono ];
@@ -44,7 +43,7 @@
             cabinet.nixosModules.cabinet
 
             home-manager.nixosModules.home-manager
-            self.nixosModules.home2.headless
+            self.nixosModules.home.headless
           ];
 
           specialArgs = { inherit imhdss; };
@@ -56,8 +55,8 @@
           modules = [
             ./thing-in-itself nixos-hardware.nixosModules.framework-13-7040-amd
             home-manager.nixosModules.home-manager
-	    self.nixosModules.home2.headless
-	    self.nixosModules.home2.gui
+	    self.nixosModules.home.headless
+	    self.nixosModules.home.gui
           ];
         };
 
@@ -69,7 +68,7 @@
           modules = [
             ./common ./gardiner/configuration.nix
             home-manager.nixosModules.home-manager
-            self.nixosModules.home2.headless
+            self.nixosModules.home.headless
           ];
         };
 
