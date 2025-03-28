@@ -66,7 +66,7 @@
 
       directory.fish_style_pwd_dir_length = 1;
       git_branch.format = "[$symbol$branch(:$remote_branch)]($style) ";
-      hostname.format = "@[$hostname](bold dimmed yellow)";
+      hostname.format = "[@$hostname](bold dimmed yellow)";
     };
   };
 
