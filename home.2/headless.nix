@@ -52,7 +52,14 @@
       };
     };
 
-  programs.starship.enable = true;
+  programs.starship = {
+    enable = true;
+
+    settings.character = {
+      success_symbol = "[\\[λ\\]](bold green)";
+      error_symbol = "[\\[λ\\]](bold red)";
+    };
+  };
 
   users.users.tali = {
     shell = pkgs.fish;
