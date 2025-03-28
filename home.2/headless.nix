@@ -55,9 +55,13 @@
   programs.starship = {
     enable = true;
 
-    settings.character = {
-      success_symbol = "[\\[λ\\]](bold green)";
-      error_symbol = "[\\[λ\\]](bold red)";
+    settings = {
+      character = {
+        success_symbol = "[\\[λ\\]](bold green)";
+        error_symbol = "[\\[λ\\]](bold red)";
+      };
+
+      battery.disabled = true;
     };
   };
 
