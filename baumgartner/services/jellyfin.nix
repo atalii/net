@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  services.jellyfin.enable = true;
+  services.jellyfin = {
+    enable = true;
+    dataDir = "/data/service-state/jellyfin";
+  };
 }
