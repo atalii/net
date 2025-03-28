@@ -87,17 +87,28 @@ in {
       authentication_backend.file.path = "/var/lib/authelia-tla/users.yml";
 
       identity_providers.oidc = {
-	clients = [{
-	  client_name = "Wiki JS";
-	  client_id = "de8d6798-7c21-4c87-919f-d028d1ce9128";
-	  client_secret = "$pbkdf2-sha512$310000$6YnVJghsYueaQAIts1VSqA$K0L0Q2X/3fekSAbD31e05inRrXb75myqoifMxhpebUrhYhxuGQcDo4K94kHJDRrbpv5Xf1OJ3hawFy0x3KEx.Q";
-	  redirect_uris = [ "https://wiki.tali.network/login/26bee40e-bf8a-4c96-8240-6f84f261cc75/callback" ];
+	clients = [
+	  {
+	    client_name = "Wiki JS";
+	    client_id = "de8d6798-7c21-4c87-919f-d028d1ce9128";
+	    client_secret = "$pbkdf2-sha512$310000$6YnVJghsYueaQAIts1VSqA$K0L0Q2X/3fekSAbD31e05inRrXb75myqoifMxhpebUrhYhxuGQcDo4K94kHJDRrbpv5Xf1OJ3hawFy0x3KEx.Q";
+	    redirect_uris = [ "https://wiki.tali.network/login/26bee40e-bf8a-4c96-8240-6f84f261cc75/callback" ];
 
-	  scopes = [ "openid" "profile" "email" ];
+	    scopes = [ "openid" "profile" "email" ];
 
-	  userinfo_signed_response_alg = "none";
-          token_endpoint_auth_method = "client_secret_post";
-	}];
+	    userinfo_signed_response_alg = "none";
+            token_endpoint_auth_method = "client_secret_post";
+	  }
+	  {
+	    client_name = "Miniflux";
+	    client_id = "6011ce6b-c1b6-4aa2-b9df-cc120ef3eb18";
+	    client_secret = "$pbkdf2-sha512$310000$WzsbVfu31uiuSuW4gP5e8A$Ljtp82HMau8Pu4r6lE7S3wURRYkroNS0aglj9GCVWSrfvW25w7djbN2FzrUzMA.Gj3BdEW0RvyfzYcKh9rIFsg";
+	    token_endpoint_auth_method = "client_secret_post";
+	    redirect_uris = [ "https://rss.tali.network/oauth2/oidc/callback" ];
+
+	    scopes = [ "openid" "profile" "email" ];
+	  }
+	];
       };
     };
 
