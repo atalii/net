@@ -77,6 +77,8 @@
     '';
   };
 
+  programs.command-not-found.enable = false;
+
   users.users.tali = {
     isNormalUser = true;
     description = "Tali Auster";
