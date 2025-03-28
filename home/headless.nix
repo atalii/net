@@ -56,12 +56,17 @@
     enable = true;
 
     settings = {
+      format = "$directory $fill $git_branch$hostname\n$character";
+      fill.symbol = " ";
+
       character = {
         success_symbol = "[\\[λ\\]](bold green)";
         error_symbol = "[\\[λ\\]](bold red)";
       };
 
-      battery.disabled = true;
+      directory.fish_style_pwd_dir_length = 1;
+      git_branch.format = "[$symbol$branch(:$remote_branch)]($style) ";
+      hostname.format = "@[$hostname](bold dimmed yellow)";
     };
   };
 
