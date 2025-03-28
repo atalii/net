@@ -37,6 +37,10 @@
 
   users.users."code-server".home = "/data/code-home";
 
+  services.journald.extraConfig = ''
+    SystemMaxUse=1G
+  '';
+
   imports = [ ./services ./hardware-configuration.nix ./data-pool.nix ];
 
   system.stateVersion = "23.11";
