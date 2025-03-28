@@ -43,7 +43,7 @@
             ./common ./baumgartner/configuration.nix
             cabinet.nixosModules.cabinet
 
-            home-manager.nixosModules.home-manager self.nixosModules.home
+            home-manager.nixosModules.home-manager
             self.nixosModules.home2.headless
           ];
 
