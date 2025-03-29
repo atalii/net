@@ -51,6 +51,7 @@
   };
 
   services.tailscale.enable = true;
+  services.postgresql.enable = true;
 
   programs.firefox.enable = true;
 
