@@ -42,6 +42,22 @@
 	  local lspconfig = require('lspconfig')
 	  lspconfig.hls.setup{}
 	  lspconfig.gopls.setup{}
+
+	  lspconfig.nil_ls.setup {
+	    settings = {
+	      nix = {
+	        flake = {
+		  autoArchive = true,
+		},
+	      },
+	    },
+	  }
+
+	  vim.api.nvim_create_autocmd('LspAttach', {
+	    callback = function(ev)
+	      vim.opt.number = true
+	    end,
+	  })
 	'';
       };
 
@@ -77,6 +93,8 @@
       haskell-language-server ghc cabal-install
 
       gopls go
+
+      nil
 
       curl openssl
     ];
