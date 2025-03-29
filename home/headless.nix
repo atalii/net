@@ -41,6 +41,7 @@
 
 	  local lspconfig = require('lspconfig')
 	  lspconfig.hls.setup{}
+	  lspconfig.gopls.setup{}
 	'';
       };
 
@@ -74,6 +75,8 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       haskell-language-server ghc cabal-install
+
+      gopls go
 
       curl openssl
     ];
