@@ -42,6 +42,7 @@
 	  local lspconfig = require('lspconfig')
 	  lspconfig.hls.setup{}
 	  lspconfig.gopls.setup{}
+	  lspconfig.tinymist.setup{}
 
 	  lspconfig.nil_ls.setup {
 	    settings = {
@@ -95,6 +96,8 @@
       gopls go
 
       nil
+
+      tinymist typst
 
       curl openssl
     ];
