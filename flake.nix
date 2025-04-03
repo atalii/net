@@ -60,6 +60,16 @@
           ];
         };
 
+        # Sensuous manifold. Its coherency is largely disputed.
+        "sensuous-manifold" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./common ./sensuous-manifold
+            home-manager.nixosModules.home-manager
+            self.nixosModules.home.headless
+          ];
+        };
+
         # Gardiner (the Helsinki Hetzner VM) refers to Jerzy
         # Kosinski's /Being There/. Gardiner has no reason to be where
         # he is. Just don't worry about it.
