@@ -21,8 +21,64 @@ in {
 
   services.caddy = {
     enable = true;
+    virtualHosts."auth.tali.network".extraConfig = proxy "localhost" 9091 false;
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096 false;
   };
+
+  services.authelia.instances."tla" = {
+    enable = true;
+    settings = {
+      default_2fa_method = "totp";
+
+      # Not doing anything complex with rules yet. Should be two factor soon.
+      access_control.default_policy = "one_factor";
+
+      session.cookies = [{
+        domain = "tali.network";
+        authelia_url = "https://auth.tali.network";
+      }];
+
+      # I don't believe Migadu wants me to send email. However,
+      # I could self-host an SMTP server just to be used for
+      # communication with myself, thereby avoiding most of
+      # the complications?
+      notifier.filesystem.filename = "/var/lib/authelia-tla/authelia-notifs";
+      storage.local.path = "/var/lib/authelia-tla/db.sqlite";
+      authentication_backend.file.path = "/var/lib/authelia-tla/users.yml";
+
+      identity_providers.oidc = {
+	clients = [
+	  {
+	    client_name = "Wiki JS";
+	    client_id = "de8d6798-7c21-4c87-919f-d028d1ce9128";
+	    client_secret = "$pbkdf2-sha512$310000$6YnVJghsYueaQAIts1VSqA$K0L0Q2X/3fekSAbD31e05inRrXb75myqoifMxhpebUrhYhxuGQcDo4K94kHJDRrbpv5Xf1OJ3hawFy0x3KEx.Q";
+	    redirect_uris = [ "https://wiki.tali.network/login/26bee40e-bf8a-4c96-8240-6f84f261cc75/callback" ];
+
+	    scopes = [ "openid" "profile" "email" ];
+
+	    userinfo_signed_response_alg = "none";
+            token_endpoint_auth_method = "client_secret_post";
+	  }
+	  {
+	    client_name = "Miniflux";
+	    client_id = "6011ce6b-c1b6-4aa2-b9df-cc120ef3eb18";
+	    client_secret = "$pbkdf2-sha512$310000$WzsbVfu31uiuSuW4gP5e8A$Ljtp82HMau8Pu4r6lE7S3wURRYkroNS0aglj9GCVWSrfvW25w7djbN2FzrUzMA.Gj3BdEW0RvyfzYcKh9rIFsg";
+	    token_endpoint_auth_method = "client_secret_post";
+	    redirect_uris = [ "https://rss.tali.network/oauth2/oidc/callback" ];
+
+	    scopes = [ "openid" "profile" "email" ];
+	  }
+	];
+      };
+    };
+
+    secrets.storageEncryptionKeyFile = "/var/lib/authelia-tla/storage-enc-key";
+    secrets.jwtSecretFile = "/var/lib/authelia-tla/jwt-secret";
+
+    secrets.oidcIssuerPrivateKeyFile = "/var/lib/authelia-tla/oidc_key";
+    secrets.oidcHmacSecretFile = "/var/lib/authelia-tla/oidc_hmac_secret";
+  };
+
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
