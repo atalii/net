@@ -38,15 +38,6 @@ in {
       }
     '';
 
-    virtualHosts."tali.network".extraConfig = ''
-      respond "Nothing here yet!"
-    '';
-
-    virtualHosts."files.tali.network".extraConfig = ''
-      root * /data/public
-      file_server
-    '';
-
     virtualHosts."code.tali.network".extraConfig = proxyBaum 4444 true;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819 false;
     virtualHosts."cal.tali.network".extraConfig = proxyBaum 8192 false;

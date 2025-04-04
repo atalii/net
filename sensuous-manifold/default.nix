@@ -21,6 +21,11 @@ in {
 
   services.caddy = {
     enable = true;
+
+    virtualHosts."tali.network".extraConfig = ''
+      respond "Nothing here yet!"
+    '';
+
     virtualHosts."auth.tali.network".extraConfig = proxy "localhost" 9091 false;
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096 false;
   };
