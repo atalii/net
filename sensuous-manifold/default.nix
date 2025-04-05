@@ -25,6 +25,7 @@ in {
       protocol = "https";
       host = "fedi.tali.network";
       accounts-allow-custom-css = true;
+      media-remote-cache-days = 1;
     };
   };
 
