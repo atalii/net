@@ -21,22 +21,8 @@ in {
 
   services.tailscale.useRoutingFeatures = "server";
 
-  services.gotosocial = {
-    enable = true;
-    settings = {
-      protocol = "https";
-      host = "fedi.tali.network";
-      accounts-allow-custom-css = true;
-    };
-  };
-
   services.caddy = {
     enable = true;
-    virtualHosts."fedi.tali.network".extraConfig = ''
-      reverse_proxy * http://127.0.0.1:8080 {
-          flush_interval -1
-      }
-    '';
   };
 
   boot.tmp.cleanOnBoot = true;

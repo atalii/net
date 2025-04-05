@@ -19,6 +19,15 @@ in {
     
   ];
 
+  services.gotosocial = {
+    enable = true;
+    settings = {
+      protocol = "https";
+      host = "fedi.tali.network";
+      accounts-allow-custom-css = true;
+    };
+  };
+
   services.caddy = {
     enable = true;
 
@@ -30,6 +39,11 @@ in {
     virtualHosts."cabinet.tali.network".extraConfig = proxyBaum 6445 true;
     virtualHosts."cal.tali.network".extraConfig = proxyBaum 8192 false;
     virtualHosts."code.tali.network".extraConfig = proxyBaum 4444 true;
+    virtualHosts."fedi.tali.network".extraConfig = ''
+      reverse_proxy * http://127.0.0.1:8080 {
+          flush_interval -1
+      }
+    '';
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096 false;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819 false;
 
