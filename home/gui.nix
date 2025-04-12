@@ -16,4 +16,6 @@
 
     wl-clipboard
   ];
+
+  fonts.packages = with pkgs; [ helvetica-neue-lt-std ];
 }
