@@ -40,6 +40,7 @@
 	  vim.cmd [[colorscheme catppuccin-latte]]
 
 	  local lspconfig = require('lspconfig')
+	  lspconfig.clangd.setup{}
 	  lspconfig.hls.setup{}
 	  lspconfig.gopls.setup{}
 	  lspconfig.tinymist.setup{}
@@ -94,6 +95,8 @@
       haskell-language-server ghc cabal-install
 
       gopls go
+
+      clang-tools
 
       nil
 
