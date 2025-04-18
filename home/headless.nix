@@ -64,6 +64,7 @@
       };
 
       programs.fish.enable = true;
+      programs.zoxide.enable = true;
 
       home.sessionVariables = rec {
         EDITOR = VISUAL;
