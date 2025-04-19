@@ -15,6 +15,8 @@
     signal-desktop thunderbird
 
     wl-clipboard
+
+    magic-wormhole
   ];
 
   fonts.packages = with pkgs; [ helvetica-neue-lt-std ];
