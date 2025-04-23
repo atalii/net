@@ -93,6 +93,8 @@
   users.users.tali = {
     shell = pkgs.fish;
     packages = with pkgs; [
+      dnsutils
+
       haskell-language-server ghc cabal-install
 
       gopls go
