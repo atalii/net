@@ -45,6 +45,12 @@ in {
           flush_interval -1
       }
     '';
+
+    virtualHosts."files.tali.network".extraConfig = ''
+      root * /public
+      file_server browse
+    '';
+
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096 false;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819 false;
 
