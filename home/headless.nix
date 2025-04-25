@@ -106,6 +106,8 @@
       tinymist typst
 
       curl openssl
+
+      tree file
     ];
   };
 
