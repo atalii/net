@@ -95,12 +95,6 @@
     packages = with pkgs; [
       dnsutils
 
-      haskell-language-server ghc cabal-install
-
-      gopls go
-
-      clang-tools
-
       nil
 
       tinymist typst

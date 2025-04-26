@@ -17,6 +17,13 @@
     wl-clipboard
 
     magic-wormhole
+
+    haskell-language-server ghc cabal-install
+
+    gopls go
+
+    clang-tools
+
   ];
 
   fonts.packages = with pkgs; [ helvetica-neue-lt-std ];
