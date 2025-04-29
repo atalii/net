@@ -53,7 +53,8 @@
         "thing-in-itself" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./thing-in-itself nixos-hardware.nixosModules.framework-13-7040-amd
+	    ./common ./thing-in-itself
+	    nixos-hardware.nixosModules.framework-13-7040-amd
             home-manager.nixosModules.home-manager
 	    self.nixosModules.home.headless
 	    self.nixosModules.home.gui
