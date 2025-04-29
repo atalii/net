@@ -29,6 +29,11 @@
 
   environment.systemPackages = with pkgs; [ zfs dig borgbackup ];
 
+  # I don't *think* there's any important state in /var (excepting perhaps
+  # Jellyfin playlist info), but I don't want to find out I'm wrong the hard
+  # way.
+  backupVar = true;
+
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
