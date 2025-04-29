@@ -27,7 +27,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "root" "atalii" ];
 
-  environment.systemPackages = with pkgs; [ zfs dig ];
+  environment.systemPackages = with pkgs; [ zfs dig borgbackup ];
 
   services.openssh = {
     enable = true;
