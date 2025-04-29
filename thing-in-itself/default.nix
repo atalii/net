@@ -57,6 +57,18 @@
   services.tailscale.enable = true;
   services.postgresql.enable = true;
 
+  services.borgbackup.jobs.home-thing-in-itself = {
+    paths = "/home/tali";
+    repo = "ssh://tali@100.64.0.1/data/backups/thing-in-itself";
+    compression = "auto,zstd";
+    startAt = "hourly";
+
+    encryption.mode = "none"; # lol
+
+    # Make sure to use our user and our SSH key by default.
+    user = "tali";
+  };
+
   programs.firefox.enable = true;
 
   nixpkgs.config.allowUnfree = true;
