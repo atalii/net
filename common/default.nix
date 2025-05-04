@@ -26,6 +26,8 @@
         "/home/tali"
       ] ++ lib.optionals config.backupVar [ "/var" ];
 
+      exclude = lib.optionals config.backupVar [ "/var/cache" ];
+
       repo = "ssh://tali@100.64.0.1/data/backups/${config.networking.hostName}";
       compression = "auto,zstd";
       startAt = "hourly";
