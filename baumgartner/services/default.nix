@@ -42,14 +42,53 @@
   services.distccd.stats.enable = true;
   services.distccd.logLevel = "info";
 
+  services.prometheus = {
+    enable = true;
+
+    exporters.node = {
+      enable = true;
+      enabledCollectors = [ "logind" "systemd" ];
+    };
+
+    scrapeConfigs = [
+      {
+        job_name = "node:baumgartner";
+        static_configs = [{
+          targets = [ "localhost:9100" ];
+        }];
+      }
+    ];
+  };
+
+  services.grafana = {
+    enable = true;
+    settings = {
+      server = {
+        domain = "grafana.tali.network";
+
+        # 3000 is the default, but WikiJS is using that.
+        http_port = 4000;
+        http_addr = "0.0.0.0";
+      };
+
+      auth = {
+	disable_login_form = true;
+      };
+
+      "auth.anonymous" = {
+        enabled = true;
+        org_role = "Admin";
+      };
+    };
+  };
+
   users.users.code-server.packages = with pkgs; [
     gcc clang
     tinymist typst
-    nixd
+    elan nixd
     clang-tools
     haskell-language-server cabal-install ghc
     bash
     python3 pyright poetry black
-    lean4 elan
   ];
 }
