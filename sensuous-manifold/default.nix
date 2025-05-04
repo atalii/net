@@ -19,6 +19,15 @@ in {
     
   ];
 
+  services.prometheus = {
+    enable = false;
+    exporters.node = {
+      enable = true;
+      enabledCollectors = [ "logind" "systemd" ];
+      listenAddress = "127.0.0.1";
+    };
+  };
+
   services.gotosocial = {
     enable = true;
     settings = {
@@ -54,7 +63,9 @@ in {
     virtualHosts."grafana.tali.network".extraConfig = proxyBaum 4000 true;
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096 false;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819 false;
-
+    virtualHosts."sm.tali.network".extraConfig = ''
+      reverse_proxy * localhost:9100
+    '';
     virtualHosts."ttds.tali.network".extraConfig = proxy "100.90.198.6" 8080 false;
 
     virtualHosts."wiki.tali.network".extraConfig = ''
