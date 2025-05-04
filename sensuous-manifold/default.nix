@@ -51,6 +51,7 @@ in {
       file_server browse
     '';
 
+    virtualHosts."grafana.tali.network".extraConfig = proxyBaum 4000 true;
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096 false;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819 false;
 
