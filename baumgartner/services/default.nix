@@ -57,6 +57,12 @@
           targets = [ "localhost:9100" ];
         }];
       }
+      {
+        job_name = "node:sensuous-manifold";
+        static_configs = [{
+          targets = [ "sm.tali.network" ];
+        }];
+      }
     ];
   };
 
