@@ -119,8 +119,15 @@ in {
     secrets.oidcHmacSecretFile = "/var/lib/authelia-tla/oidc_hmac_secret";
   };
 
+  # We happen to have a whole lot of stuff to care about.
+  backupVar = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+
+    # Unfortunately, we really do care about disk space :(
+    auto-optimise-store = true;
+  };
 
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = false;
