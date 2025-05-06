@@ -59,6 +59,11 @@
 	  vim.api.nvim_create_autocmd('LspAttach', {
 	    callback = function(ev)
 	      vim.opt.number = true
+	      vim.api.nvim_create_autocmd("BufWritePre", {
+	        callback = function(ev)
+		  vim.lsp.buf.format {bufnr = ev.buf}
+		end
+	      })
 	    end,
 	  })
 	'';
