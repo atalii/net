@@ -32,8 +32,11 @@
 	viAlias = true; # :)
 
 	plugins = with pkgs.vimPlugins; [
-	  nvim-lspconfig
 	  catppuccin-nvim
+	  coc-nvim
+	  coc-svelte
+	  nvim-lspconfig
+	  vim-svelte
 	];
 
 	extraLuaConfig = ''
