@@ -9,10 +9,19 @@
         font-family = "Berkeley Mono";
       };
     };
+
+    dconf = {
+      enable = true;
+      settings = {
+        "org/gnome/desktop/default-applications/terminal" = {
+          exec = "ghostty";
+        };
+      };
+    };
   };
 
   users.users.tali.packages = with pkgs; [
-    signal-desktop thunderbird
+    signal-desktop thunderbird anki gnucash
 
     wl-clipboard
 
