@@ -46,7 +46,20 @@ in {
     '';
 
     virtualHosts."auth.tali.network".extraConfig = proxy "localhost" 9091 false;
-    virtualHosts."cabinet.tali.network".extraConfig = proxyBaum 6445 true;
+    virtualHosts."cabinet.tali.network".extraConfig = ''
+      forward_auth localhost:9091 {
+        uri /api/authz/forward-auth
+        copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+      }
+
+      handle_path /api/* {
+        reverse_proxy * http://100.64.0.1:6446
+      }
+
+      handle {
+        reverse_proxy * http://100.64.0.1:6445
+      }
+    '';
     virtualHosts."cal.tali.network".extraConfig = proxyBaum 8192 false;
     virtualHosts."code.tali.network".extraConfig = proxyBaum 4444 true;
     virtualHosts."fedi.tali.network".extraConfig = ''
