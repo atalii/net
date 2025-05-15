@@ -41,26 +41,6 @@
         "type": "github"
       }
     },
-    "imhdss": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1722794704,
-        "narHash": "sha256-RzAjDd4qTeDpAL74c116/Znr5uq+5AHRt0Hbbb2/QOw=",
-        "owner": "atalii",
-        "repo": "is-my-hard-disk-still-spinning",
-        "rev": "7026243e1baf1367ffe7a9764b3e42151aa0230f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "atalii",
-        "repo": "is-my-hard-disk-still-spinning",
-        "type": "github"
-      }
-    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1747129300,
@@ -96,7 +76,6 @@
       "inputs": {
         "cabinet": "cabinet",
         "home-manager": "home-manager",
-        "imhdss": "imhdss",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs"
       }

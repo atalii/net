@@ -6,9 +6,6 @@
   inputs.home-manager.url = "github:nix-community/home-manager/release-24.11";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.imhdss.url = "github:atalii/is-my-hard-disk-still-spinning";
-  inputs.imhdss.inputs.nixpkgs.follows = "nixpkgs";
-
   inputs.cabinet.url = "github:atalii/cabinet";
   inputs.cabinet.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -17,7 +14,6 @@
     , nixpkgs
     , nixos-hardware
     , home-manager
-    , imhdss
     , cabinet
     }: {
 
@@ -45,8 +41,6 @@
             home-manager.nixosModules.home-manager
             self.nixosModules.home.headless
           ];
-
-          specialArgs = { inherit imhdss; };
         };
 
         # My Framework. Incomprehensible.

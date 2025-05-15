@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./jellyfin.nix ./postgres.nix ./wikijs.nix ./imhdss.nix ./radicale.nix ./paperless.nix ./miniflux.nix
+    ./jellyfin.nix ./postgres.nix ./wikijs.nix ./radicale.nix ./miniflux.nix
   ];
 
   services.code-server.enable = true;
