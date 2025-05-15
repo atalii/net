@@ -38,8 +38,15 @@ in {
     };
   };
 
+  systemd.services.caddy.environment."CADDY_ADMIN" = "100.69.247.123:2019";
   services.caddy = {
     enable = true;
+
+    globalConfig = ''
+      servers {
+        metrics
+      }
+    '';
 
     virtualHosts."tali.network".extraConfig = ''
       respond "Nothing here yet!"
