@@ -63,6 +63,12 @@
           targets = [ "sm.tali.network" ];
         }];
       }
+      {
+        job_name = "caddy:sensuous-manifold";
+        static_configs = [{
+          targets = [ "100.69.247.123:2019" ];
+        }];
+      }
     ];
   };
 
