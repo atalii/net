@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747417536,
-        "narHash": "sha256-3Nw0209ITz9Eff8AjviQ7U78MZnwsv8suQ2BYvScpQo=",
+        "lastModified": 1747673673,
+        "narHash": "sha256-H10ZyDlHM8ll1i918GvQB7Zk1LMjt5hUcnfBlAc2Un4=",
         "owner": "atalii",
         "repo": "cabinet",
-        "rev": "e616aa57b1ab499aee2b8ec8aa22244443f995a3",
+        "rev": "cdf1712151e633fca1e65958876243eca8852ca5",
         "type": "github"
       },
       "original": {
