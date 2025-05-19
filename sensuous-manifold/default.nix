@@ -54,7 +54,11 @@ in {
 
     virtualHosts."auth.tali.network".extraConfig = proxy "localhost" 9091 false;
     virtualHosts."cabinet.tali.network".extraConfig = ''
-      forward_auth localhost:9091 {
+      @auth_required {
+        not path /api/files/by-uuid/public/*
+      }
+
+      forward_auth @auth_required localhost:9091 {
         uri /api/authz/forward-auth
         copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
       }
