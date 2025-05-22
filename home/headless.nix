@@ -44,40 +44,49 @@
         ];
 
         extraLuaConfig = ''
-            	  vim.cmd [[colorscheme catppuccin-latte]]
+          vim.cmd [[colorscheme catppuccin-latte]]
 
-            	  local lspconfig = require('lspconfig')
-            	  lspconfig.clangd.setup{}
-            	  lspconfig.gopls.setup{}
-            	  lspconfig.hls.setup{}
-            	  lspconfig.svelte.setup{}
-            	  lspconfig.tinymist.setup{}
+          local lspconfig = require('lspconfig')
+          lspconfig.clangd.setup{}
+          lspconfig.gopls.setup{}
+          lspconfig.hls.setup{}
+          lspconfig.svelte.setup{}
+          lspconfig.tinymist.setup{}
 
-            	  lspconfig.nil_ls.setup {
-            	    settings = {
-            	      ['nil'] = {
-            		nix = { flake = { autoArchive = true; }; };
-            		formatting = { command = { "nixfmt" }; };
-            	      };
-            	    };
-            	  }
+          lspconfig.nil_ls.setup {
+            settings = {
+              ['nil'] = {
+          nix = { flake = { autoArchive = true; }; };
+          formatting = { command = { "nixfmt" }; };
+              };
+            };
+          }
 
-            	  vim.api.nvim_create_autocmd('LspAttach', {
-            	    callback = function(ev)
-            	      vim.opt.number = true
-            	      vim.api.nvim_create_autocmd("BufWritePre", {
-            		callback = function(ev)
-            		  vim.lsp.buf.format {bufnr = ev.buf}
-            		end
-            	      })
-            	    end,
-            	  })
+          vim.api.nvim_create_autocmd('FileType', {
+            pattern = 'nix';
+            callback = function()
+              vim.opt_local.shiftwidth = 2;
+              vim.opt_local.tabstop = 2;
+              vim.opt_local.expandtab = true;
+            end
+          })
 
-            	  vim.g.mapleader = ' ';
+          vim.api.nvim_create_autocmd('LspAttach', {
+            callback = function(ev)
+              vim.opt.number = true
+              vim.api.nvim_create_autocmd("BufWritePre", {
+                callback = function(ev)
+                  vim.lsp.buf.format {bufnr = ev.buf}
+                end
+              })
+            end,
+          })
 
-          	  local telescope = require('telescope.builtin');
-            	  vim.keymap.set('n', '<leader>o', telescope.find_files, { desc = 'Find files (telescope)'; });
-            	'';
+          vim.g.mapleader = ' ';
+
+          local telescope = require('telescope.builtin');
+          vim.keymap.set('n', '<leader>o', telescope.find_files, { desc = 'Find files (telescope)'; });
+        '';
       };
 
       programs.fish.enable = true;
