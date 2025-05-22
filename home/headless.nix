@@ -33,8 +33,6 @@
 
 	plugins = with pkgs.vimPlugins; [
 	  catppuccin-nvim
-	  coc-nvim
-	  coc-svelte
 	  nvim-lspconfig
 	  vim-svelte
 	];
