@@ -7,16 +7,19 @@
   home-manager.useUserPackages = true;
 
   home-manager.users.tali =
-    { config, pkgs, ... }: {
+    { config, pkgs, ... }:
+    {
       home.stateVersion = "23.11";
       programs.home-manager.enable = true;
-  
+
       xdg.userDirs =
-        let inHome = path: "${config.home.homeDirectory}/${path}";
-        in {
+        let
+          inHome = path: "${config.home.homeDirectory}/${path}";
+        in
+        {
           enable = true;
           createDirectories = false;
-  
+
           desktop = inHome "dsk";
           documents = inHome "doc";
           download = inHome "dwn";
@@ -25,48 +28,48 @@
           publicShare = inHome "pub";
           videos = inHome "vid";
         };
-  
+
       programs.neovim = {
         enable = true;
-	defaultEditor = true;
-	viAlias = true; # :)
+        defaultEditor = true;
+        viAlias = true; # :)
 
-	plugins = with pkgs.vimPlugins; [
-	  catppuccin-nvim
-	  nvim-lspconfig
-	  vim-svelte
-	];
+        plugins = with pkgs.vimPlugins; [
+          catppuccin-nvim
+          nvim-lspconfig
+          vim-svelte
+        ];
 
-	extraLuaConfig = ''
-	  vim.cmd [[colorscheme catppuccin-latte]]
+        extraLuaConfig = ''
+          	  vim.cmd [[colorscheme catppuccin-latte]]
 
-	  local lspconfig = require('lspconfig')
-	  lspconfig.clangd.setup{}
-	  lspconfig.gopls.setup{}
-	  lspconfig.hls.setup{}
-	  lspconfig.svelte.setup{}
-	  lspconfig.tinymist.setup{}
+          	  local lspconfig = require('lspconfig')
+          	  lspconfig.clangd.setup{}
+          	  lspconfig.gopls.setup{}
+          	  lspconfig.hls.setup{}
+          	  lspconfig.svelte.setup{}
+          	  lspconfig.tinymist.setup{}
 
-	  lspconfig.nil_ls.setup {
-	    settings = {
-	      ['nil'] = {
-	        nix = { flake = { autoArchive = true; }; };
-		formatting = { command = { "nixfmt" }; };
-	      };
-	    };
-	  }
+          	  lspconfig.nil_ls.setup {
+          	    settings = {
+          	      ['nil'] = {
+          	        nix = { flake = { autoArchive = true; }; };
+          		formatting = { command = { "nixfmt" }; };
+          	      };
+          	    };
+          	  }
 
-	  vim.api.nvim_create_autocmd('LspAttach', {
-	    callback = function(ev)
-	      vim.opt.number = true
-	      vim.api.nvim_create_autocmd("BufWritePre", {
-	        callback = function(ev)
-		  vim.lsp.buf.format {bufnr = ev.buf}
-		end
-	      })
-	    end,
-	  })
-	'';
+          	  vim.api.nvim_create_autocmd('LspAttach', {
+          	    callback = function(ev)
+          	      vim.opt.number = true
+          	      vim.api.nvim_create_autocmd("BufWritePre", {
+          	        callback = function(ev)
+          		  vim.lsp.buf.format {bufnr = ev.buf}
+          		end
+          	      })
+          	    end,
+          	  })
+          	'';
       };
 
       programs.fish.enable = true;
@@ -103,11 +106,14 @@
 
       nil
 
-      tinymist typst
+      tinymist
+      typst
 
-      curl openssl
+      curl
+      openssl
 
-      tree file
+      tree
+      file
 
       nixfmt-rfc-style
     ];
@@ -125,7 +131,10 @@
   users.users.tali = {
     isNormalUser = true;
     description = "Tali Auster";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHlsdZRN8i12v5Uv2ZZtGqxqbf8T/n0H6U/UagIPUZy5 tali@thing-in-itself"

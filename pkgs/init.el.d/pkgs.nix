@@ -32,9 +32,9 @@
     };
 
     config = ''
-        (add-to-list 'auto-mode-alist '("\\.ads\\'" . ada-mode))
-        (add-to-list 'auto-mode-alist '("\\.adb\\'" . ada-mode))
-      '';
+      (add-to-list 'auto-mode-alist '("\\.ads\\'" . ada-mode))
+      (add-to-list 'auto-mode-alist '("\\.adb\\'" . ada-mode))
+    '';
   }
   {
     name = "devil";
@@ -46,8 +46,8 @@
     };
 
     config = ''
-        (global-devil-mode)
-      '';
+      (global-devil-mode)
+    '';
   }
 
   {

@@ -10,19 +10,24 @@
   inputs.cabinet.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs =
-    { self
-    , nixpkgs
-    , nixos-hardware
-    , home-manager
-    , cabinet
-    }: {
+    {
+      self,
+      nixpkgs,
+      nixos-hardware,
+      home-manager,
+      cabinet,
+    }:
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
 
       nixosModules = {
         home = import ./home;
 
-        fonts = { pkgs, config, ... }: {
-          fonts.packages = [ self.packages.x86_64-linux.berkeley-mono ];
-        };
+        fonts =
+          { pkgs, config, ... }:
+          {
+            fonts.packages = [ self.packages.x86_64-linux.berkeley-mono ];
+          };
       };
 
       # Hostnames refer to characters from stuffy pretentious literature that
@@ -35,7 +40,8 @@
         baumgartner = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./common ./baumgartner/configuration.nix
+            ./common
+            ./baumgartner/configuration.nix
             cabinet.nixosModules.cabinet
 
             home-manager.nixosModules.home-manager
@@ -47,7 +53,8 @@
         "thing-in-itself" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./common ./thing-in-itself
+            ./common
+            ./thing-in-itself
             nixos-hardware.nixosModules.framework-13-7040-amd
             home-manager.nixosModules.home-manager
             self.nixosModules.home.headless
@@ -59,7 +66,8 @@
         "sensuous-manifold" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./common ./sensuous-manifold
+            ./common
+            ./sensuous-manifold
             home-manager.nixosModules.home-manager
             self.nixosModules.home.headless
           ];
@@ -71,7 +79,8 @@
         gardiner = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
           modules = [
-            ./common ./gardiner/configuration.nix
+            ./common
+            ./gardiner/configuration.nix
             home-manager.nixosModules.home-manager
             self.nixosModules.home.headless
           ];
@@ -82,14 +91,18 @@
         gregor = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./common ./gregor/configuration.nix
-            home-manager.nixosModules.home-manager self.nixosModules.home
+            ./common
+            ./gregor/configuration.nix
+            home-manager.nixosModules.home-manager
+            self.nixosModules.home
           ];
         };
       };
 
       packages.x86_64-linux =
-        let pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        in pkgs.callPackage ./pkgs {};
+        let
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        in
+        pkgs.callPackage ./pkgs { };
     };
 }

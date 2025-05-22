@@ -1,4 +1,8 @@
-{ stdenvNoCC, fetchurl, unzip }:
+{
+  stdenvNoCC,
+  fetchurl,
+  unzip,
+}:
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "berkely-mono";

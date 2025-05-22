@@ -21,15 +21,21 @@
   };
 
   users.users.tali.packages = with pkgs; [
-    signal-desktop thunderbird anki gnucash
+    signal-desktop
+    thunderbird
+    anki
+    gnucash
 
     wl-clipboard
 
     magic-wormhole
 
-    haskell-language-server ghc cabal-install
+    haskell-language-server
+    ghc
+    cabal-install
 
-    gopls go
+    gopls
+    go
 
     clang-tools
 

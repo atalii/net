@@ -11,7 +11,10 @@
   networking.networkmanager.enable = true;
 
   networking.hosts = {
-    "0.0.0.0" = [ "youtube.com" "www.youtube.com" ];
+    "0.0.0.0" = [
+      "youtube.com"
+      "www.youtube.com"
+    ];
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -34,9 +37,9 @@
     enable = true;
     extraGSettingsOverridePackages = [ pkgs.mutter ];
     extraGSettingsOverrides = ''
-     [org.gnome.mutter]
-     experimental-features=['scale-monitor-framebuffer']
-   '';
+      [org.gnome.mutter]
+      experimental-features=['scale-monitor-framebuffer']
+    '';
   };
 
   services.xserver.xkb = {
@@ -60,7 +63,10 @@
   programs.firefox.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "flakes" "nix-command" ];
+  nix.settings.experimental-features = [
+    "flakes"
+    "nix-command"
+  ];
 
   environment.systemPackages = with pkgs; [ git ];
 

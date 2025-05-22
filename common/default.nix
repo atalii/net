@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   options = with lib; {
@@ -14,19 +19,28 @@
 
     environment.systemPackages = with pkgs; [
       neofetch # a necessity
-      git nvi ghostty.terminfo
+      git
+      nvi
+      ghostty.terminfo
     ];
 
     nixpkgs.config.allowUnfree = true;
 
-    networking.firewall.allowedTCPPorts = [ 80 443 22 ];
+    networking.firewall.allowedTCPPorts = [
+      80
+      443
+      22
+    ];
 
     services.borgbackup.jobs."${config.networking.hostName}" = {
       paths = [
         "/home/tali"
       ] ++ lib.optionals config.backupVar [ "/var" ];
 
-      exclude = lib.optionals config.backupVar [ "/var/cache" "/var/log" ];
+      exclude = lib.optionals config.backupVar [
+        "/var/cache"
+        "/var/log"
+      ];
 
       repo = "ssh://tali@100.64.0.1/data/backups/${config.networking.hostName}";
       compression = "auto,zstd";

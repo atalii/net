@@ -2,7 +2,11 @@
 
 {
   imports = [
-    ./jellyfin.nix ./postgres.nix ./wikijs.nix ./radicale.nix ./miniflux.nix
+    ./jellyfin.nix
+    ./postgres.nix
+    ./wikijs.nix
+    ./radicale.nix
+    ./miniflux.nix
   ];
 
   services.code-server.enable = true;
@@ -15,9 +19,11 @@
       vscodevim.vim
       myriad-dreamin.tinymist
       jnoortheen.nix-ide
-      haskell.haskell justusadam.language-haskell
+      haskell.haskell
+      justusadam.language-haskell
       llvm-vs-code-extensions.vscode-clangd
-      ms-python.python ms-pyright.pyright
+      ms-python.python
+      ms-pyright.pyright
 
       (pkgs.vscode-utils.buildVscodeMarketplaceExtension rec {
         mktplcRef = {
@@ -37,7 +43,11 @@
   networking.firewall.allowedTCPPorts = [ 4444 ];
 
   services.distccd.enable = true;
-  services.distccd.allowedClients = [ "127.0.0.1" "100.64.0.0/10" "192.168.0.0/16" ];
+  services.distccd.allowedClients = [
+    "127.0.0.1"
+    "100.64.0.0/10"
+    "192.168.0.0/16"
+  ];
   services.distccd.openFirewall = true;
   services.distccd.stats.enable = true;
   services.distccd.logLevel = "info";
@@ -47,27 +57,36 @@
 
     exporters.node = {
       enable = true;
-      enabledCollectors = [ "logind" "systemd" ];
+      enabledCollectors = [
+        "logind"
+        "systemd"
+      ];
     };
 
     scrapeConfigs = [
       {
         job_name = "node:baumgartner";
-        static_configs = [{
-          targets = [ "localhost:9100" ];
-        }];
+        static_configs = [
+          {
+            targets = [ "localhost:9100" ];
+          }
+        ];
       }
       {
         job_name = "node:sensuous-manifold";
-        static_configs = [{
-          targets = [ "sm.tali.network" ];
-        }];
+        static_configs = [
+          {
+            targets = [ "sm.tali.network" ];
+          }
+        ];
       }
       {
         job_name = "caddy:sensuous-manifold";
-        static_configs = [{
-          targets = [ "100.69.247.123:2019" ];
-        }];
+        static_configs = [
+          {
+            targets = [ "100.69.247.123:2019" ];
+          }
+        ];
       }
     ];
   };
@@ -84,7 +103,7 @@
       };
 
       auth = {
-	disable_login_form = true;
+        disable_login_form = true;
       };
 
       "auth.anonymous" = {
@@ -95,12 +114,20 @@
   };
 
   users.users.code-server.packages = with pkgs; [
-    gcc clang
-    tinymist typst
-    elan nixd
+    gcc
+    clang
+    tinymist
+    typst
+    elan
+    nixd
     clang-tools
-    haskell-language-server cabal-install ghc
+    haskell-language-server
+    cabal-install
+    ghc
     bash
-    python3 pyright poetry black
+    python3
+    pyright
+    poetry
+    black
   ];
 }

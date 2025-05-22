@@ -5,12 +5,15 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -40,7 +43,8 @@
   programs.wayfire = {
     enable = true;
     plugins = with pkgs.wayfirePlugins; [
-      wayfire-plugins-extra wf-shell
+      wayfire-plugins-extra
+      wf-shell
     ];
   };
 
@@ -66,14 +70,23 @@
   users.users.atalii = {
     isNormalUser = true;
     description = "Tali Auster";
-    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "audio"
+    ];
     shell = pkgs.nushell;
   };
 
   environment.systemPackages = with pkgs; [
     eww
-    firefox chromium thunderbird
-    git distcc gcc
+    firefox
+    chromium
+    thunderbird
+    git
+    distcc
+    gcc
   ];
 
   environment.etc."adage.conf".text = ''

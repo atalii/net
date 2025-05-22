@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   services.unifi = with pkgs; {
     enable = true;
     openFirewall = true;
@@ -7,5 +8,8 @@
     mongodbPackage = pkgs.mongodb;
   };
 
-  networking.firewall.allowedTCPPorts = [ 8443 8081 ];
+  networking.firewall.allowedTCPPorts = [
+    8443
+    8081
+  ];
 }
