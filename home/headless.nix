@@ -51,6 +51,7 @@
 	    settings = {
 	      ['nil'] = {
 	        nix = { flake = { autoArchive = true; }; };
+		formatting = { command = { "nixfmt" }; };
 	      };
 	    };
 	  }
@@ -107,6 +108,8 @@
       curl openssl
 
       tree file
+
+      nixfmt-rfc-style
     ];
   };
 
