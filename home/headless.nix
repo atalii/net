@@ -49,12 +49,10 @@
 
 	  lspconfig.nil_ls.setup {
 	    settings = {
-	      nix = {
-	        flake = {
-		  autoArchive = true,
-		},
-	      },
-	    },
+	      ['nil'] = {
+	        nix = { flake = { autoArchive = true; }; };
+	      };
+	    };
 	  }
 
 	  vim.api.nvim_create_autocmd('LspAttach', {
