@@ -56,19 +56,28 @@
           lspconfig.nil_ls.setup {
             settings = {
               ['nil'] = {
-          nix = { flake = { autoArchive = true; }; };
-          formatting = { command = { "nixfmt" }; };
+                nix = { flake = { autoArchive = true; }; };
+                formatting = { command = { "nixfmt" }; };
               };
             };
           }
 
-          vim.api.nvim_create_autocmd('FileType', {
-            pattern = 'nix';
-            callback = function()
-              vim.opt_local.shiftwidth = 2;
-              vim.opt_local.tabstop = 2;
+          local set_spaces_callback = function (width)
+            return function()
+              vim.opt_local.shiftwidth = width;
+              vim.opt_local.tabstop = width;
               vim.opt_local.expandtab = true;
             end
+          end
+
+          vim.api.nvim_create_autocmd('FileType', {
+            pattern = 'nix';
+            callback = set_spaces_callback(2);
+          })
+
+          vim.api.nvim_create_autocmd('FileType', {
+            pattern = 'ada';
+            callback = set_spaces_callback(3);
           })
 
           vim.api.nvim_create_autocmd('LspAttach', {
