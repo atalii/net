@@ -73,7 +73,7 @@
             	    end,
             	  })
 
-            	  vim.g.mapleader = '<Space>';
+            	  vim.g.mapleader = ' ';
 
           	  local telescope = require('telescope.builtin');
             	  vim.keymap.set('n', '<leader>o', telescope.find_files, { desc = 'Find files (telescope)'; });
