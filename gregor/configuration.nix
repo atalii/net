@@ -65,7 +65,7 @@
   services.printing.enable = true;
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  services.pulseaudio.enable = true;
 
   users.users.atalii = {
     isNormalUser = true;
