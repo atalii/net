@@ -25,6 +25,7 @@
     thunderbird
     anki
     gnucash
+    chrysalis
 
     wl-clipboard
 
