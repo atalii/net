@@ -20,7 +20,6 @@
     environment.systemPackages = with pkgs; [
       neofetch # a necessity
       git
-      nvi
       ghostty.terminfo
     ];
 
