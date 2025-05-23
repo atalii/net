@@ -55,8 +55,8 @@ in
     enable = true;
 
     globalConfig = ''
-      servers {
-        metrics
+      metrics {
+        per_host
       }
     '';
 
