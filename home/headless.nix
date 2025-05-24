@@ -34,7 +34,10 @@
         defaultEditor = true;
         viAlias = true; # :)
 
-        extraPackages = with pkgs; [ ripgrep ];
+        extraPackages = with pkgs; [
+          ripgrep
+          fd
+        ];
 
         plugins = with pkgs.vimPlugins; [
           catppuccin-nvim
@@ -94,6 +97,7 @@
           vim.g.mapleader = ' ';
 
           local telescope = require('telescope.builtin');
+          vim.keymap.set('n', '<leader>a', telescope.live_grep, { desc = 'Live grep (telescope)'; });
           vim.keymap.set('n', '<leader>o', telescope.find_files, { desc = 'Find files (telescope)'; });
         '';
       };
