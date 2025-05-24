@@ -94,11 +94,27 @@
             end,
           })
 
+          vim.diagnostic.config({
+            virtual_lines = true,
+          })
+
           vim.g.mapleader = ' ';
 
           local telescope = require('telescope.builtin');
           vim.keymap.set('n', '<leader>a', telescope.live_grep, { desc = 'Live grep (telescope)'; });
           vim.keymap.set('n', '<leader>o', telescope.find_files, { desc = 'Find files (telescope)'; });
+
+          vim.keymap.set('n', '<leader>ll', function()
+            vim.diagnostic.jump({
+              diagnostic = vim.diagnostic.get_next()
+            })
+          end, { desc = "Next diagnostic." })
+
+          vim.keymap.set('n', '<leader>lr', function()
+            vim.diagnostic.jump({
+              diagnostic = vim.diagnostic.get_next()
+            })
+          end, { desc = "Next diagnostic." })
         '';
       };
 
