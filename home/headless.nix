@@ -41,6 +41,7 @@
 
         plugins = with pkgs.vimPlugins; [
           catppuccin-nvim
+          dropbar-nvim
           nvim-lspconfig
           telescope-nvim
           vim-svelte

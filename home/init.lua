@@ -57,6 +57,7 @@ vim.diagnostic.config({
 vim.g.mapleader = ' ';
 
 local telescope = require('telescope.builtin');
+local dropbarapi = require('dropbar.api');
 vim.keymap.set('n', '<leader>a', telescope.live_grep, { desc = 'Live Grep (Telescope)'; });
 vim.keymap.set('n', '<leader>o', telescope.find_files, { desc = 'Find Files (Telescope)'; });
 vim.keymap.set('n', '<leader>e', telescope.buffers, { desc = 'Open Buffer (Telescope)'; });
@@ -74,3 +75,5 @@ vim.keymap.set('n', '<leader>lr', function()
 end, { desc = "Next diagnostic." })
 
 vim.keymap.set('n', '<leader>i', vim.lsp.buf.hover, { desc = 'LSP Hover'; });
+
+vim.keymap.set('n', '<leader>z', dropbarapi.pick, { desc = 'Interactive dropbar pick.'});
