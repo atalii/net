@@ -1,5 +1,11 @@
 vim.cmd [[colorscheme catppuccin-latte]]
 
+-- Set colors for line number highlighting. We just change the color of the
+-- text, leaving the line iteslf alone.
+vim.cmd [[highlight CursorLine guibg=NONE]]
+vim.cmd [[highlight LineNr guifg='#7c7f93' guibg='#eff1f5']]
+vim.cmd [[highlight CursorLineNr guifg='#4c4f69' guibg='#eff1f5']]
+
 local lspconfig = require('lspconfig')
 lspconfig.clangd.setup{}
 lspconfig.gopls.setup{}
@@ -42,6 +48,10 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     vim.opt.number = true
+
+    -- Necessary to change the color of the highlighted lines.
+    vim.opt.cursorline = true
+
     vim.api.nvim_create_autocmd("BufWritePre", {
       callback = function(ev)
         vim.lsp.buf.format {bufnr = ev.buf}
