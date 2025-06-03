@@ -6,6 +6,8 @@ vim.cmd [[highlight CursorLine guibg=NONE]]
 vim.cmd [[highlight LineNr guifg='#7c7f93' guibg='#eff1f5']]
 vim.cmd [[highlight CursorLineNr guifg='#4c4f69' guibg='#eff1f5']]
 
+require('telescope').load_extension('fzf')
+
 local lspconfig = require('lspconfig')
 lspconfig.clangd.setup{}
 lspconfig.gopls.setup{}
@@ -69,7 +71,7 @@ vim.diagnostic.config({
 
 vim.g.mapleader = ' ';
 
-local telescope = require('telescope.builtin');
+local telescope_builtin = require('telescope.builtin');
 local dropbarapi = require('dropbar.api');
 local nvim_treesitter_configs = require('nvim-treesitter.configs')
 
@@ -85,9 +87,9 @@ nvim_treesitter_configs.setup({
   },
 })
 
-vim.keymap.set('n', '<leader>a', telescope.live_grep, { desc = 'Live Grep (Telescope)'; });
-vim.keymap.set('n', '<leader>o', telescope.find_files, { desc = 'Find Files (Telescope)'; });
-vim.keymap.set('n', '<leader>e', telescope.buffers, { desc = 'Open Buffer (Telescope)'; });
+vim.keymap.set('n', '<leader>a', telescope_builtin.live_grep, { desc = 'Live Grep (Telescope)'; });
+vim.keymap.set('n', '<leader>o', telescope_builtin.find_files, { desc = 'Find Files (Telescope)'; });
+vim.keymap.set('n', '<leader>e', telescope_builtin.buffers, { desc = 'Open Buffer (Telescope)'; });
 
 vim.keymap.set('n', '<leader>ll', function()
   vim.diagnostic.jump({

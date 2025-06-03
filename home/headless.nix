@@ -44,6 +44,7 @@
           dropbar-nvim
           nvim-lspconfig
           telescope-nvim
+          telescope-fzf-native-nvim
           vim-svelte
 
           (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars))
