@@ -45,6 +45,8 @@
           nvim-lspconfig
           telescope-nvim
           vim-svelte
+
+          (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars))
         ];
 
         extraLuaConfig = builtins.readFile ./init.lua;

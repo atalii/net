@@ -52,6 +52,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Necessary to change the color of the highlighted lines.
     vim.opt.cursorline = true
 
+    -- If we have LSP, assume we have treesitter, too.
+    vim.treesitter.start()
+
     vim.api.nvim_create_autocmd("BufWritePre", {
       callback = function(ev)
         vim.lsp.buf.format {bufnr = ev.buf}
@@ -68,6 +71,20 @@ vim.g.mapleader = ' ';
 
 local telescope = require('telescope.builtin');
 local dropbarapi = require('dropbar.api');
+local nvim_treesitter_configs = require('nvim-treesitter.configs')
+
+nvim_treesitter_configs.setup({
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<leader>sa",
+      node_incremental = "<leader>so",
+      scope_incremental = "<leader>se",
+      node_decremental = "<leader>su",
+    },
+  },
+})
+
 vim.keymap.set('n', '<leader>a', telescope.live_grep, { desc = 'Live Grep (Telescope)'; });
 vim.keymap.set('n', '<leader>o', telescope.find_files, { desc = 'Find Files (Telescope)'; });
 vim.keymap.set('n', '<leader>e', telescope.buffers, { desc = 'Open Buffer (Telescope)'; });
