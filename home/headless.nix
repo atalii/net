@@ -65,7 +65,7 @@
         enable = true;
         settings = {
           user = {
-            email = "me@tail.network";
+            email = "me@tali.network";
             name = "Tali Auster";
           };
         };
