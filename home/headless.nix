@@ -60,6 +60,17 @@
         EDITOR = VISUAL;
         VISUAL = "nvim";
       };
+
+      programs.jujutsu = {
+        enable = true;
+        settings = {
+          user = {
+            email = "me@tail.network";
+            name = "Tali Auster";
+          };
+        };
+      };
+
     };
 
   programs.starship = {
