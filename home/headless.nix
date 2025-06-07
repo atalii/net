@@ -68,6 +68,9 @@
             email = "me@tali.network";
             name = "Tali Auster";
           };
+
+          # less clears the screeen even on short inputs, let's not use that.
+          ui.pager = ":builtin";
         };
       };
 
