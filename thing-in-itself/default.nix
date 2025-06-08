@@ -49,7 +49,16 @@
     variant = "";
   };
 
-  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [ hplip ];
+  };
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
