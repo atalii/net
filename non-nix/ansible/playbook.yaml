@@ -1,0 +1,15 @@
+- name: Update hosts.
+  hosts: TaliCorp
+  tasks:
+    - name: Get the net repo.
+      ansible.builtin.git:
+        repo: 'https://github.com/atalii/net'
+        dest: /home/tali/doc/net
+    - name: Run update.
+      ansible.builtin.command: nixos-rebuild switch --flake /home/tali/doc/net
+      become: yes
+      become_user: root
+    - name: Collect garbage. # Mostly only important on SM.
+      ansible.builtin.command: nix-collect-garbage -d
+      become: yes
+      become_user: root

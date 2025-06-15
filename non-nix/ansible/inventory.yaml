@@ -1,0 +1,9 @@
+TaliCorp:
+  hosts:
+    sm.tali.network:
+
+    # Baumgartner
+    100.64.0.1:
+
+    # Thing-in-itself
+    100.115.22.28:

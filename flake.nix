@@ -20,6 +20,22 @@
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
 
+      devShells.x86_64-linux.default =
+        let
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        in
+        pkgs.mkShell {
+          nativeBuildInputs = with pkgs; [
+            ansible
+            (pkgs.writeShellScriptBin "net-update" ''
+              exec ${pkgs.lib.getExe' pkgs.ansible "ansible-playbook"} \
+                -i ${builtins.toString ./.}/non-nix/ansible/inventory.yaml \
+                ${builtins.toString ./.}/non-nix/ansible/playbook.yaml \
+                -K -u tali "$@"
+            '')
+          ];
+        };
+
       nixosModules = {
         home = import ./home;
 
