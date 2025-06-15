@@ -69,6 +69,29 @@
             name = "Tali Auster";
           };
 
+          aliases = {
+            "tug" = [
+              "bookmark"
+              "move"
+              "--to=@-"
+              # We'll get the branch name on the CLI.
+            ];
+
+            # 'remote update'
+            "rup" = [
+              "util"
+              "exec"
+              "bash"
+              "--"
+              "-c"
+              ''
+                jj tug $1
+                jj git push -b $1
+              ''
+              ""
+            ];
+          };
+
           # less clears the screeen even on short inputs, let's not use that.
           ui.pager = ":builtin";
         };
