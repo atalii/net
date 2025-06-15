@@ -41,6 +41,8 @@
     clang-tools
 
     svelte-language-server
+
+    dfu-programmer
   ];
 
   fonts.packages = with pkgs; [ helvetica-neue-lt-std ];
