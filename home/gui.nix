@@ -46,4 +46,12 @@
   ];
 
   fonts.packages = with pkgs; [ helvetica-neue-lt-std ];
+
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      magic-wormhole = pkgs.magic-wormhole.overridePythonAttrs {
+        patches = [ ../patches/magic-wormhole/remove-that-one-warning.patch ];
+      };
+    };
+  };
 }

@@ -1,0 +1,27 @@
+From 952e071795e23c8b7b7f01ebaef89efaf001118c Mon Sep 17 00:00:00 2001
+From: Tali Auster <me@tali.network>
+Date: Sat, 14 Jun 2025 20:55:46 -0600
+Subject: [PATCH] don't warn on unused tab completion
+
+---
+ src/wormhole/cli/cmd_receive.py | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/src/wormhole/cli/cmd_receive.py b/src/wormhole/cli/cmd_receive.py
+index 541a30d..0ff1ebc 100644
+--- a/src/wormhole/cli/cmd_receive.py
++++ b/src/wormhole/cli/cmd_receive.py
+@@ -224,10 +224,6 @@ class Receiver:
+                 prompt = "Enter receive wormhole code: "
+                 used_completion = yield input_with_completion(
+                     prompt, w.input_code(), self._reactor)
+-                if not used_completion:
+-                    print(
+-                        " (note: you can use <Tab> to complete words)",
+-                        file=self.args.stderr)
+         yield w.get_code()
+ 
+     def _show_verifier(self, verifier_bytes):
+-- 
+2.49.0
+
