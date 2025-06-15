@@ -21,6 +21,8 @@
       neofetch # a necessity
       git
       ghostty.terminfo
+
+      python3 # required for ansible
     ];
 
     nixpkgs.config.allowUnfree = true;
