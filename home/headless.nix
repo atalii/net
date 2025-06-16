@@ -139,9 +139,15 @@
 
   programs.fish = {
     enable = true;
+
     interactiveShellInit = ''
       set fish_greeting
     '';
+
+    shellAbbrs = {
+      "jp" = "jj rup main";
+      "jpd" = "jj rup dev";
+    };
   };
 
   programs.command-not-found.enable = false;
