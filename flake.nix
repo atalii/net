@@ -38,12 +38,6 @@
 
       nixosModules = {
         home = import ./home;
-
-        fonts =
-          { pkgs, config, ... }:
-          {
-            fonts.packages = [ self.packages.x86_64-linux.berkeley-mono ];
-          };
       };
 
       # Hostnames refer to characters from stuffy pretentious literature that
