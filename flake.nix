@@ -83,19 +83,6 @@
           ];
         };
 
-        # Gardiner (the Helsinki Hetzner VM) refers to Jerzy
-        # Kosinski's /Being There/. Gardiner has no reason to be where
-        # he is. Just don't worry about it.
-        gardiner = nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          modules = [
-            ./common
-            ./gardiner/configuration.nix
-            home-manager.nixosModules.home-manager
-            self.nixosModules.home.headless
-          ];
-        };
-
         # Obligatory silly little guy mention... My laptop is constantly on the
         # verge of quietly perishing, but we love him anyway.
         gregor = nixpkgs.lib.nixosSystem {
