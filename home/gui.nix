@@ -26,6 +26,7 @@
     anki
     gnucash
     chrysalis
+    foliate
 
     wl-clipboard
 
