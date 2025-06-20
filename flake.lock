@@ -1,5 +1,40 @@
 {
   "nodes": {
+    "alire-community-index": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1749722259,
+        "narHash": "sha256-UW492D5b5c0LYP7m2uxYKtkHIrqDCdnB5seo6ZVW8BU=",
+        "owner": "alire-project",
+        "repo": "alire-index",
+        "rev": "c8f57b57d7d2833c1e499a35f060faf7f44e3530",
+        "type": "github"
+      },
+      "original": {
+        "owner": "alire-project",
+        "repo": "alire-index",
+        "type": "github"
+      }
+    },
+    "alirenix": {
+      "inputs": {
+        "alire-community-index": "alire-community-index",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1750456053,
+        "narHash": "sha256-JBBempzWkzzqTIv01wLulnkUZuCgxqAZg4v0erPWlpA=",
+        "owner": "atalii",
+        "repo": "alirenix",
+        "rev": "6d89c78c60ded894d44dab960590d538c6338ea4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "atalii",
+        "repo": "alirenix",
+        "type": "github"
+      }
+    },
     "cabinet": {
       "inputs": {
         "nixpkgs": [
@@ -72,12 +107,50 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1750357780,
+        "narHash": "sha256-vQs+gk0RkSJdwtfed94L4YnwMOygAKzUhb9IPGVI00w=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "b530547768e52213fd7a2c8c6d46c682945f390b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "release-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "passel": {
+      "inputs": {
+        "alirenix": "alirenix",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1750456216,
+        "narHash": "sha256-wGPX/uqKjyReq8PObzXPJlgYM9FXKcIG+cSMiVsySgI=",
+        "owner": "atalii",
+        "repo": "passel",
+        "rev": "69042b429f63487b6c4bed1f92428718976dde4b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "atalii",
+        "repo": "passel",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "cabinet": "cabinet",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "passel": "passel"
       }
     }
   },

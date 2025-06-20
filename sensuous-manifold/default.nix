@@ -1,4 +1,4 @@
-{ ... }:
+{ passel, pkgs, ... }:
 
 let
   baumgartner = "100.64.0.1";
@@ -61,7 +61,16 @@ in
     '';
 
     virtualHosts."tali.network".extraConfig = ''
-      respond "Nothing here yet!"
+      file_server {
+        root ${
+          passel.lib.buildSite {
+            src = ../non-nix/site;
+            passel = passel.packages."${pkgs.system}".default;
+            version = "0.1.0";
+            stdenv = pkgs.stdenv;
+          }
+        }
+      }
     '';
 
     virtualHosts."auth.tali.network".extraConfig = proxy "localhost" 9091 false;

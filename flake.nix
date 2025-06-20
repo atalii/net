@@ -9,6 +9,9 @@
   inputs.cabinet.url = "github:atalii/cabinet";
   inputs.cabinet.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.passel.url = "github:atalii/passel";
+  inputs.passel.inputs.nixpkgs.follows = "nixpkgs";
+
   outputs =
     {
       self,
@@ -16,6 +19,7 @@
       nixos-hardware,
       home-manager,
       cabinet,
+      passel,
     }:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
@@ -81,6 +85,10 @@
             home-manager.nixosModules.home-manager
             self.nixosModules.home.headless
           ];
+
+          specialArgs = {
+            inherit passel;
+          };
         };
 
         # Obligatory silly little guy mention... My laptop is constantly on the
