@@ -27,6 +27,7 @@
     gnucash
     chrysalis
     foliate
+    vlc
 
     wl-clipboard
 
