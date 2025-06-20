@@ -14,6 +14,7 @@ lspconfig.gopls.setup{}
 lspconfig.hls.setup{}
 lspconfig.svelte.setup{}
 lspconfig.tinymist.setup{}
+lspconfig.ocamllsp.setup{}
 
 lspconfig.nil_ls.setup {
   settings = {

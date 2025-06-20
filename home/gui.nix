@@ -36,6 +36,11 @@
     ghc
     cabal-install
 
+    ocaml
+    ocamlPackages.ocaml-lsp
+    ocamlPackages.ocamlformat
+    dune_3
+
     gopls
     go
 
