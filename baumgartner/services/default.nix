@@ -55,6 +55,8 @@
   services.prometheus = {
     enable = true;
 
+    retentionTime = "1y";
+
     exporters.node = {
       enable = true;
       enabledCollectors = [
