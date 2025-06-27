@@ -111,6 +111,7 @@
       "auth.anonymous" = {
         enabled = true;
         org_role = "Admin";
+        org_name = "TaliCorp™";
       };
     };
   };
