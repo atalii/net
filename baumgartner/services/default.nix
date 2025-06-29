@@ -133,4 +133,16 @@
     poetry
     black
   ];
+
+  services.kanboard = {
+    enable = true;
+    domain = "kanboard.tali.network";
+
+    nginx.listen = [
+      {
+        addr = "0.0.0.0";
+        port = 2025;
+      }
+    ];
+  };
 }
