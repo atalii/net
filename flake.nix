@@ -1,6 +1,5 @@
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-  inputs.nixpkgs-small.url = "github:nixos/nixpkgs/nixos-25.05-small";
 
   inputs.nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -17,7 +16,6 @@
     {
       self,
       nixpkgs,
-      nixpkgs-small,
       nixos-hardware,
       home-manager,
       cabinet,
@@ -53,7 +51,7 @@
         # components, all of whom are mourning the GPU that was so cruelly ripped
         # away from them. (Named for Baumgartner in Paul Auster's novel
         # (novella?) of the same name.)
-        baumgartner = nixpkgs-small.lib.nixosSystem {
+        baumgartner = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./common
