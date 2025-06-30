@@ -31,9 +31,6 @@
   };
 
   services.xserver.enable = true;
-
-  services.udev.packages = with pkgs; [ chrysalis ];
-
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome = {
     enable = true;
@@ -71,6 +68,8 @@
   services.postgresql.enable = true;
 
   programs.firefox.enable = true;
+
+  programs.chrysalis.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [

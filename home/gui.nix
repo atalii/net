@@ -25,7 +25,6 @@
     thunderbird
     anki
     gnucash
-    chrysalis
     foliate
     vlc
 
