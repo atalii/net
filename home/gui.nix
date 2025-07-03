@@ -18,6 +18,19 @@
         };
       };
     };
+
+    xsession.profileExtra = ''
+      # The default Gnome compose key picker uses a hard-coded list of
+      # sequences. Don't use it.
+      export GTK_IM_MODULE="xim"
+    '';
+
+    home.file.".XCompose".text = ''
+      include %L
+
+      <Multi_key> <a> <n> <d>: "∧"
+      <Multi_key> <o> <r>: "∨"
+    '';
   };
 
   users.users.tali.packages = with pkgs; [
