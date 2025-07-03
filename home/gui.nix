@@ -7,6 +7,12 @@
       settings = {
         theme = "catppuccin-latte";
         font-family = "Berkeley Mono";
+
+        keybind = [
+          "ctrl+shift+h=goto_split:left"
+          "ctrl+shift+l=goto_split:right"
+          "ctrl+shift+space=new_split:right"
+        ];
       };
     };
 
