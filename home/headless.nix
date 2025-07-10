@@ -148,6 +148,10 @@
       "jp" = "jj rup main";
       "jpd" = "jj rup dev";
     };
+
+    shellAliases = {
+      ":q" = "exit";
+    };
   };
 
   programs.command-not-found.enable = false;
