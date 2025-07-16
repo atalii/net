@@ -3,6 +3,9 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  programs.adb.enable = true;
+  users.users.tali.extraGroups = [ "adbusers" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
