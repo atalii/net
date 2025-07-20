@@ -10,6 +10,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
+  boot.tmp.useTmpfs = true;
+
   networking.hostName = "thing-in-itself";
   networking.networkmanager.enable = true;
 
