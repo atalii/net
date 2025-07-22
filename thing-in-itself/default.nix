@@ -15,12 +15,12 @@
   networking.hostName = "thing-in-itself";
   networking.networkmanager.enable = true;
 
-  # networking.hosts = {
-  #   "0.0.0.0" = [
-  #     "youtube.com"
-  #     "www.youtube.com"
-  #   ];
-  # };
+  networking.hosts = {
+    "0.0.0.0" = [
+      "youtube.com"
+      "www.youtube.com"
+    ];
+  };
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
