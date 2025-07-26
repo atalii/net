@@ -60,6 +60,8 @@
     ocamlPackages.ocamlformat
     dune_3
 
+    rust-analyzer
+
     gopls
     go
 

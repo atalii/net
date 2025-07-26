@@ -15,6 +15,7 @@ lspconfig.hls.setup{}
 lspconfig.svelte.setup{}
 lspconfig.tinymist.setup{}
 lspconfig.ocamllsp.setup{}
+lspconfig.rust_analyzer.setup{}
 
 lspconfig.nil_ls.setup {
   settings = {
