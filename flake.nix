@@ -76,6 +76,21 @@
           ];
         };
 
+        # Phenomenal information. Vegemite, &c.
+        "phenomenal-information" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./common
+            ./phenomenal-information
+            home-manager.nixosModules.home-manager
+            self.nixosModules.home.headless
+          ];
+
+          specialArgs = {
+            inherit passel;
+          };
+        };
+
         # Sensuous manifold. Its coherency is largely disputed.
         "sensuous-manifold" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
