@@ -49,7 +49,7 @@ in
     };
   };
 
-  systemd.services.caddy.environment."CADDY_ADMIN" = "162.221.207.136";
+  systemd.services.caddy.environment."CADDY_ADMIN" = "100.111.228.128:2019";
   services.caddy = {
     enable = true;
 
