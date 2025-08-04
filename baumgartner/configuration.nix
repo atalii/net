@@ -62,5 +62,15 @@
     ./data-pool.nix
   ];
 
+  services.nullmailer = {
+    enable = true;
+
+    remotesFile = "/data/nullmailer/remotes";
+    config = {
+      me = "tali.network";
+      allmailfrom = "net@tali.network";
+    };
+  };
+
   system.stateVersion = "23.11";
 }

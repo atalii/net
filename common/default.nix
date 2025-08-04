@@ -36,7 +36,8 @@
     services.borgbackup.jobs."${config.networking.hostName}" = {
       paths = [
         "/home/tali"
-      ] ++ lib.optionals config.backupVar [ "/var" ];
+      ]
+      ++ lib.optionals config.backupVar [ "/var" ];
 
       exclude = lib.optionals config.backupVar [
         "/var/cache"
