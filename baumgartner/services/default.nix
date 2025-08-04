@@ -75,18 +75,18 @@
         ];
       }
       {
-        job_name = "node:sensuous-manifold";
+        job_name = "node:phenomenal-information";
         static_configs = [
           {
-            targets = [ "sm.tali.network" ];
+            targets = [ "pi.tali.network" ];
           }
         ];
       }
       {
-        job_name = "caddy:sensuous-manifold";
+        job_name = "caddy:phenomenal-information";
         static_configs = [
           {
-            targets = [ "100.69.247.123:2019" ];
+            targets = [ "162.221.207.136" ];
           }
         ];
       }
