@@ -7,4 +7,7 @@
 
   boot.zfs.extraPools = [ "data" ];
   services.zfs.autoScrub.enable = true;
+
+  services.smartd.enable = true;
+  environment.systemPackages = [ pkgs.smartmontools ];
 }
