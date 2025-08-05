@@ -86,7 +86,7 @@
         job_name = "caddy:phenomenal-information";
         static_configs = [
           {
-            targets = [ "162.221.207.136" ];
+            targets = [ "100.111.228.128:2019" ];
           }
         ];
       }
