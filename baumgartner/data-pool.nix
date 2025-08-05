@@ -13,14 +13,11 @@
 
   # Systemd considers oneshots up after they finish, which lets us
   # orderzfs-notify on it.
-  #
-  # I believe that if this fails, zfs-notify won't fire, either.
   systemd.services.zfs-scrub.serviceConfig.Type = lib.mkForce "oneshot";
-
   systemd.services.zfs-notify = {
     description = "Send an email regarding the ZFS scrub.";
-    after = [ "zfs-scrub.timer" ];
-    requires = [ "nullmailer.service" ];
+    after = [ "zfs-scrub.service" ];
+    wantedBy = [ "zfs-scrub.service" ];
     serviceConfig = {
       Type = "oneshot";
 
@@ -33,8 +30,8 @@
     script = ''
       ${pkgs.nullmailer}/bin/sendmail \
         -f 'net@tali.network' \
+        -F 'zfs-notify.service' \
         me@tali.network <<EOF
-      From: zfs-notify.service
       Subject: ZFS Scrub Results
 
       $(${pkgs.zfs}/bin/zpool status -v)
