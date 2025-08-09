@@ -2,6 +2,9 @@
 
 {
   home-manager.users.tali = {
+
+    home.packages = with pkgs; [ gnomeExtensions.gsconnect ];
+
     programs.ghostty = {
       enable = true;
       settings = {
@@ -22,6 +25,9 @@
         "org/gnome/desktop/default-applications/terminal" = {
           exec = "ghostty";
         };
+        "org/gnome/shell".enabled-extensions = [
+          "gsconnect@andyholmes.github.io"
+        ];
       };
     };
 
