@@ -109,7 +109,7 @@ in
     virtualHosts."kanboard.tali.network".extraConfig = proxyBaum 2025 false;
     virtualHosts."lacroix.tali.network".extraConfig = proxyBaum 5000 false;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819 false;
-    virtualHosts."sm.tali.network".extraConfig = ''
+    virtualHosts."pi.tali.network".extraConfig = ''
       reverse_proxy * localhost:9100
     '';
     virtualHosts."ttds.tali.network".extraConfig = proxy "100.90.198.6" 8080 false;
