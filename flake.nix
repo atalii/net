@@ -30,6 +30,7 @@
           pname = "opodsync";
           version = "0.4.4";
 
+          # We use this over dontBuild so that the patch is applied.
           dontBuild = true;
 
           src = pkgs.fetchFromGitHub {
@@ -39,15 +40,16 @@
             hash = "sha256-e31yUa+xrtSnOgLYox/83KZSH2Dj0qxqlwKvBpro/2w=";
           };
 
+          patches = [ ./patches/opodsync/0001-fix-put-data-files-in-DATA_ROOT.patch ];
+
           installPhase = ''
             runHook preInstall
 
             mkdir -p $out/share
-            cp -rv $src/server $out/share/opodsync
+            cp -rv server $out/share/opodsync
 
             runHook postInstall
           '';
-
         });
 
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
@@ -88,6 +90,14 @@
 
             home-manager.nixosModules.home-manager
             self.nixosModules.home.headless
+
+            {
+              nixpkgs.overlays = [
+                (self': super: {
+                  opodsync = self.packages.x86_64-linux.opodsync;
+                })
+              ];
+            }
           ];
         };
 

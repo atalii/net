@@ -1,0 +1,32 @@
+From 0152b93e0f9aa2042f147330e7f8137107bdcbd1 Mon Sep 17 00:00:00 2001
+From: Tali Auster <me@tali.network>
+Date: Thu, 14 Aug 2025 15:39:54 -0600
+Subject: [PATCH] fix: put /data files in DATA_ROOT
+
+---
+ server/_inc.php | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/server/_inc.php b/server/_inc.php
+index 6e8ff0c..99108d5 100644
+--- a/server/_inc.php
++++ b/server/_inc.php
+@@ -30,12 +30,12 @@ $defaults = [
+ 	'ENABLE_SUBSCRIPTIONS'         => false,
+ 	'DISABLE_USER_METADATA_UPDATE' => false,
+ 	'DATA_ROOT'                    => getenv('DATA_ROOT') ?: ROOT . '/data',
+-	'CACHE_ROOT'                   => ROOT . '/data/cache',
+-	'DB_FILE'                      => ROOT . '/data/data.sqlite',
++	'CACHE_ROOT'                   => (getenv('DATA_ROOT') ?: (ROOT . '/data')) . '/cache',
++	'DB_FILE'                      => (getenv('DATA_ROOT') ?: (ROOT . '/data')) . '/data.sqlite',
+ 	'SQLITE_JOURNAL_MODE'          => 'TRUNCATE',
+ 	'ERRORS_SHOW'                  => true,
+ 	'ERRORS_EMAIL'                 => null,
+-	'ERRORS_LOG'                   => ROOT . '/data/error.log',
++	'ERRORS_LOG'                   => (getenv('DATA_ROOT') ?: (ROOT . '/data')) . '/error.log',
+ 	'ERRORS_REPORT_URL'            => null,
+ 	'TITLE'                        => 'My oPodSync server',
+ 	'DEBUG_LOG'                    => null,
+-- 
+2.50.1
+
