@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -138,11 +138,33 @@
     enable = true;
     domain = "kanboard.tali.network";
 
-    nginx.listen = [
-      {
-        addr = "0.0.0.0";
-        port = 2025;
-      }
-    ];
+    nginx = {
+      listen = [
+        {
+          # Coordinate with PI VPS.
+          addr = "0.0.0.0";
+          port = 2025;
+        }
+      ];
+    };
+  };
+
+  # opodsync
+  services.nginx = {
+    enable = true;
+
+    virtualHosts."opodsync.tali.network" = {
+      root = lib.mkForce "${pkgs.opodsync}/share/opodsync";
+      locations."/".extraConfig = ''
+        rewrite / /index.php;
+      '';
+
+      listen = [
+        {
+          addr = "0.0.0.0";
+          port = 2025;
+        }
+      ];
+    };
   };
 }

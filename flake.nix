@@ -88,6 +88,14 @@
 
             home-manager.nixosModules.home-manager
             self.nixosModules.home.headless
+
+            {
+              nixpkgs.overlays = [
+                (self': super: {
+                  opodsync = self.packages.x86_64-linux.opodsync;
+                })
+              ];
+            }
           ];
         };
 
