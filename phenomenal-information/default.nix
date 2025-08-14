@@ -108,6 +108,7 @@ in
     virtualHosts."jellyfin.tali.network".extraConfig = proxyBaum 8096 false;
     virtualHosts."kanboard.tali.network".extraConfig = proxyBaum 2025 false;
     virtualHosts."lacroix.tali.network".extraConfig = proxyBaum 5000 false;
+    virtualHosts."opodsync.tali.network".extraConfig = proxyBaum 2026 false;
     virtualHosts."rss.tali.network".extraConfig = proxyBaum 1819 false;
     virtualHosts."pi.tali.network".extraConfig = ''
       reverse_proxy * localhost:9100
