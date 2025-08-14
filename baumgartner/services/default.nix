@@ -150,19 +150,60 @@
   };
 
   # opodsync
+  users = {
+    users.opodsync = {
+      isSystemUser = true;
+      group = "opodsync";
+      home = "/var/lib/opodsync";
+      createHome = true;
+    };
+
+    groups.opodsync = { };
+  };
+
+  services.phpfpm.pools.opodsync = {
+    user = "opodsync";
+    group = "opodsync";
+
+    settings = {
+      "pm" = "dynamic";
+      "php_admin_value[error_log]" = "stderr";
+      "php_admin_flag[log_errors]" = true;
+      "listen.owner" = "nginx";
+      "catch_workers_output" = true;
+      "pm.max_children" = "32";
+      "pm.start_servers" = "2";
+      "pm.min_spare_servers" = "2";
+      "pm.max_spare_servers" = "4";
+      "pm.max_requests" = "500";
+    };
+
+    phpEnv.DATA_ROOT = "/var/lib/opodsync";
+    phpEnv.DB_FILE = "/var/lib/opodsync/db.sqlite";
+  };
+
   services.nginx = {
     enable = true;
 
     virtualHosts."opodsync.tali.network" = {
       root = lib.mkForce "${pkgs.opodsync}/share/opodsync";
-      locations."/".extraConfig = ''
-        rewrite / /index.php;
+
+      extraConfig = ''
+        try_files $uri /index.php;
+      '';
+
+      locations."~ \\.php$".extraConfig = ''
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/run/phpfpm/opodsync.sock;
+        fastcgi_index index.php;
+        include ${pkgs.nginx}/conf/fastcgi.conf;
+        include ${pkgs.nginx}/conf/fastcgi_params;
       '';
 
       listen = [
         {
+          port = 2026;
           addr = "0.0.0.0";
-          port = 2025;
         }
       ];
     };
