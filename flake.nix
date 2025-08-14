@@ -22,6 +22,34 @@
       passel,
     }:
     {
+      packages.x86_64-linux.opodsync =
+        let
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        in
+        pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
+          pname = "opodsync";
+          version = "0.4.4";
+
+          dontBuild = true;
+
+          src = pkgs.fetchFromGitHub {
+            owner = "kd2org";
+            repo = "opodsync";
+            rev = finalAttrs.version;
+            hash = "sha256-e31yUa+xrtSnOgLYox/83KZSH2Dj0qxqlwKvBpro/2w=";
+          };
+
+          installPhase = ''
+            runHook preInstall
+
+            mkdir -p $out/share
+            cp -rv $src/server $out/share/opodsync
+
+            runHook postInstall
+          '';
+
+        });
+
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
 
       devShells.x86_64-linux.default =
