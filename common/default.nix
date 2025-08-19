@@ -39,10 +39,19 @@
       ]
       ++ lib.optionals config.backupVar [ "/var" ];
 
-      exclude = lib.optionals config.backupVar [
-        "/var/cache"
-        "/var/log"
-      ];
+      exclude =
+        lib.optionals config.backupVar [
+          "/var/cache"
+          "/var/log"
+        ]
+        ++ [
+          # Borg keeps crying when it needs to back up an sqlite db in here
+          # that's actively being modified.
+          "/home/tali/.mozilla"
+
+          # Lol.
+          "/home/tali/.cache"
+        ];
 
       repo = "ssh://tali@100.64.0.1/data/backups/${config.networking.hostName}";
       compression = "auto,zstd";
