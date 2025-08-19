@@ -38,7 +38,7 @@
     '';
 
     home.file.".XCompose".text = ''
-      include %L
+      include "%L"
 
       <Multi_key> <a> <n> <d>: "∧"
       <Multi_key> <o> <r>: "∨"
