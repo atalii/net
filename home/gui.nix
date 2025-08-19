@@ -42,6 +42,24 @@
 
       <Multi_key> <a> <n> <d>: "∧"
       <Multi_key> <o> <r>: "∨"
+      <Multi_key> <n> <o> <t>: "¬"
+
+      <Multi_key> <i> <n>: "∈"
+      <Multi_key> <n> <i> <n>: "∉"
+
+      <Multi_key> <C> <C>: "ℂ"
+      <Multi_key> <N> <N>: "ℕ"
+      <Multi_key> <R> <R>: "ℝ"
+      <Multi_key> <Q> <Q>: "ℚ"
+
+      <Multi_key> <a> <a>: "α"
+      <Multi_key> <a> <A>: "Α"
+      <Multi_key> <b> <b>: "β"
+      <Multi_key> <b> <B>: "Β"
+      <Multi_key> <g> <G>: "Γ"
+      <Multi_key> <g> <g>: "γ"
+      <Multi_key> <d> <d>: "δ"
+      <Multi_key> <d> <D>: "Δ"
     '';
   };
 
