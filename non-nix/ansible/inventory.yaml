@@ -1,6 +1,6 @@
 TaliCorp:
   hosts:
-    sm.tali.network:
+    pi.tali.network:
 
     # Baumgartner
     100.64.0.1:
