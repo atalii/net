@@ -17,8 +17,8 @@
 
   networking.hosts = {
     "0.0.0.0" = [
-      "youtube.com"
-      "www.youtube.com"
+      # "youtube.com"
+      # "www.youtube.com"
     ];
   };
 
