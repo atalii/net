@@ -66,6 +66,7 @@
   users.users.tali.packages = with pkgs; [
     signal-desktop
     thunderbird
+    libreoffice
     anki
     gnucash
     foliate
