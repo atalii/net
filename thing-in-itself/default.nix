@@ -59,7 +59,7 @@
 
   services.printing = {
     enable = true;
-    drivers = with pkgs; [ hplip ];
+    drivers = with pkgs; [ hplipWithPlugin ];
   };
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
