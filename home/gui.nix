@@ -31,6 +31,8 @@
       };
     };
 
+    programs.atuin.enable = true;
+
     xsession.profileExtra = ''
       # The default Gnome compose key picker uses a hard-coded list of
       # sequences. Don't use it.
