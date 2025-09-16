@@ -3,7 +3,10 @@
 {
   home-manager.users.tali = {
 
-    home.packages = with pkgs; [ gnomeExtensions.gsconnect ];
+    home.packages = with pkgs; [
+      gnomeExtensions.gsconnect
+      yazi
+    ];
 
     programs.ghostty = {
       enable = true;
