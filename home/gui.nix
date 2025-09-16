@@ -100,6 +100,8 @@
     svelte-language-server
 
     dfu-programmer
+
+    yaml-language-server
   ];
 
   fonts.packages = with pkgs; [ helvetica-neue-lt-std ];
