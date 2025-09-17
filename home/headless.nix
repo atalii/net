@@ -171,4 +171,6 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEM8GqAyKJJoDG3iqpDptfVEehPRbnPS3fD42as5mCXg tali@phenomenal-information"
     ];
   };
+
+  environment.variables.EDITOR = "nvim";
 }
