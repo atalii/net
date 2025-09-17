@@ -102,6 +102,8 @@
     dfu-programmer
 
     yaml-language-server
+
+    verible
   ];
 
   fonts.packages = with pkgs; [ helvetica-neue-lt-std ];
