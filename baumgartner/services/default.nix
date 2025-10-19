@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  passel,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -8,6 +13,28 @@
     ./radicale.nix
     ./miniflux.nix
   ];
+
+  services.caddy = {
+    enable = true;
+
+    globalConfig = ''
+      http_port 7530 # randomly generated
+      auto_https off
+    '';
+
+    virtualHosts."http://tali.network".extraConfig = ''
+      file_server {
+        root ${
+          passel.lib.buildSite {
+            src = ../../non-nix/site;
+            passel = passel.packages."${pkgs.system}".default;
+            version = "0.1.0";
+            stdenv = pkgs.stdenv;
+          }
+        }
+      }
+    '';
+  };
 
   services.code-server.enable = true;
   services.code-server.auth = "none";
