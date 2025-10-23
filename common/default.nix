@@ -23,6 +23,9 @@
       ghostty.terminfo
 
       python3 # required for ansible
+
+      zip
+      unzip
     ];
 
     nixpkgs.config.allowUnfree = true;
