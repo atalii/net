@@ -69,6 +69,8 @@
   };
 
   users.users.tali.packages = with pkgs; [
+    abcde
+
     signal-desktop
     thunderbird
     libreoffice
