@@ -1,0 +1,26 @@
+//title: Passel, Another SSG
+//date: 2025-10-24
+
+* Passel, Another SSG — What?
+
+I've written a small static site generator (SSG) which I've named Passel to
+generate this website. It's built in Ada and not meant for general use.
+
+* Passel, Another SSG — Why?
+
+Only one real reason: It's fun to write, sometimes.
+
+Passel is just a small project I return to occasionally over school breaks. If
+I end up with time after this is feature complete (i.e., after it's able to
+generate an RSS feed and I'm happy with the formatting options in its ad-hoc
+markup language), it seems like it may be a good platform to explore formal
+verification with SPARK.
+
+Since Ada is also largely unused in this setting, Passel serves as a bit of a
+test some of the broader toolchain as it continues its quite extensive
+modernization, especially helping as with my sporadic attempts to integrate Ada
+and Alire with Nix.
+
+* Why not use a pre-existing SSG?
+
+:(
