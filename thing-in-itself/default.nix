@@ -4,7 +4,12 @@
   imports = [ ./hardware-configuration.nix ];
 
   programs.adb.enable = true;
-  users.users.tali.extraGroups = [ "adbusers" ];
+  programs.wireshark.enable = true;
+  programs.wireshark.usbmon.enable = true;
+  users.users.tali.extraGroups = [
+    "adbusers"
+    "wireshark"
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -82,7 +87,10 @@
     "nix-command"
   ];
 
-  environment.systemPackages = with pkgs; [ git ];
+  environment.systemPackages = with pkgs; [
+    git
+    wireshark
+  ];
 
   system.stateVersion = "24.11"; # Did you read the comment?
 }
