@@ -3,6 +3,18 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  networking.interfaces = {
+    enp193s0f3u1 = {
+      useDHCP = false;
+      ipv4.addresses = [
+        {
+          address = "192.168.0.1";
+          prefixLength = 24;
+        }
+      ];
+    };
+  };
+
   programs.adb.enable = true;
   programs.wireshark.enable = true;
   programs.wireshark.usbmon.enable = true;
