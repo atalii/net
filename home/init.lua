@@ -8,25 +8,20 @@ vim.cmd [[highlight CursorLineNr guifg='#4c4f69' guibg='#eff1f5']]
 
 require('telescope').load_extension('fzf')
 
-local lspconfig = require('lspconfig')
-lspconfig.clangd.setup{}
-lspconfig.gopls.setup{}
-lspconfig.hls.setup{}
-lspconfig.svelte.setup{}
-lspconfig.tinymist.setup{}
-lspconfig.ocamllsp.setup{}
-lspconfig.rust_analyzer.setup{}
-lspconfig.yamlls.setup{}
--- lspconfig.verible.setup{}
+vim.lsp.enable('clangd')
+vim.lsp.enable('gopls')
+vim.lsp.enable('hls')
+vim.lsp.enable('svelte')
+vim.lsp.enable('tinymist')
+vim.lsp.enable('ocamllsp')
+vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('yamlls')
+-- vim.lsp.enable('verible')
 
-lspconfig.nil_ls.setup {
-  settings = {
-    ['nil'] = {
-      nix = { flake = { autoArchive = true; }; };
-      formatting = { command = { "nixfmt" }; };
-    };
-  };
-}
+vim.lsp.enable('nil_ls', {
+  nix = { flake = { autoArchive = true; }; };
+  formatting = { command = { "nixfmt" }; };
+})
 
 local set_spaces_callback = function (width)
   return function()
