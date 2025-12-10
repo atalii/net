@@ -11,7 +11,7 @@
     programs.ghostty = {
       enable = true;
       settings = {
-        theme = "catppuccin-latte";
+        theme = "Catppuccin Latte";
         font-family = "Berkeley Mono";
 
         keybind = [
