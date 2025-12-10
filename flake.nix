@@ -1,9 +1,9 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
   inputs.nixos-hardware.url = "github:nixos/nixos-hardware";
 
-  inputs.home-manager.url = "github:nix-community/home-manager/release-25.05";
+  inputs.home-manager.url = "github:nix-community/home-manager/release-25.11";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
   inputs.cabinet.url = "github:atalii/cabinet";
