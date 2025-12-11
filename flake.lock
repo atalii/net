@@ -131,11 +131,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764531337,
-        "narHash": "sha256-qu14hzp2NNhNJiJWkiPM9Mh57SXH9vPxpoSoBKx2Fuo=",
+        "lastModified": 1765494046,
+        "narHash": "sha256-VNukYC/9Bhegh+Cri8mJX0PvtOmqQQl8x3ShInMP+5M=",
         "owner": "atalii",
         "repo": "passel",
-        "rev": "dbd08f5e1d4563d42e99b4df04f39977980d8c15",
+        "rev": "6946f981ed0c425df3aacec1d7aab7c0f96ed70a",
         "type": "github"
       },
       "original": {
