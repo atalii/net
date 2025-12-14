@@ -6,6 +6,7 @@
     home.packages = with pkgs; [
       gnomeExtensions.gsconnect
       yazi
+      ibus
     ];
 
     programs.ghostty = {
@@ -37,9 +38,7 @@
     programs.atuin.enable = true;
 
     xsession.profileExtra = ''
-      # The default Gnome compose key picker uses a hard-coded list of
-      # sequences. Don't use it.
-      export GTK_IM_MODULE="xim"
+      export GTK_IM_MODULE="ibus"
     '';
 
     home.file.".XCompose".text = ''
