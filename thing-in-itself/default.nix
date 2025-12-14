@@ -119,9 +119,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome = {
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome = {
     enable = true;
     extraGSettingsOverridePackages = [ pkgs.mutter ];
     extraGSettingsOverrides = ''
