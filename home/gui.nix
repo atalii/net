@@ -44,6 +44,9 @@
     home.file.".XCompose".text = ''
       include "%L"
 
+      <Multi_key> <a> <l> <l>: "∀"
+      <Multi_key> <e> <x> <t>: "∃"
+
       <Multi_key> <a> <n> <d>: "∧"
       <Multi_key> <o> <r>: "∨"
       <Multi_key> <n> <o> <t>: "¬"
