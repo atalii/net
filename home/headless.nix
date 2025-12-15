@@ -42,9 +42,10 @@
         plugins = with pkgs.vimPlugins; [
           catppuccin-nvim
           dropbar-nvim
+          mini-map
           nvim-lspconfig
-          telescope-nvim
           telescope-fzf-native-nvim
+          telescope-nvim
           vim-svelte
 
           (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars))

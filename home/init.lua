@@ -6,6 +6,8 @@ vim.cmd [[highlight CursorLine guibg=NONE]]
 vim.cmd [[highlight LineNr guifg='#7c7f93' guibg='#eff1f5']]
 vim.cmd [[highlight CursorLineNr guifg='#4c4f69' guibg='#eff1f5']]
 
+require('mini.map').setup({})
+
 require('telescope').load_extension('fzf')
 
 vim.lsp.enable('clangd')
@@ -103,5 +105,5 @@ vim.keymap.set('n', '<leader>lr', function()
 end, { desc = "Next diagnostic." })
 
 vim.keymap.set('n', '<leader>i', vim.lsp.buf.hover, { desc = 'LSP Hover'; });
-
+vim.keymap.set('n', '<leader>m', MiniMap.toggle, { desc = 'Toggle minimap'; });
 vim.keymap.set('n', '<leader>z', dropbarapi.pick, { desc = 'Interactive dropbar pick.'});
