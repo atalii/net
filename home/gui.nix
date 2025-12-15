@@ -7,6 +7,7 @@
       gnomeExtensions.gsconnect
       yazi
       ibus
+      zotero
     ];
 
     programs.ghostty = {
