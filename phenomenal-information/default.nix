@@ -27,6 +27,8 @@ in
     ./networking.nix
   ];
 
+  services.qemuGuest.enable = true;
+
   services.prometheus = {
     enable = false;
     exporters.node = {
