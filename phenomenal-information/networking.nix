@@ -8,7 +8,7 @@
     ];
     defaultGateway = "162.221.207.1";
     defaultGateway6 = {
-      address = "fe80:2605:80:8::1";
+      address = "2605:80:8::1";
       interface = "eth0";
     };
     dhcpcd.enable = false;
@@ -23,8 +23,8 @@
         ];
         ipv6.addresses = [
           {
-            address = "fe80::6ec3:7fff:fe04:e58f";
-            prefixLength = 64;
+            address = "2605:80:8:4::1";
+            prefixLength = 48;
           }
         ];
         ipv4.routes = [
@@ -35,7 +35,7 @@
         ];
         ipv6.routes = [
           {
-            address = "fe80:2605:80:8::1";
+            address = "2605:80:8::1";
             prefixLength = 128;
           }
         ];
