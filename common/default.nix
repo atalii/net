@@ -34,6 +34,7 @@
       80
       443
       22
+      4502
     ];
 
     services.borgbackup.jobs."${config.networking.hostName}" = {
