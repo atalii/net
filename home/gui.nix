@@ -81,6 +81,7 @@
     gnucash
     foliate
     vlc
+    gnome-boxes
 
     wl-clipboard
 
