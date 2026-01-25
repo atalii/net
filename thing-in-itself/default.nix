@@ -160,10 +160,6 @@
   programs.chrysalis.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "qtwebengine-5.15.19" # for thesis VPN :(
-  ];
-
   nix.settings.experimental-features = [
     "flakes"
     "nix-command"
@@ -175,8 +171,6 @@
 
     prismlauncher
   ];
-
-  services.globalprotect.enable = true;
 
   system.stateVersion = "24.11"; # Did you read the comment?
 }
