@@ -168,6 +168,7 @@
   environment.systemPackages = with pkgs; [
     git
     wireshark
+    qemu
 
     prismlauncher
   ];
