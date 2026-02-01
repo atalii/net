@@ -5,6 +5,7 @@
 
     home.packages = with pkgs; [
       gnomeExtensions.gsconnect
+      gnomeExtensions.paperwm
       yazi
       ibus
       zotero
@@ -32,6 +33,7 @@
         };
         "org/gnome/shell".enabled-extensions = [
           "gsconnect@andyholmes.github.io"
+          pkgs.gnomeExtensions.paperwm.extensionUuid
         ];
       };
     };
