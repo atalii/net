@@ -42,11 +42,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1769399606,
-        "narHash": "sha256-DLB/x47b0dU4DgoRbVaJKIx+KEn87herfdSz5eUPpng=",
+        "lastModified": 1770943257,
+        "narHash": "sha256-kwS1W5UihEdo5NjIyw4FuYTsHunbZpH96KyIw4XFqgI=",
         "owner": "atalii",
         "repo": "cabinet",
-        "rev": "2c71afac9ce7dc91da636c061e3b7d20d58d826e",
+        "rev": "45938a21904e8ce6728f6e2c5afcebf15e9b1cb9",
         "type": "github"
       },
       "original": {
