@@ -16,6 +16,7 @@ let
         ""
     )
     + ''
+      respond /vk8bn8p5a8.txt "Hurricane Electric IPv6 certification test file."
       reverse_proxy * "http://${host}:${toString port}"
     '';
 
@@ -167,6 +168,19 @@ in
               "email"
             ];
           }
+          {
+            client_name = "TaliChat Testing";
+            client_id = "a03fb6d7-85c9-4beb-b980-7edca343b289";
+            client_secret = "$argon2id$v=19$m=65536,t=3,p=4$oKz97EgP9jx/p3QoGtoiAA$Z3Yx1COi54owDz+6CyL1T/IRdY2jAMB8sk0PgoCSVf0";
+            token_endpoint_auth_method = "client_secret_post";
+
+            scopes = [
+              "openid"
+              "profile"
+              "email"
+            ];
+            redirect_uris = [ "http://localhost:8080/oidc/callback/tali" ];
+          }
         ];
       };
     };
@@ -192,7 +206,7 @@ in
   networking.domain = "";
   services.openssh.enable = true;
   users.users.root.openssh.authorizedKeys.keys = [
-    ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHlsdZRN8i12v5Uv2ZZtGqxqbf8T/n0H6U/UagIPUZy5 tali@thing-in-itself''
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHlsdZRN8i12v5Uv2ZZtGqxqbf8T/n0H6U/UagIPUZy5 tali@thing-in-itself"
   ];
   system.stateVersion = "23.11";
 }
