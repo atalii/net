@@ -10,7 +10,10 @@
     "adbusers"
     "wireshark"
     "plugdev"
+    "docker"
   ];
+
+  virtualisation.docker.enable = true;
 
   users.groups.plugdev = { };
 
