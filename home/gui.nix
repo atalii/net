@@ -60,6 +60,9 @@
       <Multi_key> <R> <R>: "ℝ"
       <Multi_key> <Q> <Q>: "ℚ"
 
+      <Multi_key> <l> <b>: "⟨"
+      <Multi_key> <r> <b>: "⟩"
+
       <Multi_key> <a> <a>: "α"
       <Multi_key> <a> <A>: "Α"
       <Multi_key> <b> <b>: "β"
@@ -68,6 +71,11 @@
       <Multi_key> <g> <g>: "γ"
       <Multi_key> <d> <d>: "δ"
       <Multi_key> <d> <D>: "Δ"
+      <Multi_key> <s> <g>: "σ"
+      <Multi_key> <s> <G>: "Σ"
+
+      <Multi_key> <p> <h>: "φ"
+      <Multi_key> <p> <s>: "ψ"
     '';
   };
 
