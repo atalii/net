@@ -10,7 +10,7 @@
   inputs.cabinet.inputs.nixpkgs.follows = "nixpkgs";
 
   inputs.passel.url = "github:atalii/passel";
-  inputs.passel.inputs.nixpkgs.follows = "nixpkgs";
+  # inputs.passel.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs =
     {
