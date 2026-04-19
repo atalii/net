@@ -42,16 +42,6 @@ in
     };
   };
 
-  services.gotosocial = {
-    enable = true;
-    settings = {
-      protocol = "https";
-      host = "fedi.tali.network";
-      accounts-allow-custom-css = true;
-      media-remote-cache-days = 1;
-    };
-  };
-
   systemd.services.caddy.environment."CADDY_ADMIN" = "100.111.228.128:2019";
   services.caddy = {
     enable = true;
@@ -84,11 +74,7 @@ in
     '';
     virtualHosts."cal.tali.network".extraConfig = proxyBaum 8192 false;
     virtualHosts."code.tali.network".extraConfig = proxyBaum 4444 true;
-    virtualHosts."fedi.tali.network".extraConfig = ''
-      reverse_proxy * http://127.0.0.1:8080 {
-          flush_interval -1
-      }
-    '';
+    virtualHosts."fedi.tali.network".extraConfig = proxyBaum 2370 false;
 
     virtualHosts."files.tali.network".extraConfig = ''
       root * /public
