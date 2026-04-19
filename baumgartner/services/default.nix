@@ -36,6 +36,19 @@
     '';
   };
 
+  services.gotosocial = {
+    enable = true;
+    settings = {
+      protocol = "https";
+      host = "fedi.tali.network";
+      accounts-allow-custom-css = true;
+      media-remote-cache-days = 1;
+      db-address = "/data/gotosocial/database.sqlite";
+      port = 2370; # random
+      bind-address = "0.0.0.0";
+    };
+  };
+
   services.code-server.enable = true;
   services.code-server.auth = "none";
   services.code-server.host = "0.0.0.0";
@@ -67,7 +80,10 @@
     ];
   };
 
-  networking.firewall.allowedTCPPorts = [ 4444 ];
+  networking.firewall.allowedTCPPorts = [
+    4444
+    2370
+  ];
 
   services.distccd.enable = true;
   services.distccd.allowedClients = [
