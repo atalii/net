@@ -129,4 +129,6 @@
       };
     };
   };
+
+  programs.steam.enable = true;
 }
