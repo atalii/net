@@ -118,6 +118,8 @@
     yaml-language-server
 
     verible
+
+    chromium
   ];
 
   fonts.packages = with pkgs; [ helvetica-neue-lt-std ];
