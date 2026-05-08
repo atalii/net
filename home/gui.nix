@@ -119,7 +119,8 @@
 
     verible
 
-    chromium
+    google-chrome
+
     zed-editor
   ];
 
