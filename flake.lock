@@ -123,33 +123,19 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1761250304,
-        "narHash": "sha256-3NaUSg7SZgJU0RlrLxuRTrSPqmOC42y+cVFsVhNkM5c=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "13fa6b0784a7c711d641d10993b767b8ba5cb304",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "release-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "passel": {
       "inputs": {
         "alirenix": "alirenix",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1765494046,
-        "narHash": "sha256-VNukYC/9Bhegh+Cri8mJX0PvtOmqQQl8x3ShInMP+5M=",
+        "lastModified": 1778956974,
+        "narHash": "sha256-IgCxFY//D0WPZuq3BN3aaeYxt7npeFyPyPqtr6cutN8=",
         "owner": "atalii",
         "repo": "passel",
-        "rev": "6946f981ed0c425df3aacec1d7aab7c0f96ed70a",
+        "rev": "30aa09465873ea53bc2064ef013926c953215d9f",
         "type": "github"
       },
       "original": {
