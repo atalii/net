@@ -158,13 +158,34 @@
         "type": "github"
       }
     },
+    "rmd": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778955012,
+        "narHash": "sha256-uQqpt/7OsTMJL1k5SBi+wPQnRRTEN8uR6LFo/Lr5H38=",
+        "owner": "atalii",
+        "repo": "rmd",
+        "rev": "164a2c802e91c62936da8e2bfa276d80f4c7aa24",
+        "type": "github"
+      },
+      "original": {
+        "owner": "atalii",
+        "repo": "rmd",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "cabinet": "cabinet",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
-        "passel": "passel"
+        "passel": "passel",
+        "rmd": "rmd"
       }
     }
   },

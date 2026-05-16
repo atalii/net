@@ -12,6 +12,9 @@
   inputs.passel.url = "github:atalii/passel";
   # inputs.passel.inputs.nixpkgs.follows = "nixpkgs";
 
+  inputs.rmd.url = "github:atalii/rmd";
+  inputs.rmd.inputs.nixpkgs.follows = "nixpkgs";
+
   outputs =
     {
       self,
@@ -20,6 +23,7 @@
       home-manager,
       cabinet,
       passel,
+      rmd,
     }:
     {
       packages.x86_64-linux.opodsync =
@@ -116,6 +120,7 @@
             home-manager.nixosModules.home-manager
             self.nixosModules.home.headless
             self.nixosModules.home.gui
+            rmd.nixosModules.rmd
           ];
         };
 
