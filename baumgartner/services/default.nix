@@ -27,7 +27,7 @@
         root ${
           passel.lib.buildSite {
             src = ../../non-nix/site;
-            passel = passel.packages."${pkgs.system}".default;
+            passel = passel.packages."${pkgs.stdenv.hostPlatform.system}".default;
             version = "0.1.0";
             stdenv = pkgs.stdenv;
           }
