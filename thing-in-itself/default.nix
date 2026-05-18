@@ -3,6 +3,9 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd.enable = true;
+
   programs.adb.enable = true;
   programs.wireshark.enable = true;
   programs.wireshark.usbmon.enable = true;
