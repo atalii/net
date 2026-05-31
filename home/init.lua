@@ -74,19 +74,6 @@ vim.g.mapleader = ' ';
 
 local telescope_builtin = require('telescope.builtin');
 local dropbarapi = require('dropbar.api');
-local nvim_treesitter_configs = require('nvim-treesitter.configs')
-
-nvim_treesitter_configs.setup({
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "<leader>sa",
-      node_incremental = "<leader>so",
-      scope_incremental = "<leader>se",
-      node_decremental = "<leader>su",
-    },
-  },
-})
 
 vim.keymap.set('n', '<leader>a', telescope_builtin.live_grep, { desc = 'Live Grep (Telescope)'; });
 vim.keymap.set('n', '<leader>o', telescope_builtin.find_files, { desc = 'Find Files (Telescope)'; });
