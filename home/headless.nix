@@ -27,12 +27,17 @@
           pictures = inHome "pic";
           publicShare = inHome "pub";
           videos = inHome "vid";
+
+          setSessionVariables = true;
         };
 
       programs.neovim = {
         enable = true;
         defaultEditor = true;
         viAlias = true; # :)
+
+        withRuby = false;
+        withPython3 = false;
 
         extraPackages = with pkgs; [
           ripgrep
@@ -51,7 +56,7 @@
           (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars))
         ];
 
-        extraLuaConfig = builtins.readFile ./init.lua;
+        initLua = builtins.readFile ./init.lua;
       };
 
       programs.fish.enable = true;

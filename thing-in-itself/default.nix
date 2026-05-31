@@ -6,7 +6,6 @@
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
 
-  programs.adb.enable = true;
   programs.wireshark.enable = true;
   programs.wireshark.usbmon.enable = true;
   users.users.tali.extraGroups = [
@@ -99,6 +98,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  boot.binfmt.registrations.aarch64-linux.fixBinary = true;
 
   boot.tmp.useTmpfs = true;
 

@@ -1,9 +1,9 @@
 {
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 
   inputs.nixos-hardware.url = "github:nixos/nixos-hardware";
 
-  inputs.home-manager.url = "github:nix-community/home-manager/release-25.11";
+  inputs.home-manager.url = "github:nix-community/home-manager/release-26.05";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
   inputs.cabinet.url = "github:atalii/cabinet";
@@ -56,7 +56,7 @@
           '';
         });
 
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
 
       devShells.x86_64-linux.default =
         let
