@@ -3,6 +3,7 @@
 {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   networking.hostName = "baumgartner";
 
@@ -30,7 +31,12 @@
   ];
   nix.settings.trusted-users = [
     "root"
-    "atalii"
+    "tali"
+  ];
+
+  virtualisation.docker.enable = true;
+  users.users.tali.extraGroups = [
+    "docker"
   ];
 
   environment.systemPackages = with pkgs; [
