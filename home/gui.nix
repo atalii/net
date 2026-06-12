@@ -122,6 +122,7 @@
     google-chrome
 
     zed-editor
+    wireguard-tools
   ];
 
   fonts.packages = with pkgs; [ helvetica-neue-lt-std ];
