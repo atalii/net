@@ -22,6 +22,10 @@
       auto_https off
     '';
 
+    virtualHosts."http://normal.style.computer".extraConfig = ''
+      respond ":3"
+    '';
+
     virtualHosts."http://tali.network".extraConfig = ''
       file_server {
         root ${
