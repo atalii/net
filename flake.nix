@@ -135,6 +135,16 @@
           ];
         };
 
+        "noumenal-experience" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./common
+            ./noumenal-experience
+            home-manager.nixosModules.home-manager
+            self.nixosModules.home.headless
+          ];
+        };
+
         # Obligatory silly little guy mention... My laptop is constantly on the
         # verge of quietly perishing, but we love him anyway.
         gregor = nixpkgs.lib.nixosSystem {
