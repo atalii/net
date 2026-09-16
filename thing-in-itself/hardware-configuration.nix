@@ -27,17 +27,17 @@
 
   boot.initrd.luks.devices = {
     root = {
-      device = "/dev/disk/by-uuid/6f025a8c-981c-4245-88f2-f21e94e4b6a6";
+      device = "/dev/disk/by-uuid/864d1e7d-80e8-48cd-a42b-1da079027e67";
     };
   };
 
   fileSystems."/" = {
-    device = "/dev/mapper/vg-root";
+    device = "/dev/mapper/root";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/46B9-C86D";
+    device = "/dev/disk/by-uuid/BB89-6B5E";
     fsType = "vfat";
     options = [
       "fmask=0022"
