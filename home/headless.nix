@@ -175,6 +175,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHRTkQVQRBU7fBCVPRFjBKQmUyk6sl8G1m3UERtOVmF4 tali@baumgartner"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGE91J/xuWmLxKrYNUy0PywvOla5gQdYu3JsN9cHI1YQ tali@gardiner"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEM8GqAyKJJoDG3iqpDptfVEehPRbnPS3fD42as5mCXg tali@phenomenal-information"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINfJNTi9uoKGxVfwaWdOpyAHYi860o0R2q7PKfTBAG3z root@thing-in-itself"
     ];
   };
 
