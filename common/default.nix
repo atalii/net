@@ -65,7 +65,7 @@
       # TODO: Unfortunately, we do need to run this as root to read
       # everything in /var. However, there are two precautions to take:
       # 1) On machines that don't have backupVar set, use `tali`
-      # 2) Borg can have its own SSH key, potentially one that will give ti a
+      # 2) Borg can have its own SSH key, potentially one that will give it a
       #    shell with access limited to /data/backups.
       user = "root";
       environment.BORG_RSH = "ssh -i /home/tali/.ssh/id_ed25519";
