@@ -14,7 +14,7 @@
       enable = true;
       settings = {
         theme = "Catppuccin Latte";
-        font-family = "Berkeley Mono";
+        font-family = "Prestige Elite Std";
 
         keybind = [
           "ctrl+shift+h=goto_split:left"
@@ -54,6 +54,8 @@
 
       <Multi_key> <i> <n>: "∈"
       <Multi_key> <n> <i> <n>: "∉"
+
+      <Multi_key> <equal> <question>: "≟"
 
       <Multi_key> <C> <C>: "ℂ"
       <Multi_key> <N> <N>: "ℕ"
