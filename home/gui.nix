@@ -75,6 +75,8 @@
       <Multi_key> <d> <D>: "Δ"
       <Multi_key> <s> <g>: "σ"
       <Multi_key> <s> <G>: "Σ"
+      <Multi_key> <g> <l>: "λ"
+      <Multi_key> <g> <L>: "Λ"
 
       <Multi_key> <p> <h>: "φ"
       <Multi_key> <p> <s>: "ψ"
