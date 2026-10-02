@@ -14,6 +14,17 @@
   };
 
   config = {
+    users.users."kittykat" = {
+      isNormalUser = true;
+      home = "/data/kittykat";
+      group = "kittykat";
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJdQAZqVeMoDZvVmY7Qb4J4dA0beFzwhQUb25QH4d/9Y"
+      ];
+    };
+
+    users.groups."kittykat" = { };
+
     services.tailscale.enable = true;
     systemd.services.NetworkManager-wait-online.enable = false;
 

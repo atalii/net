@@ -56,6 +56,7 @@
     settings.KbdInteractiveAuthentication = false;
   };
 
+  users.users."kittykat".home = "/data/kittykat";
   users.users."code-server".home = "/data/code-home";
 
   services.journald.extraConfig = ''
