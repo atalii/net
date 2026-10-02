@@ -105,18 +105,18 @@
         ];
       }
       {
-        job_name = "node:phenomenal-information";
+        job_name = "node:noumenal-experience";
         static_configs = [
           {
-            targets = [ "pi.tali.network" ];
+            targets = [ "noumenal-experience.tali.network" ];
           }
         ];
       }
       {
-        job_name = "caddy:phenomenal-information";
+        job_name = "caddy:noumenal-experience";
         static_configs = [
           {
-            targets = [ "100.111.228.128:2019" ];
+            targets = [ "100.108.104.117:2019" ];
           }
         ];
       }
