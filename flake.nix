@@ -124,12 +124,11 @@
           ];
         };
 
-        # Phenomenal information. Vegemite, &c.
-        "phenomenal-information" = nixpkgs.lib.nixosSystem {
+        "noumenal-experience" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./common
-            ./phenomenal-information
+            ./noumenal-experience
             home-manager.nixosModules.home-manager
             self.nixosModules.home.headless
           ];
