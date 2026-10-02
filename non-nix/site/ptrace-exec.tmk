@@ -1,0 +1,21 @@
+//title: Execve Under Ptrace Must Be Handled Exceptionally
+//date: 2026-10-01
+
+When a process is ptraced with the PTRACE_O_SYSGOOD flag (which, it appears,
+there's no reason not to use), we can usually waitpid(2) for a tracee and
+expect to see that WSTOPSIG(status) will be equal to SIGTRAP | 0x80 twice per
+syscall; once on entry, and once on exit. This gives your tracer good
+opportunities to mangle (or simply observe) both arguments to syscalls and
+return values from the same. Note, however, the use of "generally"—since
+execve(2) appears to the tracer on entry as though it came from the initiating
+process and on exit as though it came from the thread leader, it may be that,
+if we keep track of stops as a per-thread metric, an execve(2) induces an odd
+execve(2)-stop count in the execve(2)'ing thread and also in the thread leader
+while the former no longer exists and while the second has caught the exit side
+of the execve(2). Even ignoring forks and clones, then, you cannot, in general,
+expect a 2-to-1 correspondence between syscall-stops-per-thread and actual
+syscall events under ptrace.
+
+(This, and the fix, is indeed in the Linux man page: The PTRACE_EVENT_EXEC
+option gives you a chance to unambiguously catch execve(2) as a unique SIGTRAP stop.
+It's a shame that there's no uniform mechanism to trace all syscalls.)
