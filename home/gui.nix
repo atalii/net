@@ -51,6 +51,7 @@
       <Multi_key> <a> <n> <d>: "∧"
       <Multi_key> <o> <r>: "∨"
       <Multi_key> <n> <o> <t>: "¬"
+      <Multi_key> <:> <=>: "≔"
 
       <Multi_key> <i> <n>: "∈"
       <Multi_key> <n> <i> <n>: "∉"
@@ -89,7 +90,6 @@
     signal-desktop
     thunderbird
     libreoffice
-    anki
     gnucash
     foliate
     vlc
